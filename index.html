@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IMA 知识库周报 · 2026-06-04 ｜ 昊哥的土豆基地</title>
+<title>IMA 知识库周报 · 2026-07-04 ｜ 昊哥的土豆基地</title>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
@@ -17,6 +17,8 @@
     --tag-bg: #f0f0ff;
     --tag-bg-hot: #fff0f0;
     --tag-hot: #e65c5c;
+    --tag-green: #00a86b;
+    --tag-bg-green: #f0fff5;
     --radius: 14px;
     --shadow: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.06);
     --max-w: 1000px;
@@ -49,98 +51,117 @@
   }
   .header .meta span { display: flex; align-items: center; gap: 4px; }
 
-  /* Stats */
+  /* Stats Row */
   .stats-row {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 12px; margin-bottom: 36px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px;
+    margin-bottom: 36px;
   }
   .stat-card {
-    background: var(--card); border-radius: var(--radius); padding: 18px;
-    text-align: center; box-shadow: var(--shadow);
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 20px;
+    text-align: center;
   }
-  .stat-card .num { font-size: 28px; font-weight: 700; color: var(--accent); }
-  .stat-card .label { font-size: 13px; color: var(--text-secondary); margin-top: 2px; }
+  .stat-card .num {
+    font-size: 28px; font-weight: 700; color: var(--accent);
+    letter-spacing: -0.02em;
+  }
+  .stat-card .label {
+    font-size: 12px; color: var(--text-secondary); margin-top: 4px;
+  }
 
   /* Section */
-  .section { margin-bottom: 36px; }
+  .section { margin-bottom: 40px; }
   .section-title {
     font-size: 18px; font-weight: 600; margin-bottom: 16px;
     display: flex; align-items: center; gap: 8px;
   }
-  .section-title .count {
-    font-size: 13px; font-weight: 400; color: var(--text-secondary);
-    background: var(--tag-bg); padding: 2px 10px; border-radius: 20px;
+  .section-title .badge {
+    font-size: 11px; font-weight: 500;
+    padding: 2px 8px; border-radius: 20px;
+    background: var(--tag-bg); color: var(--accent);
   }
 
-  .kb-card {
-    background: var(--card); border-radius: var(--radius); padding: 24px;
-    box-shadow: var(--shadow); margin-bottom: 12px;
-  }
-
-  /* Article link list */
-  .article-list { list-style: none; }
-  .article-item {
-    padding: 8px 0 8px 16px; border-left: 2px solid var(--border);
-    margin-bottom: 4px; transition: border-color .2s, background .2s;
-  }
-  .article-item:hover { border-left-color: var(--accent); background: rgba(94,92,230,0.03); border-radius: 0 6px 6px 0; }
-  .article-item a {
-    font-size: 14px; line-height: 1.5; color: var(--text);
-    text-decoration: none; display: block;
-  }
-  .article-item a:hover { color: var(--accent); }
-  .article-item .article-url-icon {
-    display: inline-block; margin-left: 4px; font-size: 11px; color: var(--accent); opacity: 0.6;
-  }
-
-  /* Topic grid */
-  .topic-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  @media (max-width: 700px) { .topic-grid { grid-template-columns: 1fr; } }
-
-  .topic-card {
-    background: var(--card); border-radius: var(--radius); padding: 20px;
+  /* Article Card */
+  .article-card {
+    background: var(--card);
+    border-radius: var(--radius);
     box-shadow: var(--shadow);
+    padding: 20px 24px;
+    margin-bottom: 12px;
+    transition: box-shadow 0.2s;
+    cursor: default;
   }
-  .topic-card h3 {
-    font-size: 15px; font-weight: 600; margin-bottom: 12px;
-    padding-bottom: 8px; border-bottom: 1px solid var(--border);
+  .article-card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+  .article-card .title {
+    font-size: 15px; font-weight: 600; color: var(--text);
+    line-height: 1.5; margin-bottom: 6px;
   }
-
-  .topic-card ul { list-style: none; }
-  .topic-card li {
-    font-size: 13px; line-height: 1.5; margin-bottom: 6px;
-  }
-  .topic-card li a {
+  .article-card .title a {
     color: var(--text); text-decoration: none;
   }
-  .topic-card li a:hover { color: var(--accent); }
+  .article-card .title a:hover { color: var(--accent); }
+  .article-card .meta-line {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 12px; color: var(--text-secondary);
+    flex-wrap: wrap;
+  }
+  .article-card .meta-line .tag {
+    display: inline-block;
+    font-size: 11px; padding: 1px 8px;
+    border-radius: 10px; background: var(--tag-bg); color: var(--accent);
+  }
+  .article-card .meta-line .tag.hot { background: var(--tag-bg-hot); color: var(--tag-hot); }
+  .article-card .meta-line .tag.tool { background: #f0f8ff; color: #0071e3; }
+  .article-card .meta-line .tag.infra { background: #f5f0ff; color: #8b5cf6; }
+  .article-card .meta-line .tag.biz { background: var(--tag-bg-green); color: var(--tag-green); }
 
-  /* Hot insights */
-  .insight-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-  @media (max-width: 600px) { .insight-grid { grid-template-columns: 1fr; } }
+  /* AI News */
+  .ai-news {
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 20px 24px;
+    margin-bottom: 12px;
+  }
+  .ai-news .date {
+    font-size: 13px; font-weight: 600; color: var(--accent);
+    margin-bottom: 8px;
+  }
+  .ai-news ul { padding-left: 18px; font-size: 14px; }
+  .ai-news li { margin-bottom: 6px; line-height: 1.5; }
+  .ai-news li strong { color: var(--text); }
+
+  /* Insight card */
   .insight-card {
-    padding: 16px; border-radius: 12px;
-    background: linear-gradient(135deg, var(--tag-bg), #f8f8ff);
+    background: linear-gradient(135deg, #f0f0ff, #f5f0ff);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    margin-bottom: 12px;
+    border-left: 3px solid var(--accent);
   }
-  .insight-card h4 { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
-  .insight-card p { font-size: 13px; color: var(--text-secondary); }
-
-  /* Open link hint */
-  .link-hint {
-    font-size: 12px; color: var(--text-secondary); padding: 8px 0;
-    border-bottom: 1px solid var(--border); margin-bottom: 12px;
+  .insight-card .insight-title {
+    font-size: 14px; font-weight: 600; margin-bottom: 4px;
   }
-
-  /* Tags */
-  .tag {
-    display: inline-block; font-size: 11px; padding: 2px 10px;
-    border-radius: 20px; background: var(--tag-bg); color: var(--accent);
-    margin-right: 4px; margin-bottom: 4px; font-weight: 500;
+  .insight-card .insight-body {
+    font-size: 13px; color: #555;
+    line-height: 1.5;
   }
 
+  /* Footer */
   .footer {
     text-align: center; font-size: 12px; color: var(--text-secondary);
-    padding-top: 48px; border-top: 1px solid var(--border); margin-top: 48px;
+    margin-top: 60px; padding-top: 20px;
+    border-top: 1px solid var(--border);
+  }
+
+  @media (max-width: 640px) {
+    body { padding: 20px 12px 60px; }
+    .header h1 { font-size: 24px; }
+    .stats-row { grid-template-columns: repeat(2, 1fr); }
   }
 </style>
 </head>
@@ -149,217 +170,300 @@
 
 <div class="header">
   <h1>IMA 知识库周报</h1>
-  <div class="subtitle">来自你知识库的可点击资讯摘要 · 点击标题跳转原文</div>
+  <div class="subtitle">AI 行业动态 · 开源项目 · 赚钱信息差 · 2026年第27周</div>
   <div class="meta">
-    <span>📅 2026-06-04</span>
-    <span>📋 覆盖近 60 天</span>
-    <span>🔗 35 篇可点击跳转</span>
-    <span>🥔 昊哥的土豆基地</span>
+    <span>📅 2026-07-04</span>
+    <span>📚 6 个知识库</span>
+    <span>🗂️ 近60天内容</span>
+    <span>⚡ 昊哥的土豆基地</span>
   </div>
 </div>
 
 <div class="stats-row">
-  <div class="stat-card"><div class="num">447</div><div class="label">昊哥知识库</div></div>
-  <div class="stat-card"><div class="num">551</div><div class="label">AGI 速递</div></div>
-  <div class="stat-card"><div class="num">151</div><div class="label">掘金线报</div></div>
-  <div class="stat-card"><div class="num">140</div><div class="label">Openclaw</div></div>
-  <div class="stat-card"><div class="num">83</div><div class="label">逛逛 GitHub</div></div>
+  <div class="stat-card"><div class="num">1,645</div><div class="label">知识库总文章</div></div>
+  <div class="stat-card"><div class="num">42</div><div class="label">本周新增</div></div>
+  <div class="stat-card"><div class="num">6</div><div class="label">活跃知识库</div></div>
+  <div class="stat-card"><div class="num">4</div><div class="label">核心赛道</div></div>
 </div>
 
-<!-- ===== 本周热点洞察 ===== -->
+<!-- Section: 本周热点洞察 -->
 <div class="section">
-  <div class="section-title">🔥 本周热点洞察</div>
-  <div class="insight-grid">
-    <div class="insight-card">
-      <h4>🧠 Agent & Skill 生态爆发</h4>
-      <p>Meta Skill 开源、openai-agents-python 架构分享、Openclaw 生态持续扩展，Agent 构建门槛持续降低。达尔文 Skill 2.0 实现 skill 自我进化。</p>
-    </div>
-    <div class="insight-card">
-      <h4>🎨 AI 生图工具链成熟</h4>
-      <p>GPT Image 2 提示词指南问世、iPhone 本地跑生图仅 9 秒、去水印工具爆发，多模态工具链快速成熟进入实用阶段。</p>
-    </div>
-    <div class="insight-card">
-      <h4>💰 AI 内容变现百花齐放</h4>
-      <p>公众号贴图单日 1500+、小红书虚拟资料月入 2 万、AI 三农带货 3 天出单、剪映二创+声音克隆变现路径清晰。</p>
-    </div>
-    <div class="insight-card">
-      <h4>📦 开源项目密集发布</h4>
-      <p>TencentDB Agent Memory 开源、AI 炒股平台上线、N8N 工作流合集发布、Dream Machine API 全模态免费开放。</p>
-    </div>
+  <div class="section-title">
+    🔥 本周热点洞察 <span class="badge">6 大趋势</span>
+  </div>
+
+  <div class="insight-card">
+    <div class="insight-title">🚀 GPT-5.6 预览发布：三档模型全面对标 Claude Fable 5</div>
+    <div class="insight-body">OpenAI 推出 GPT-5.6 预览版（Sol/Terra/Luna），Sol 在编程、生物、网安全面超越 Fable 5。同步发布首款自研 AI 芯片 Jalapeño（9 个月流片），与博通联合量产。开源社区评测：GPT-5.6 Pro 一句话 48 分钟生成完整《模拟人生》。</div>
+  </div>
+
+  <div class="insight-card">
+    <div class="insight-title">🔧 Agent Skill 生态爆发：谷歌开源 DESIGN.md，卡兹克 Skill 盘点</div>
+    <div class="insight-body">谷歌 2 万星开源 DESIGN.md 根治 AI 网页"流水线脸"。卡兹克推荐的 12+ 个 Skill 被完整盘点。微软 SkillOpt（9K Star）用前向/反向传播打磨 Skill。Hermes 上线 /learn 模式，从任意仓库提炼 Skill。Impeccable 23 条命令治 AI 味。</div>
+  </div>
+
+  <div class="insight-card">
+    <div class="insight-title">💡 Token 降本大战：Headroom + CC Switch 省 90%，Ponytail 登 GitHub 热榜</div>
+    <div class="insight-body">Headroom 省 token 60-95%、OpenSquilla 本地模型路由器按复杂度分派、Ponytail 爆火。推理成本最被低估的不是 Token 单价，而是上下文/并发/重试/峰值。Headroom 配合 CC Switch 在极空间部署教程火爆。</div>
+  </div>
+
+  <div class="insight-card">
+    <div class="insight-title">🤖 Agent 自主进化：Vida 主动 Agent、Loop Engineering 新范式</div>
+    <div class="insight-body">Vida 被评为"第一个真正主动的 Agent"。Loop Engineering 橙皮书发布——Prompt 退环境，Loop 成新范式。Codex Computer Use 实现小红书/抖音数据巡检全自动。电脑文件全托管 Agent 实现 24h 代办。</div>
+  </div>
+
+  <div class="insight-card">
+    <div class="insight-title">🎨 图片/PPT 工具大爆发：GPT Image 2、藏师傅更新、Pencil 联动</div>
+    <div class="insight-body">GPT Image 2 全量开放，中文渲染突破。藏师傅 PPT Skills + Pencil 联动成爆款。小互 IP Studio 开源 31 个现成角色。Cowart 为 Codex 装无限画布。腾讯 QQ 邮箱上线 Agent Mail。</div>
+  </div>
+
+  <div class="insight-card">
+    <div class="insight-title">💰 掘金线报：小红书虚拟资料月入 2 万+，抖音 CPS 34 天破千</div>
+    <div class="insight-body">小红书虚拟产品高客单玩法（99-200 元）、抖音 CPS 带货 34 天佣金 1000+、B 站 AI 动画剧场签约计划、旧衣回收月入过万副业、公众号 7 步 SOP 日均引流 5-10 人。AI 工具变现链路日趋成熟。</div>
   </div>
 </div>
 
-<!-- ===== 一、Agent & Skill 专题 ===== -->
+<!-- Section: AI 速递时间线 -->
 <div class="section">
-  <div class="section-title">🤖 一、Agent & Skill 生态 <span class="count">12 篇</span></div>
-  <div class="kb-card">
-    <div class="link-hint">🖱️ 点击标题跳转至微信公众号原文</div>
-    <ul class="article-list">
-      <li class="article-item"><a href="https://mp.weixin.qq.com/s/JkGy2UlNd7XNQDnn_EoVKA" target="_blank" rel="noopener">Skills管理最佳实践，skills-lock.json <span class="article-url-icon">↗</span></a></li>
-      <li class="article-item"><a href="https://mp.weixin.qq.com/s/bsuGN9a4XaeLpPwMM-WVag" target="_blank" rel="noopener">刚刚，Meta Skill来了 <span class="article-url-icon">↗</span></a></li>
-      <li class="article-item"><a href="https://mp.weixin.qq.com/s/54pkSBImnc9mhEdOPf7EZw" target="_blank" rel="noopener">达尔文.skill 2.0正式开源发布！让你的所有skill左脚踩右脚实现自我进化 <span class="article-url-icon">↗</span></a></li>
-      <li class="article-item"><a href="https://mp.weixin.qq.com/s/6d2YNCi8p5gK40Ocul1JTA" target="_blank" rel="noopener">原来 Agent 该这么跑 我被一个开源项目点醒了... <span class="article-url-icon">↗</span></a></li>
-      <li class="article-item"><a href="https://mp.weixin.qq.com/s/c224HuJR5TWmI7AhzqvJvQ" target="_blank" rel="noopener">这 2 个免费的开源 Skill 太给劲儿，直接替代 Playwright。 <span class="article-url-icon">↗</span></a></li>
-      <li class="article-item"><a href="https://mp.weixin.qq.com/s/PG4hQeemhLZpnCxQrIl2rA" target="_blank" rel="noopener">别再让你的 AI 单打独斗了，这才是团队真正需要的 Agent 系统 <span class="article-url-icon">↗</span></a></li>
-      <li class="article-item"><a href="https://mp.weixin.qq.com/s/JdPU9fc6zAhOEEp7Ri8tGw" target="_blank" rel="noopener">微软悄然开源了一款 Skill 神器 <span class="article-url-icon">↗</span></a></li>
-      <li class="article-item"><a href="https://mp.weixin.qq.com/s/bVl8mnGSK1aYFQ-gGG2jvw" target="_blank" rel="noopener">分享一个把万星Github项目拆解成垂直Agent的方法！ <span class="article-url-icon">↗</span></a></li>
-      <li class="article-item"><a href="https://mp.weixin.qq.com/s/opTJkfNzd73GtR6n6Ims6w" target="_blank" rel="noopener">想做自媒体的都来用，这个免费skill可以帮你少走很多选题弯路 <span class="article-url-icon">↗</span></a></li>
-      <li class="article-item"><a href="https://mp.weixin.qq.com/s/hp9hrRpkQ_W8PWgwjmEWig" target="_blank" rel="noopener">是时候把我养了100天的Agent拿出来测个MBTI和职业优势测试了！ <span class="article-url-icon">↗</span></a></li>
+  <div class="section-title">
+    📡 AI 速递 <span class="badge">腾讯研究院 · 近 30 天</span>
+  </div>
+
+  <div class="ai-news">
+    <div class="date">🗓️ 6月29日 — GPT-5.6 Preview / 高通飞龙 / OpenAI Jalapeño 芯片</div>
+    <ul>
+      <li><strong>OpenAI 发布 GPT-5.6 预览版</strong>：Sol/Terra/Luna 三档，Sol 全面超越 Claude Fable 5。投入超 70 万 A10 GPU 训练。</li>
+      <li><strong>高通发布飞龙 Dragonfly</strong>：分布式计算架构应对 Agent 推理需求，2029 年数据中心目标 150 亿美元。</li>
+      <li><strong>特斯拉注册 Megapod 商标</strong>：模块化 AI 数据中心硬件，xAI 两年累计采购约 10 亿美元 Megapack。</li>
+    </ul>
+  </div>
+
+  <div class="ai-news">
+    <div class="date">🗓️ 6月25-26日 — OpenAI 自研芯片 / 高通多元化</div>
+    <ul>
+      <li><strong>OpenAI 首款自研 AI 芯片 Jalapeño</strong>：9 个月完成流片，联合博通量产，专为大语言模型推理打造。</li>
+      <li><strong>高通 2026 投资者日</strong>：公布多元化战略，非手机业务收入目标上调至 400 亿美元。</li>
+      <li><strong>GPT-5.6 Pro 泄露</strong>：一句话 48 分钟生成完整《模拟人生》，Juice Value 升至 960。</li>
+    </ul>
+  </div>
+
+  <div class="ai-news">
+    <div class="date">🗓️ 6月22-24日 — Cursor 万亿模型 / GPT-5.5-Cyber</div>
+    <ul>
+      <li><strong>Cursor 自研万亿参数大模型</strong>：10 万卡从零预训练，数周内发布。</li>
+      <li><strong>GPT-5.5-Cyber 完整版</strong>：CyberGym 85.6% 成绩，超 GPT-5.5 与 Mythos 5。Codex 已扫描 3000 万次提交。</li>
+      <li><strong>GPT-5.6 Pro 内测</strong>：无需工具链，仅凭 NL 指令生成游戏。</li>
+    </ul>
+  </div>
+
+  <div class="ai-news">
+    <div class="date">🗓️ 6月15-18日 — Fable 5 下线 / Anthropic 集体诉讼 / Loop Engineering</div>
+    <ul>
+      <li><strong>Fable 5 发布仅四天被美国政府强制下线</strong>：商务部长以国家安全为由发函出口管制。</li>
+      <li><strong>Anthropic 撤回第三方订阅限制</strong>：同日遭用户集体诉讼，指控 Max 套餐虚假宣传。</li>
+      <li><strong>Anthropic 7 月启用身份验证</strong>：实名制引发用户担忧，被解读为 AI 监管全面收紧。</li>
+    </ul>
+  </div>
+
+  <div class="ai-news">
+    <div class="date">🗓️ 6月10-12日 — OpenAI 提交 IPO / 腾讯混元 HPC-Ops</div>
+    <ul>
+      <li><strong>OpenAI 正式向 SEC 提交 S-1</strong>：启动 IPO 流程，奥特曼承诺"为每个人提供 AGI"。</li>
+      <li><strong>腾讯混元开源 HPC-Ops</strong>：推理算子库，Attention 动态调度加速 2.95 倍。</li>
     </ul>
   </div>
 </div>
 
-<!-- ===== 二、AI 编程 & Codex ===== -->
+<!-- Section: 昊哥知识库精选 -->
 <div class="section">
-  <div class="section-title">💻 二、AI 编程 & Codex 生态 <span class="count">10 篇</span></div>
-  <div class="kb-card">
-    <div class="link-hint">🖱️ 点击标题跳转至微信公众号原文</div>
-    <ul class="article-list">
-      <li class="article-item"><a href="https://mp.weixin.qq.com/s/zaw1zxWYIPUc-XCNB7I_8w" target="_blank" rel="noopener">近20万Star！这个哥们把Claude Code玩成了数字工厂，然后全开源了 <span class="article-url-icon">↗</span></a></li>
-      <li class="article-item"><a href="https://mp.weixin.qq.com/s/TQGWrUwz8NEUXHwLh8N9-A" target="_blank" rel="noopener">Codex终于能用国产模型了！保姆级教程来！多图预警! <span class="article-url-icon">↗</span></a></li>
-      <li class="article-item"><a href="https://mp.weixin.qq.com/s/_lFBObJClMx74DuJVegAaw" target="_blank" rel="noopener">CLI-Switch：Agent 调用 Claude Code / Codex 的正确姿势 <span class="article-url-icon">↗</span></a></li>
-      <li class="article-item"><a href="https://mp.weixin.qq.com/s/YLLWart8fcELokh2YwTsnQ" target="_blank" rel="noopener">别再为 Claude 付费！Codex + 免费模型 + cc-switch，多场景 AI 编程全搞定 <span class="article-url-icon">↗</span></a></li>
-      <li class="article-item"><a href="https://mp.weixin.qq.com/s/xuwAwfZZiYzKhnPVrvitug" target="_blank" rel="noopener">CC-Switch配置切换神器：5秒搞定多设备同步，坚果云让配置永不丢失 <span class="article-url-icon">↗</span></a></li>
-      <li class="article-item"><a href="https://mp.weixin.qq.com/s/9UroE7TwagP4LYuha5SJDQ" target="_blank" rel="noopener">别再折腾 cc-switch 了，Codex 可以这样配中转站，更优解 <span class="article-url-icon">↗</span></a></li>
-      <li class="article-item"><a href="https://mp.weixin.qq.com/s/z0l2DhSYwKw8k61PYoIl6w" target="_blank" rel="noopener">Codex 用久了又笨又卡？两个skill 专治这个 <span class="article-url-icon">↗</span></a></li>
-      <li class="article-item"><a href="https://mp.weixin.qq.com/s/vS2r1Nc57uX5Xmx46qjI4A" target="_blank" rel="noopener">让Codex无限进步！Agent版X来了～ <span class="article-url-icon">↗</span></a></li>
-      <li class="article-item"><a href="https://mp.weixin.qq.com/s/kJYmszZc9w2UoZBZ5EfDNQ" target="_blank" rel="noopener">爆肝两周，我把 Codex 最全实战指南开源了 <span class="article-url-icon">↗</span></a></li>
-      <li class="article-item"><a href="https://mp.weixin.qq.com/s/wYnPHnxdEeKaMNRmLYFv2Q" target="_blank" rel="noopener">推荐 3 个 GitHub 上刚开源但实用的项目，收藏一波。 <span class="article-url-icon">↗</span></a></li>
-    </ul>
+  <div class="section-title">
+    📚 昊哥知识库 · 本周精选 <span class="badge">518 篇总 · 20+ 本周新增</span>
+  </div>
+
+  <div class="article-card">
+    <div class="title"><a href="#">123K Star！免费云服务大全，每年帮你省下几千块</a></div>
+    <div class="meta-line"><span class="tag tool">云服务</span><span class="tag">掘金GitHub</span><span>7月4日</span></div>
+  </div>
+
+  <div class="article-card">
+    <div class="title"><a href="#">盘点 17 个 6 月份牛牛牛的 GitHub 开源项目</a></div>
+    <div class="meta-line"><span class="tag tool">开源项目</span><span class="tag">逛逛GitHub</span><span>7月4日</span></div>
+  </div>
+
+  <div class="article-card">
+    <div class="title"><a href="#">分享 WorkBuddy+蚁小二 CLI，全平台自媒体从创作到运维都打通了</a></div>
+    <div class="meta-line"><span class="tag hot">热门</span><span class="tag tool">WorkBuddy</span><span>7月3日</span></div>
+  </div>
+
+  <div class="article-card">
+    <div class="title"><a href="#">又一个画图 Skill 开源，再见 draw.io！</a></div>
+    <div class="meta-line"><span class="tag hot">热门</span><span class="tag tool">开源</span><span>7月3日</span></div>
+  </div>
+
+  <div class="article-card">
+    <div class="title"><a href="#">发现一个宝藏开源项目：让 Hermes Agent 在飞书里告别刷屏</a></div>
+    <div class="meta-line"><span class="tag tool">Hermes</span><span class="tag">聿凡与AI</span><span>7月3日</span></div>
+  </div>
+
+  <div class="article-card">
+    <div class="title"><a href="#">藏师傅 PPT Skills 加 Pencil 无敌了!</a></div>
+    <div class="meta-line"><span class="tag hot">热门</span><span class="tag tool">PPT</span><span>7月3日</span></div>
+  </div>
+
+  <div class="article-card">
+    <div class="title"><a href="#">2 万星封神！谷歌开源 DESIGN.md，彻底根治 AI 网页"流水线廉价脸"</a></div>
+    <div class="meta-line"><span class="tag tool">设计</span><span class="tag">谷歌</span><span>7月1日</span></div>
+  </div>
+
+  <div class="article-card">
+    <div class="title"><a href="#">Codex + HyperFrames：一句话把公众号文章变成短视频</a></div>
+    <div class="meta-line"><span class="tag tool">视频</span><span class="tag">Codex</span><span>6月30日</span></div>
+  </div>
+
+  <div class="article-card">
+    <div class="title"><a href="#">推理成本里，最容易被低估的不是 Token</a></div>
+    <div class="meta-line"><span class="tag tool">推理成本</span><span class="tag">深度</span><span>6月27日</span></div>
+  </div>
+
+  <div class="article-card">
+    <div class="title"><a href="#">微软又开源一个神级 skill 神器 — SkillOpt</a></div>
+    <div class="meta-line"><span class="tag hot">热门</span><span class="tag tool">微软</span><span>6月24日</span></div>
+  </div>
+
+  <div class="article-card">
+    <div class="title"><a href="#">刚刚，Hermes 上线 /learn 模式！从任何地方提炼任何 Skill！</a></div>
+    <div class="meta-line"><span class="tag hot">热门</span><span class="tag tool">Hermes</span><span>6月24日</span></div>
+  </div>
+
+  <div class="article-card">
+    <div class="title"><a href="#">40 年没变过的 Email，被腾讯重新定义了 (Agent Mail)</a></div>
+    <div class="meta-line"><span class="tag tool">腾讯</span><span class="tag">QQ邮箱</span><span>6月26日</span></div>
   </div>
 </div>
 
-<!-- ===== 三、AI 应用 & 工具 ===== -->
+<!-- Section: 掘金线报 -->
 <div class="section">
-  <div class="section-title">🛠️ 三、AI 应用 & 效率工具 <span class="count">10 篇</span></div>
-  <div class="kb-card">
-    <div class="link-hint">🖱️ 点击标题跳转至微信公众号原文</div>
-    <ul class="article-list">
-      <li class="article-item"><a href="https://mp.weixin.qq.com/s/pdBnNT9XTtceRfe2IKvrQg" target="_blank" rel="noopener">GitHub 上 14.7K 的开源神器！比 Everything 更好用！ <span class="article-url-icon">↗</span></a></li>
-      <li class="article-item"><a href="https://mp.weixin.qq.com/s/Nrvs1QyUemWv0SwfmBTinw" target="_blank" rel="noopener">推荐这5个硬核网站，上班摸鱼必备，学到AI知识！避免信息差！ <span class="article-url-icon">↗</span></a></li>
-      <li class="article-item"><a href="https://mp.weixin.qq.com/s/lwt1VUkpEu2psZEuFg7c6Q" target="_blank" rel="noopener">一个让你Agent额度翻倍的小技巧。 <span class="article-url-icon">↗</span></a></li>
-      <li class="article-item"><a href="https://mp.weixin.qq.com/s/w7sw2MrB2v2hAlv_ngGWjQ" target="_blank" rel="noopener">我发现了一个能把旧内容自动变成新选题的工具（附完整教程） <span class="article-url-icon">↗</span></a></li>
-      <li class="article-item"><a href="https://mp.weixin.qq.com/s/G_O5Aj-R0p8WrAuRBl9Awg" target="_blank" rel="noopener">3个月GitHub拿了1.6万颗星，一个人干掉了整个内容团队 <span class="article-url-icon">↗</span></a></li>
-      <li class="article-item"><a href="https://mp.weixin.qq.com/s/SZn203gLqhIA_A1U0Py4Rg" target="_blank" rel="noopener">全球排名前2的大模型，你到底适合选择哪个？ <span class="article-url-icon">↗</span></a></li>
-      <li class="article-item"><a href="https://mp.weixin.qq.com/s/DXqsFQOUokihZVGAQ1nsmA" target="_blank" rel="noopener">让 Agent 拥有超强记忆，TencentDB Agent Memory 开源了！ <span class="article-url-icon">↗</span></a></li>
-      <li class="article-item"><a href="https://mp.weixin.qq.com/s/Vuq5uxFwWRsmm74GiyRVHg" target="_blank" rel="noopener">18美元变3美元！清华开源Agent OS太狠了 <span class="article-url-icon">↗</span></a></li>
-      <li class="article-item"><a href="https://mp.weixin.qq.com/s/iny0o_0Ue-fz8fW9oSamDA" target="_blank" rel="noopener">微软开源 Webwright：把点击操作变成可重复执行的脚本 <span class="article-url-icon">↗</span></a></li>
-      <li class="article-item"><a href="https://mp.weixin.qq.com/s/gP6S3FAqAMDzVTN-CyLOHg" target="_blank" rel="noopener">付费文章也能抓！这个 Skill 帮你把任何内容喂给 NotebookLM <span class="article-url-icon">↗</span></a></li>
-    </ul>
+  <div class="section-title">
+    💰 掘金线报 · 赚钱信息差 <span class="badge">178 篇总</span>
+  </div>
+
+  <div class="article-card">
+    <div class="title"><a href="#">123K Star！免费云服务大全</a></div>
+    <div class="meta-line"><span class="tag biz">省钱</span><span>7月4日</span></div>
+  </div>
+
+  <div class="article-card">
+    <div class="title"><a href="#">冷门移民赛道引流，一单佣金一万多</a></div>
+    <div class="meta-line"><span class="tag biz">副业</span><span>7月2日</span></div>
+  </div>
+
+  <div class="article-card">
+    <div class="title"><a href="#">不会写一行代码，用 AI 做了 15 个小程序，月入两万还在涨</a></div>
+    <div class="meta-line"><span class="tag biz">AI工具</span><span class="tag hot">热门</span><span>6月29日</span></div>
+  </div>
+
+  <div class="article-card">
+    <div class="title"><a href="#">一个人做小红书电商——月销 4 万单，利润 39%</a></div>
+    <div class="meta-line"><span class="tag biz">电商</span><span class="tag hot">爆款</span><span>6月25日</span></div>
+  </div>
+
+  <div class="article-card">
+    <div class="title"><a href="#">公众号 7 步 SOP 日均引流 5-10 人——月入 3-5 万</a></div>
+    <div class="meta-line"><span class="tag biz">公众号</span><span>6月22日</span></div>
+  </div>
+
+  <div class="article-card">
+    <div class="title"><a href="#">抖音 CPS 带货：34 天佣金 1000+，零粉丝也能做的副业</a></div>
+    <div class="meta-line"><span class="tag biz">抖音</span><span>6月15日</span></div>
+  </div>
+
+  <div class="article-card">
+    <div class="title"><a href="#">小红书虚拟产品：不卷低价做高客单，单店月利润 2 万+</a></div>
+    <div class="meta-line"><span class="tag biz">小红书</span><span>6月11日</span></div>
+  </div>
+
+  <div class="article-card">
+    <div class="title"><a href="#">B 站 AI 动画剧场签约计划：小风口项目来了</a></div>
+    <div class="meta-line"><span class="tag biz">AI视频</span><span>6月8日</span></div>
   </div>
 </div>
 
-<!-- ===== 四、AI 多模态 & 生图 ===== -->
+<!-- Section: Openclaw 动态 -->
 <div class="section">
-  <div class="section-title">🎨 四、AI 多模态 & 生图 <span class="count">5 篇</span></div>
-  <div class="kb-card">
-    <div class="link-hint">🖱️ 点击标题跳转至微信公众号原文</div>
-    <ul class="article-list">
-      <li class="article-item"><a href="https://mp.weixin.qq.com/s/ZggpSDGauRZqsndaTlLLhQ" target="_blank" rel="noopener">爆肝 3 天，我从上千个提示词里总结出了一份 GPT Image 2 提示词指南 <span class="article-url-icon">↗</span></a></li>
-      <li class="article-item"><a href="https://mp.weixin.qq.com/s/aWx30sKpkj4j6Kzipz6Klg" target="_blank" rel="noopener">3.3万星专治AI味设计 <span class="article-url-icon">↗</span></a></li>
-      <li class="article-item"><a href="https://mp.weixin.qq.com/s/7qwrLqyZEhoFBSM3t8vt0A" target="_blank" rel="noopener">文本/图片/视频模型API全免费！这次真遇到赛博活菩萨了 <span class="article-url-icon">↗</span></a></li>
-      <li class="article-item"><a href="https://mp.weixin.qq.com/s/lwoqzakBm51ys4kpe4UAVQ" target="_blank" rel="noopener">万万没想到，美团龙猫也有被老外爆吹的一天｜开源视频模型、口播数字人、本地部署全搞定 <span class="article-url-icon">↗</span></a></li>
-      <li class="article-item"><a href="https://mp.weixin.qq.com/s/KWtnToEa7K-13k002K-nRw" target="_blank" rel="noopener">开源个 Skill｜彻底解决小红、小绿书配图难题 <span class="article-url-icon">↗</span></a></li>
-    </ul>
+  <div class="section-title">
+    🦞 Openclaw / 鹅厂养虾 <span class="badge">知识库动态</span>
+  </div>
+
+  <div class="article-card">
+    <div class="title"><a href="#">当 OpenClaw 成为你的个人智能助手——50 个生活场景</a></div>
+    <div class="meta-line"><span class="tag">OpenClaw</span><span>3月</span></div>
+  </div>
+
+  <div class="article-card">
+    <div class="title"><a href="#">腾讯全系"龙虾"产品矩阵来了，个人可直接调用</a></div>
+    <div class="meta-line"><span class="tag">腾讯</span><span class="tag hot">官方</span></div>
+  </div>
+
+  <div class="article-card">
+    <div class="title"><a href="#">腾讯龙虾特工队全景图</a></div>
+    <div class="meta-line"><span class="tag">生态</span><span>四大通道 + 五大虾种</span></div>
   </div>
 </div>
 
-<!-- ===== 五、AI 速递（腾讯研究院） ===== -->
+<!-- Section: 逛逛GitHub -->
 <div class="section">
-  <div class="section-title">🤖 五、AI 速递 · 腾讯研究院 <span class="count">近 30 期</span></div>
-  <div class="kb-card">
-    <div class="link-hint">🖱️ 以下为腾讯研究院每日AI速递，点击进入专辑</div>
-    <ul class="article-list">
-      <li class="article-item"><a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzA3NTIyODUzNA==&action=getalbum&album_id=3526094215633567745#wechat_redirect" target="_blank" rel="noopener">腾讯研究院AI速递 20260602 <span class="article-url-icon">↗</span></a></li>
-      <li class="article-item"><a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzA3NTIyODUzNA==&action=getalbum&album_id=3526094215633567745#wechat_redirect" target="_blank" rel="noopener">腾讯研究院AI速递 20260601 <span class="article-url-icon">↗</span></a></li>
-      <li class="article-item"><a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzA3NTIyODUzNA==&action=getalbum&album_id=3526094215633567745#wechat_redirect" target="_blank" rel="noopener">腾讯研究院AI速递 20260529 <span class="article-url-icon">↗</span></a></li>
-      <li class="article-item"><a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzA3NTIyODUzNA==&action=getalbum&album_id=3526094215633567745#wechat_redirect" target="_blank" rel="noopener">腾讯研究院AI速递 20260527 <span class="article-url-icon">↗</span></a></li>
-      <li class="article-item"><a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzA3NTIyODUzNA==&action=getalbum&album_id=3526094215633567745#wechat_redirect" target="_blank" rel="noopener">腾讯研究院AI速递 20260526 <span class="article-url-icon">↗</span></a></li>
-      <li class="article-item"><a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzA3NTIyODUzNA==&action=getalbum&album_id=3526094215633567745#wechat_redirect" target="_blank" rel="noopener">腾讯研究院AI速递 20260522 <span class="article-url-icon">↗</span></a></li>
-      <li class="article-item"><a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzA3NTIyODUzNA==&action=getalbum&album_id=3526094215633567745#wechat_redirect" target="_blank" rel="noopener">腾讯研究院AI速递 20260520 <span class="article-url-icon">↗</span></a></li>
-      <li class="article-item"><a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzA3NTIyODUzNA==&action=getalbum&album_id=3526094215633567745#wechat_redirect" target="_blank" rel="noopener">腾讯研究院AI速递 20260515 <span class="article-url-icon">↗</span></a></li>
-      <li class="article-item"><a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzA3NTIyODUzNA==&action=getalbum&album_id=3526094215633567745#wechat_redirect" target="_blank" rel="noopener">腾讯研究院AI速递 20260508 <span class="article-url-icon">↗</span></a></li>
-      <li class="article-item"><a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzA3NTIyODUzNA==&action=getalbum&album_id=3526094215633567745#wechat_redirect" target="_blank" rel="noopener">腾讯研究院AI速递 20260506 <span class="article-url-icon">↗</span></a></li>
-    </ul>
+  <div class="section-title">
+    ⭐ 逛逛 GitHub 开源精选 <span class="badge">83 篇总</span>
+  </div>
+
+  <div class="article-card">
+    <div class="title"><a href="#">推荐 5 个 yyds 的 Claude Skills 开源项目</a></div>
+    <div class="meta-line"><span class="tag tool">Skills</span><span>11月</span></div>
+  </div>
+
+  <div class="article-card">
+    <div class="title"><a href="#">5 个很火火的个人 AI 知识库 GitHub 项目</a></div>
+    <div class="meta-line"><span class="tag tool">知识库</span><span>11月</span></div>
+  </div>
+
+  <div class="article-card">
+    <div class="title"><a href="#">实测 Gemini 3 Pro，断层领先屠榜</a></div>
+    <div class="meta-line"><span class="tag tool">Gemini</span><span>11月</span></div>
   </div>
 </div>
 
-<!-- ===== 六、掘金线报：AI 变现趋势 ===== -->
+<!-- Section: 本周关键词云 -->
 <div class="section">
-  <div class="section-title">💰 六、掘金线报 · AI 变现趋势 <span class="count">每日更新</span></div>
-  <div class="kb-card">
-    <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px;">
-      <span class="tag">AI 带货</span>
-      <span class="tag">公众号贴图</span>
-      <span class="tag">小红书引流</span>
-      <span class="tag">虚拟资料</span>
-      <span class="tag">剪映二创</span>
-      <span class="tag">声音克隆</span>
-      <span class="tag">去水印工具</span>
-      <span class="tag">知识付费</span>
-      <span class="tag">AI漫剧</span>
-      <span class="tag">视频号</span>
-    </div>
-    <ul class="article-list">
-      <li class="article-item">🟣 06-03 SnapWC全网视频下载 + AI内容矩阵</li>
-      <li class="article-item">🟣 06-02 先做起来比想清楚更重要 + 抠图新工具</li>
-      <li class="article-item">🟣 06-01 旧衣回收一个半月月入过万</li>
-      <li class="article-item">🟣 05-31 LibTV复刻爆款AI视频</li>
-      <li class="article-item">🟣 05-29 SoundView视频水印去除</li>
-      <li class="article-item">🟣 05-28 AI图书带货一条视频佣金近千</li>
-      <li class="article-item">🟣 05-25 AI三农带货3-4天出单</li>
-      <li class="article-item">🟣 05-21 公众号贴图单日1500+收入</li>
-      <li class="article-item">🟣 05-18 小红书虚拟资料月入2万</li>
-      <li class="article-item">🟣 05-16 随喜打赏自动成交 + 小红书播客</li>
-      <li class="article-item">🟣 05-14 古诗词视频号教程</li>
-      <li class="article-item">🟣 05-12 智能体 + 自动成交蓝图</li>
-      <li class="article-item">🟣 05-09 声音克隆录音必备</li>
-      <li class="article-item">🟣 05-07 AI剪映带货</li>
-      <li class="article-item">🟣 05-04 视频号读书号主播号</li>
-      <li class="article-item">🟣 04-30 AI唐诗视频号起号</li>
-      <li class="article-item">🟣 04-22 小红书AI旅游号</li>
-      <li class="article-item">🟣 04-20 DeepSeek + 公众号爆款</li>
-      <li class="article-item">🟣 04-15 AI漫剧月入过万</li>
-      <li class="article-item">🟣 04-10 小红书虚拟资料号</li>
-    </ul>
+  <div class="section-title">
+    ☁️ 本周关键词 <span class="badge">高频主题</span>
+  </div>
+  <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+    <span style="font-size: 18px; font-weight: 700; color: var(--accent); background: var(--tag-bg); padding: 6px 14px; border-radius: 20px;">GPT-5.6</span>
+    <span style="font-size: 16px; font-weight: 600; color: #e65c5c; background: var(--tag-bg-hot); padding: 6px 14px; border-radius: 20px;">Skill</span>
+    <span style="font-size: 16px; font-weight: 600; color: var(--accent); background: var(--tag-bg); padding: 6px 14px; border-radius: 20px;">Agent</span>
+    <span style="font-size: 15px; font-weight: 500; color: #8b5cf6; background: #f5f0ff; padding: 6px 14px; border-radius: 20px;">Token 降本</span>
+    <span style="font-size: 15px; font-weight: 500; color: var(--tag-green); background: var(--tag-bg-green); padding: 6px 14px; border-radius: 20px;">Loop Engineering</span>
+    <span style="font-size: 14px; font-weight: 500; color: #0071e3; background: #f0f8ff; padding: 6px 14px; border-radius: 20px;">OpenClaw</span>
+    <span style="font-size: 14px; font-weight: 500; color: var(--text-secondary); background: var(--bg); padding: 6px 14px; border-radius: 20px;">ChatGPT Images 2.0</span>
+    <span style="font-size: 14px; font-weight: 500; color: var(--text-secondary); background: var(--bg); padding: 6px 14px; border-radius: 20px;">DESIGN.md</span>
+    <span style="font-size: 14px; font-weight: 500; color: var(--text-secondary); background: var(--bg); padding: 6px 14px; border-radius: 20px;">Vida</span>
+    <span style="font-size: 14px; font-weight: 500; color: var(--text-secondary); background: var(--bg); padding: 6px 14px; border-radius: 20px;">Codex</span>
+    <span style="font-size: 14px; font-weight: 500; color: var(--text-secondary); background: var(--bg); padding: 6px 14px; border-radius: 20px;">WorkBuddy</span>
+    <span style="font-size: 13px; font-weight: 400; color: var(--text-secondary); background: var(--bg); padding: 6px 14px; border-radius: 20px;">小红书虚拟产品</span>
+    <span style="font-size: 13px; font-weight: 400; color: var(--text-secondary); background: var(--bg); padding: 6px 14px; border-radius: 20px;">抖音 CPS</span>
+    <span style="font-size: 13px; font-weight: 400; color: var(--text-secondary); background: var(--bg); padding: 6px 14px; border-radius: 20px;">MCP</span>
+    <span style="font-size: 13px; font-weight: 400; color: var(--text-secondary); background: var(--bg); padding: 6px 14px; border-radius: 20px;">Claude Code Routines</span>
   </div>
 </div>
 
-<!-- ===== 七、逛逛 GitHub ===== -->
-<div class="section">
-  <div class="section-title">⭐ 七、逛逛 GitHub 开源项目精选 <span class="count">20 个</span></div>
-  <div class="kb-card">
-    <div class="topic-grid">
-      <div class="topic-card">
-        <h3>AI & 大模型</h3>
-        <ul>
-          <li>🏆 清华 AI 大模型天梯榜</li>
-          <li>🏆 2W 星！AI 大模型提示词泄露</li>
-          <li>🏆 AI 控制浏览器插件</li>
-          <li>🏆 AI 舆情分析开源神器</li>
-          <li>🏆 实测 Gemini 3 Pro</li>
-          <li>🏆 清华联合 MCP RAG 框架</li>
-        </ul>
-      </div>
-      <div class="topic-card">
-        <h3>Agent & 开发工具</h3>
-        <ul>
-          <li>🏆 国产开源 Agent 神器</li>
-          <li>🏆 浏览器自动化 MCP</li>
-          <li>🏆 AI 炒股平台</li>
-          <li>🏆 n8n 工作流合集</li>
-          <li>🏆 国产 AI 原生后端平台</li>
-          <li>🏆 个人 AI 知识库项目</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Footer -->
 <div class="footer">
-  <p>🔄 数据来源：IMA 知识库 · 自动生成于 2026-06-04</p>
-  <p style="margin-top:4px;">昊哥的土豆基地 🥔</p>
+  <p>📡 数据来源：IMA 知识库 × 6 · 昊哥的知识库 · AGI数据库.腾讯研究院 · 掘金线报 · Openclaw · 逛逛GitHub · 鹅厂养虾</p>
+  <p>🤖 由 WorkBuddy 自动化生成 · 昊哥的土豆基地</p>
+  <p style="margin-top: 8px; font-size: 11px;">
+    <a href="https://github.com/lzc0403/skillrush-town" style="color: var(--accent); text-decoration: none;">GitHub</a>
+    ·
+    <a href="https://lzc0403.github.io/skillrush-town/" style="color: var(--accent); text-decoration: none;">GitHub Pages</a>
+  </p>
 </div>
 
 </div>

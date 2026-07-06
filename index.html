@@ -3,469 +3,918 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IMA 知识库周报 · 2026-07-04 ｜ 昊哥的土豆基地</title>
+<title>AI 内容雷达 · 工业粗野主义</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700;800&family=Archivo:wght@700;800;900&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --bg: #f5f5f7;
-    --card: #ffffff;
-    --text: #1d1d1f;
-    --text-secondary: #86868b;
-    --accent: #5e5ce6;
-    --accent-hover: #4b49d6;
-    --border: #e8e8ed;
-    --tag-bg: #f0f0ff;
-    --tag-bg-hot: #fff0f0;
-    --tag-hot: #e65c5c;
-    --tag-green: #00a86b;
-    --tag-bg-green: #f0fff5;
-    --radius: 14px;
-    --shadow: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.06);
-    --max-w: 1000px;
-    --font: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Inter', 'PingFang SC', 'Noto Sans SC', sans-serif;
-  }
-  body {
-    font-family: var(--font);
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-    padding: 40px 20px 80px;
-  }
-  .container { max-width: var(--max-w); margin: 0 auto; }
+/* ═══════════════════════════════════════════════════
+   INDUSTRIAL BRUTALIST · AI CONTENT RADAR
+   Heavy concrete. Raw edges. No apologies.
+   ═══════════════════════════════════════════════════ */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 
-  /* Header */
-  .header { text-align: center; margin-bottom: 48px; }
-  .header h1 {
-    font-size: 32px; font-weight: 700; letter-spacing: -0.03em;
-    background: linear-gradient(135deg, var(--accent), #ff6b9d);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-  .header .subtitle {
-    font-size: 15px; color: var(--text-secondary); margin-top: 8px;
-  }
-  .header .meta {
-    display: flex; justify-content: center; gap: 20px; margin-top: 12px;
-    font-size: 13px; color: var(--text-secondary); flex-wrap: wrap;
-  }
-  .header .meta span { display: flex; align-items: center; gap: 4px; }
+:root{
+  --concrete:#1a1a1a;
+  --concrete-light:#2a2a2a;
+  --concrete-lighter:#333;
+  --steel:#444;
+  --girder:#555;
+  --rebar:#666;
+  --rivet:#888;
+  --paint:#c8c8c8;
+  --rust:#d44d2b;
+  --rust-dim:#b33d1f;
+  --amber:#e8a838;
+  --copper:#c97d3a;
+  --cyan:#38b8e8;
+  --cyan-dim:#2a8aaa;
+  --white:#f0ece4;
+  --smoke:#d8d0c4;
+  --marker:#f5c842;
+  --font-display:'Archivo','Impact',sans-serif;
+  --font-sans:'Space Grotesk',sans-serif;
+  --font-mono:'JetBrains Mono',monospace;
+  --shadow:8px 8px 0 rgba(0,0,0,0.5);
+  --shadow-sm:4px 4px 0 rgba(0,0,0,0.4);
+}
 
-  /* Stats Row */
-  .stats-row {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 12px;
-    margin-bottom: 36px;
-  }
-  .stat-card {
-    background: var(--card);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    padding: 20px;
-    text-align: center;
-  }
-  .stat-card .num {
-    font-size: 28px; font-weight: 700; color: var(--accent);
-    letter-spacing: -0.02em;
-  }
-  .stat-card .label {
-    font-size: 12px; color: var(--text-secondary); margin-top: 4px;
-  }
+body{
+  background:var(--concrete);
+  color:var(--white);
+  font-family:var(--font-sans);
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  min-height:100vh;
+  background-image:repeating-linear-gradient(
+    0deg, transparent, transparent 2px,
+    rgba(255,255,255,0.015) 2px, rgba(255,255,255,0.015) 4px
+  );
+}
 
-  /* Section */
-  .section { margin-bottom: 40px; }
-  .section-title {
-    font-size: 18px; font-weight: 600; margin-bottom: 16px;
-    display: flex; align-items: center; gap: 8px;
-  }
-  .section-title .badge {
-    font-size: 11px; font-weight: 500;
-    padding: 2px 8px; border-radius: 20px;
-    background: var(--tag-bg); color: var(--accent);
-  }
+/* ─── CONCRETE TOP BAR ─── */
+.site-header{
+  position:sticky;top:0;z-index:100;
+  background:var(--concrete);
+  border-bottom:4px solid var(--rust);
+  padding:0 32px;
+  display:flex;align-items:center;justify-content:space-between;
+  height:64px;
+}
+.site-header-left{display:flex;align-items:center;gap:16px}
+.site-logo{
+  font-family:var(--font-display);
+  font-size:18px;font-weight:900;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:var(--white);
+  background:var(--rust);
+  padding:6px 14px;
+  line-height:1;
+}
+.site-logo span{color:var(--white)}
+.site-header-sep{width:2px;height:28px;background:var(--steel)}
+.site-header-label{
+  font-size:11px;font-weight:600;
+  color:var(--rivet);
+  text-transform:uppercase;
+  letter-spacing:0.12em;
+}
+.site-header-right{
+  display:flex;align-items:center;gap:20px;
+  font-family:var(--font-mono);
+  font-size:11px;color:var(--rivet);
+}
+.live-dot{
+  width:10px;height:10px;
+  background:var(--rust);
+  animation:pulse 1.6s infinite;
+}
+@keyframes pulse{
+  0%,100%{opacity:1}
+  50%{opacity:.3}
+}
 
-  /* Article Card */
-  .article-card {
-    background: var(--card);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    padding: 20px 24px;
-    margin-bottom: 12px;
-    transition: box-shadow 0.2s;
-    cursor: default;
-  }
-  .article-card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
-  .article-card .title {
-    font-size: 15px; font-weight: 600; color: var(--text);
-    line-height: 1.5; margin-bottom: 6px;
-  }
-  .article-card .title a {
-    color: var(--text); text-decoration: none;
-  }
-  .article-card .title a:hover { color: var(--accent); }
-  .article-card .meta-line {
-    display: flex; align-items: center; gap: 10px;
-    font-size: 12px; color: var(--text-secondary);
-    flex-wrap: wrap;
-  }
-  .article-card .meta-line .tag {
-    display: inline-block;
-    font-size: 11px; padding: 1px 8px;
-    border-radius: 10px; background: var(--tag-bg); color: var(--accent);
-  }
-  .article-card .meta-line .tag.hot { background: var(--tag-bg-hot); color: var(--tag-hot); }
-  .article-card .meta-line .tag.tool { background: #f0f8ff; color: #0071e3; }
-  .article-card .meta-line .tag.infra { background: #f5f0ff; color: #8b5cf6; }
-  .article-card .meta-line .tag.biz { background: var(--tag-bg-green); color: var(--tag-green); }
+/* ─── CONTAINER ─── */
+.container{max-width:1440px;margin:0 auto;padding:32px}
 
-  /* AI News */
-  .ai-news {
-    background: var(--card);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    padding: 20px 24px;
-    margin-bottom: 12px;
-  }
-  .ai-news .date {
-    font-size: 13px; font-weight: 600; color: var(--accent);
-    margin-bottom: 8px;
-  }
-  .ai-news ul { padding-left: 18px; font-size: 14px; }
-  .ai-news li { margin-bottom: 6px; line-height: 1.5; }
-  .ai-news li strong { color: var(--text); }
+/* ─── HERO ─── */
+.hero{
+  border:3px solid var(--steel);
+  background:var(--concrete-light);
+  padding:40px 48px;
+  margin-bottom:40px;
+  position:relative;
+}
+.hero::before{
+  content:'';position:absolute;top:-3px;left:120px;
+  width:200px;height:3px;background:var(--rust);
+}
+.hero-tag{
+  display:inline-block;
+  font-family:var(--font-mono);
+  font-size:11px;font-weight:700;
+  color:#fff;background:var(--rust);
+  padding:4px 12px;
+  margin-bottom:16px;
+  letter-spacing:0.05em;
+}
+.hero h1{
+  font-family:var(--font-display);
+  font-size:56px;font-weight:900;
+  line-height:1.05;
+  text-transform:uppercase;
+  color:var(--white);
+  letter-spacing:-0.02em;
+}
+.hero h1 .hl{color:var(--rust)}
+.hero p{
+  font-size:15px;
+  color:var(--smoke);
+  max-width:600px;
+  margin-top:16px;
+  line-height:1.6;
+}
+.hero-meta{
+  display:flex;align-items:center;gap:24px;
+  font-family:var(--font-mono);
+  font-size:12px;color:var(--rivet);
+  margin-top:20px;
+  padding-top:16px;
+  border-top:1px solid var(--steel);
+}
+.hero-meta strong{color:var(--smoke);font-weight:600}
 
-  /* Insight card */
-  .insight-card {
-    background: linear-gradient(135deg, #f0f0ff, #f5f0ff);
-    border-radius: var(--radius);
-    padding: 20px 24px;
-    margin-bottom: 12px;
-    border-left: 3px solid var(--accent);
-  }
-  .insight-card .insight-title {
-    font-size: 14px; font-weight: 600; margin-bottom: 4px;
-  }
-  .insight-card .insight-body {
-    font-size: 13px; color: #555;
-    line-height: 1.5;
-  }
+/* ─── STATS BAND ─── */
+.stats-band{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:0;
+  margin-bottom:40px;
+  border:3px solid var(--steel);
+  background:var(--concrete-light);
+}
+.stat-cell{
+  padding:24px;
+  text-align:center;
+  border-right:1px solid var(--steel);
+  position:relative;
+}
+.stat-cell:last-child{border-right:0}
+.stat-cell .num{
+  font-family:var(--font-display);
+  font-size:36px;font-weight:900;
+  color:var(--rust);
+  line-height:1;
+}
+.stat-cell .label{
+  font-size:11px;font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:0.08em;
+  color:var(--rivet);
+  margin-top:6px;
+}
 
-  /* Footer */
-  .footer {
-    text-align: center; font-size: 12px; color: var(--text-secondary);
-    margin-top: 60px; padding-top: 20px;
-    border-top: 1px solid var(--border);
-  }
+/* ─── SECTION HEADER ─── */
+.section-header{
+  display:flex;align-items:center;
+  margin-bottom:24px;
+  gap:12px;
+}
+.section-header h2{
+  font-family:var(--font-display);
+  font-size:22px;font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:0.03em;
+  color:var(--white);
+  flex-shrink:0;
+}
+.section-header .bar{
+  flex:1;height:2px;background:var(--steel);
+}
 
-  @media (max-width: 640px) {
-    body { padding: 20px 12px 60px; }
-    .header h1 { font-size: 24px; }
-    .stats-row { grid-template-columns: repeat(2, 1fr); }
-  }
+/* ─── TREND CARDS ─── */
+.trends-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:24px;
+  margin-bottom:48px;
+}
+.trend-card{
+  border:3px solid var(--steel);
+  background:var(--concrete-light);
+  padding:0;
+  position:relative;
+  transition:border-color .2s, transform .15s;
+}
+.trend-card:hover{
+  border-color:var(--rust);
+  transform:translate(-2px,-2px);
+}
+.trend-card::after{
+  content:'';position:absolute;right:20px;top:20px;
+  width:8px;height:8px;
+  background:var(--steel);
+}
+.trend-card-header{
+  padding:20px 24px 16px;
+  border-bottom:2px solid var(--steel);
+  display:flex;align-items:center;justify-content:space-between;
+}
+.trend-card-header .rank{
+  font-family:var(--font-mono);
+  font-size:13px;font-weight:700;
+  color:var(--rivet);
+}
+.trend-card-header .heat{
+  display:flex;align-items:center;gap:6px;
+  font-size:10px;text-transform:uppercase;
+  letter-spacing:0.08em;
+  color:var(--rivet);
+}
+.heat-dots{display:flex;gap:3px}
+.heat-dot{width:8px;height:8px;background:var(--steel)}
+.heat-dot.active{background:var(--rust)}
+.heat-dot.half{background:var(--copper)}
+
+.trend-card-title{
+  padding:16px 24px;
+  font-family:var(--font-display);
+  font-size:20px;font-weight:800;
+  text-transform:uppercase;
+  line-height:1.2;
+  color:var(--white);
+}
+.trend-card-title .hl-rust{color:var(--rust)}
+.trend-card-title .hl-amber{color:var(--amber)}
+
+.trend-card-body{
+  padding:0 24px 20px;
+}
+.trend-card-body p{
+  font-size:13px;color:var(--smoke);
+  line-height:1.65;
+  margin-bottom:12px;
+}
+.trend-card-body .tldr{
+  background:rgba(212,77,43,0.1);
+  border-left:3px solid var(--rust);
+  padding:10px 14px;
+  font-family:var(--font-mono);
+  font-size:12px;color:var(--smoke);
+  margin-bottom:14px;
+  line-height:1.55;
+}
+
+.article-list{
+  list-style:none;
+  display:flex;flex-direction:column;gap:6px;
+}
+.article-list li{
+  font-size:12px;
+  color:var(--rivet);
+  padding:6px 10px;
+  background:rgba(0,0,0,0.25);
+  border:1px solid transparent;
+  transition:all .15s;
+  display:flex;align-items:center;gap:8px;
+}
+.article-list li::before{
+  content:'▸';
+  color:var(--rust);
+  font-size:10px;
+  flex-shrink:0;
+}
+.article-list li:hover{
+  border-color:var(--steel);
+  color:var(--smoke);
+}
+.article-list li .date{
+  font-family:var(--font-mono);
+  font-size:10px;
+  color:var(--rebar);
+  margin-left:auto;
+  flex-shrink:0;
+}
+
+/* ─── HOT NEWS GRID ─── */
+.news-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:20px;
+  margin-bottom:48px;
+}
+.news-item{
+  border:2px solid var(--steel);
+  background:var(--concrete-light);
+  padding:16px 20px;
+  transition:border-color .2s;
+  position:relative;
+}
+.news-item:hover{
+  border-color:var(--amber);
+}
+.news-item .badge{
+  display:inline-block;
+  font-family:var(--font-mono);
+  font-size:9px;font-weight:600;
+  color:#fff;
+  padding:2px 8px;
+  margin-bottom:8px;
+  text-transform:uppercase;
+  letter-spacing:0.05em;
+}
+.news-item .badge.hot{background:var(--rust)}
+.news-item .badge.new{background:var(--cyan-dim)}
+.news-item .badge.trend{background:var(--copper)}
+.news-item h3{
+  font-family:var(--font-sans);
+  font-size:14px;font-weight:600;
+  color:var(--white);
+  line-height:1.4;
+  margin-bottom:6px;
+}
+.news-item p{
+  font-size:12px;color:var(--rivet);
+  line-height:1.5;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+}
+.news-item .meta{
+  font-family:var(--font-mono);
+  font-size:10px;color:var(--rebar);
+  margin-top:8px;
+  display:flex;align-items:center;gap:8px;
+}
+
+/* ─── TRENDING TABLE ─── */
+.trending-table-wrap{
+  border:3px solid var(--steel);
+  margin-bottom:48px;
+  overflow-x:auto;
+  background:var(--concrete-light);
+}
+.trending-table{
+  width:100%;border-collapse:collapse;
+  font-size:12px;
+}
+.trending-table thead th{
+  font-family:var(--font-mono);
+  font-size:10px;font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:0.1em;
+  color:var(--rivet);
+  padding:12px 16px;
+  text-align:left;
+  border-bottom:2px solid var(--steel);
+  background:rgba(0,0,0,0.2);
+}
+.trending-table tbody td{
+  padding:10px 16px;
+  border-bottom:1px solid rgba(255,255,255,0.04);
+  color:var(--smoke);
+  vertical-align:top;
+}
+.trending-table tbody tr:hover{background:rgba(212,77,43,0.05)}
+.trending-table .td-title{max-width:380px}
+.trending-table .td-title a{
+  color:var(--white);text-decoration:none;
+  transition:color .15s;
+}
+.trending-table .td-title a:hover{color:var(--rust)}
+.trending-table .td-tag{
+  display:inline-block;
+  font-family:var(--font-mono);
+  font-size:9px;font-weight:600;
+  background:var(--steel);
+  color:var(--rivet);
+  padding:2px 8px;
+  text-transform:uppercase;
+}
+.trending-table .td-date{
+  font-family:var(--font-mono);
+  font-size:10px;color:var(--rebar);
+  white-space:nowrap;
+}
+
+/* ─── FOOTER ─── */
+.site-footer{
+  border-top:4px solid var(--steel);
+  padding:24px 32px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-family:var(--font-mono);
+  font-size:11px;color:var(--rebar);
+}
+.site-footer strong{color:var(--rivet)}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:1024px){
+  .trends-grid{grid-template-columns:1fr}
+  .news-grid{grid-template-columns:1fr 1fr}
+  .stats-band{grid-template-columns:repeat(2,1fr)}
+  .hero h1{font-size:38px}
+}
+@media(max-width:640px){
+  .container{padding:16px}
+  .hero{padding:24px}
+  .hero h1{font-size:28px}
+  .news-grid{grid-template-columns:1fr}
+  .stats-band{grid-template-columns:1fr 1fr}
+  .stat-cell:nth-child(2){border-right:0}
+  .site-header{padding:0 16px}
+  .trending-table{font-size:11px}
+}
 </style>
 </head>
 <body>
+
+<!-- ═══ HEADER ═══ -->
+<header class="site-header">
+  <div class="site-header-left">
+    <div class="site-logo">RADAR</div>
+    <div class="site-header-sep"></div>
+    <span class="site-header-label">AI Content Intelligence · 昊哥知识库</span>
+  </div>
+  <div class="site-header-right">
+    <div class="live-dot"></div>
+    <span>LIVE</span>
+    <span>2026.07.06</span>
+  </div>
+</header>
+
 <div class="container">
 
-<div class="header">
-  <h1>IMA 知识库周报</h1>
-  <div class="subtitle">AI 行业动态 · 开源项目 · 赚钱信息差 · 2026年第27周</div>
-  <div class="meta">
-    <span>📅 2026-07-04</span>
-    <span>📚 6 个知识库</span>
-    <span>🗂️ 近60天内容</span>
-    <span>⚡ 昊哥的土豆基地</span>
+<!-- ═══ HERO ═══ -->
+<div class="hero">
+  <div class="hero-tag">RADAR v3.0 · INDUSTRIAL BRUTALIST</div>
+  <h1>
+    AI 内容<br>
+    <span class="hl">热力雷达</span>
+  </h1>
+  <p>基于 IMA 知识库近 60 天 520+ 篇文章，自动提炼 AI 圈最新趋势、热点话题与高价值内容。原始数据驱动，无人工干预。</p>
+  <div class="hero-meta">
+    <span>📡 <strong>扫描范围</strong> 2026.05.07 – 2026.07.06</span>
+    <span>📦 <strong>分析文章</strong> 98 篇 (近60天)</span>
+    <span>⚡ <strong>知识库</strong> 昊哥知识库 · 524 项</span>
   </div>
 </div>
 
-<div class="stats-row">
-  <div class="stat-card"><div class="num">1,645</div><div class="label">知识库总文章</div></div>
-  <div class="stat-card"><div class="num">42</div><div class="label">本周新增</div></div>
-  <div class="stat-card"><div class="num">6</div><div class="label">活跃知识库</div></div>
-  <div class="stat-card"><div class="num">4</div><div class="label">核心赛道</div></div>
-</div>
-
-<!-- Section: 本周热点洞察 -->
-<div class="section">
-  <div class="section-title">
-    🔥 本周热点洞察 <span class="badge">6 大趋势</span>
+<!-- ═══ STATS BAND ═══ -->
+<div class="stats-band">
+  <div class="stat-cell">
+    <div class="num">8</div>
+    <div class="label">核心趋势</div>
   </div>
-
-  <div class="insight-card">
-    <div class="insight-title">🚀 GPT-5.6 预览发布：三档模型全面对标 Claude Fable 5</div>
-    <div class="insight-body">OpenAI 推出 GPT-5.6 预览版（Sol/Terra/Luna），Sol 在编程、生物、网安全面超越 Fable 5。同步发布首款自研 AI 芯片 Jalapeño（9 个月流片），与博通联合量产。开源社区评测：GPT-5.6 Pro 一句话 48 分钟生成完整《模拟人生》。</div>
+  <div class="stat-cell">
+    <div class="num">98</div>
+    <div class="label">采集文章</div>
   </div>
-
-  <div class="insight-card">
-    <div class="insight-title">🔧 Agent Skill 生态爆发：谷歌开源 DESIGN.md，卡兹克 Skill 盘点</div>
-    <div class="insight-body">谷歌 2 万星开源 DESIGN.md 根治 AI 网页"流水线脸"。卡兹克推荐的 12+ 个 Skill 被完整盘点。微软 SkillOpt（9K Star）用前向/反向传播打磨 Skill。Hermes 上线 /learn 模式，从任意仓库提炼 Skill。Impeccable 23 条命令治 AI 味。</div>
+  <div class="stat-cell">
+    <div class="num">26</div>
+    <div class="label">热度文章</div>
   </div>
-
-  <div class="insight-card">
-    <div class="insight-title">💡 Token 降本大战：Headroom + CC Switch 省 90%，Ponytail 登 GitHub 热榜</div>
-    <div class="insight-body">Headroom 省 token 60-95%、OpenSquilla 本地模型路由器按复杂度分派、Ponytail 爆火。推理成本最被低估的不是 Token 单价，而是上下文/并发/重试/峰值。Headroom 配合 CC Switch 在极空间部署教程火爆。</div>
-  </div>
-
-  <div class="insight-card">
-    <div class="insight-title">🤖 Agent 自主进化：Vida 主动 Agent、Loop Engineering 新范式</div>
-    <div class="insight-body">Vida 被评为"第一个真正主动的 Agent"。Loop Engineering 橙皮书发布——Prompt 退环境，Loop 成新范式。Codex Computer Use 实现小红书/抖音数据巡检全自动。电脑文件全托管 Agent 实现 24h 代办。</div>
-  </div>
-
-  <div class="insight-card">
-    <div class="insight-title">🎨 图片/PPT 工具大爆发：GPT Image 2、藏师傅更新、Pencil 联动</div>
-    <div class="insight-body">GPT Image 2 全量开放，中文渲染突破。藏师傅 PPT Skills + Pencil 联动成爆款。小互 IP Studio 开源 31 个现成角色。Cowart 为 Codex 装无限画布。腾讯 QQ 邮箱上线 Agent Mail。</div>
-  </div>
-
-  <div class="insight-card">
-    <div class="insight-title">💰 掘金线报：小红书虚拟资料月入 2 万+，抖音 CPS 34 天破千</div>
-    <div class="insight-body">小红书虚拟产品高客单玩法（99-200 元）、抖音 CPS 带货 34 天佣金 1000+、B 站 AI 动画剧场签约计划、旧衣回收月入过万副业、公众号 7 步 SOP 日均引流 5-10 人。AI 工具变现链路日趋成熟。</div>
+  <div class="stat-cell">
+    <div class="num" style="color:var(--amber)">5</div>
+    <div class="label">爆款主题</div>
   </div>
 </div>
 
-<!-- Section: AI 速递时间线 -->
-<div class="section">
-  <div class="section-title">
-    📡 AI 速递 <span class="badge">腾讯研究院 · 近 30 天</span>
+<!-- ═══ TRENDS ═══ -->
+<div class="section-header">
+  <h2>01 · 核心趋势</h2>
+  <div class="bar"></div>
+</div>
+
+<div class="trends-grid">
+
+  <!-- Trend 1: Loop Engineering -->
+  <div class="trend-card">
+    <div class="trend-card-header">
+      <span class="rank">#01</span>
+      <div class="heat"><span>热度</span><div class="heat-dots"><div class="heat-dot active"></div><div class="heat-dot active"></div><div class="heat-dot active"></div><div class="heat-dot active"></div><div class="heat-dot active"></div></div></div>
+    </div>
+    <div class="trend-card-title">
+      Loop Engineering<br><span class="hl-rust">循环工程</span>
+    </div>
+    <div class="trend-card-body">
+      <p>6月中旬突然爆火的新范式。Prompt Engineering之后的下一个浪潮——让AI自己写自己的循环，多轮自迭代完成任务。</p>
+      <div class="tldr">花叔出版《Loop Engineering橙皮书》，卡兹克喊出"Prompt该退环境了"，Matt Pocock发布loop-me Skill拷问27轮自动化工作流。</div>
+      <ul class="article-list">
+        <li>卡兹克 · Prompt该退环境了，未来属于Loop Engineering<span class="date">6/15</span></li>
+        <li>花叔 · 《Loop Engineering橙皮书》发布！免费，开源<span class="date">6/17</span></li>
+        <li>Matt Pocock 发了新 loop-me Skill<span class="date">6/26</span></li>
+        <li>花叔 · 做完女娲和达尔文，缺的最后一块：MetaSkill<span class="date">6/5</span></li>
+      </ul>
+    </div>
   </div>
 
-  <div class="ai-news">
-    <div class="date">🗓️ 6月29日 — GPT-5.6 Preview / 高通飞龙 / OpenAI Jalapeño 芯片</div>
-    <ul>
-      <li><strong>OpenAI 发布 GPT-5.6 预览版</strong>：Sol/Terra/Luna 三档，Sol 全面超越 Claude Fable 5。投入超 70 万 A10 GPU 训练。</li>
-      <li><strong>高通发布飞龙 Dragonfly</strong>：分布式计算架构应对 Agent 推理需求，2029 年数据中心目标 150 亿美元。</li>
-      <li><strong>特斯拉注册 Megapod 商标</strong>：模块化 AI 数据中心硬件，xAI 两年累计采购约 10 亿美元 Megapack。</li>
-    </ul>
+  <!-- Trend 2: Skill Economy -->
+  <div class="trend-card">
+    <div class="trend-card-header">
+      <span class="rank">#02</span>
+      <div class="heat"><span>热度</span><div class="heat-dots"><div class="heat-dot active"></div><div class="heat-dot active"></div><div class="heat-dot active"></div><div class="heat-dot active"></div><div class="heat-dot half"></div></div></div>
+    </div>
+    <div class="trend-card-title">
+      Skill Economy<br><span class="hl-amber">技能经济</span>
+    </div>
+    <div class="trend-card-body">
+      <p>Agent Skills从个人效率工具走向可交易的技能经济。卡兹克推荐、李继刚19个Skills、职业.Skill 2.0、MetaSkill——Skill正在变成数字资产。</p>
+      <div class="tldr">数字生命卡兹克全库700+篇翻出85个Skills。职业.Skill 2.0让顶级专家团包揽工作。MetaSkill让Skill自己管理自己。</div>
+      <ul class="article-list">
+        <li>数字生命卡兹克推荐过的所有Skills，全扒干净了<span class="date">6/23</span></li>
+        <li>职业.Skill 2.0：让顶级专家团包揽你的工作<span class="date">7/6</span></li>
+        <li>李继刚19个Skills，真正厉害的是这条线<span class="date">6/12</span></li>
+        <li>花叔 · MetaSkill来了<span class="date">6/5</span></li>
+        <li>像素与咖啡时光 · 3个Skill合起来是一套完整的脑子<span class="date">6/11</span></li>
+      </ul>
+    </div>
   </div>
 
-  <div class="ai-news">
-    <div class="date">🗓️ 6月25-26日 — OpenAI 自研芯片 / 高通多元化</div>
-    <ul>
-      <li><strong>OpenAI 首款自研 AI 芯片 Jalapeño</strong>：9 个月完成流片，联合博通量产，专为大语言模型推理打造。</li>
-      <li><strong>高通 2026 投资者日</strong>：公布多元化战略，非手机业务收入目标上调至 400 亿美元。</li>
-      <li><strong>GPT-5.6 Pro 泄露</strong>：一句话 48 分钟生成完整《模拟人生》，Juice Value 升至 960。</li>
-    </ul>
+  <!-- Trend 3: Token Optimization -->
+  <div class="trend-card">
+    <div class="trend-card-header">
+      <span class="rank">#03</span>
+      <div class="heat"><span>热度</span><div class="heat-dots"><div class="heat-dot active"></div><div class="heat-dot active"></div><div class="heat-dot active"></div><div class="heat-dot half"></div><div class="heat-dot"></div></div></div>
+    </div>
+    <div class="trend-card-title">
+      Token 战争<br><span class="hl-rust">降本增效</span>
+    </div>
+    <div class="trend-card-body">
+      <p>Token成本成为AI Agent落地的核心瓶颈。Headroom/CC Switch/OpenSquilla/PilotDeck——各路开源项目瞄准"省Token"这个刚需。</p>
+      <div class="tldr">Headroom省60-95% Token。清华PilotDeck把$18烧到$3。OpenSquilla用模型路由砍成本。推理成本最被低估的不是Token单价。</div>
+      <ul class="article-list">
+        <li>Headroom让token直接省60–95%<span class="date">6/18</span></li>
+        <li>清华开源PilotDeck：$18变$3<span class="date">6/1</span></li>
+        <li>OpenSquilla：用小模型指挥顶级模型<span class="date">6/3</span></li>
+        <li>推理成本里最容易被低估的不是Token<span class="date">6/27</span></li>
+        <li>OpenRouter免费模型跑OpenClaw<span class="date">6/5</span></li>
+      </ul>
+    </div>
   </div>
 
-  <div class="ai-news">
-    <div class="date">🗓️ 6月22-24日 — Cursor 万亿模型 / GPT-5.5-Cyber</div>
-    <ul>
-      <li><strong>Cursor 自研万亿参数大模型</strong>：10 万卡从零预训练，数周内发布。</li>
-      <li><strong>GPT-5.5-Cyber 完整版</strong>：CyberGym 85.6% 成绩，超 GPT-5.5 与 Mythos 5。Codex 已扫描 3000 万次提交。</li>
-      <li><strong>GPT-5.6 Pro 内测</strong>：无需工具链，仅凭 NL 指令生成游戏。</li>
-    </ul>
+  <!-- Trend 4: AI Design Language -->
+  <div class="trend-card">
+    <div class="trend-card-header">
+      <span class="rank">#04</span>
+      <div class="heat"><span>热度</span><div class="heat-dots"><div class="heat-dot active"></div><div class="heat-dot active"></div><div class="heat-dot active"></div><div class="heat-dot"></div><div class="heat-dot"></div></div></div>
+    </div>
+    <div class="trend-card-title">
+      专治 AI 味<br><span class="hl-amber">设计语言矫正</span>
+    </div>
+    <div class="trend-card-body">
+      <p>AI生成的界面和文字"一股AI味"成为公敌。Taste Skill、Impeccable、Google DESIGN.md——三个爆款项目专治"模板化廉价感"。</p>
+      <div class="tldr">Impeccable 3.3万星/33K Star专治AI味。Google开源DESIGN.md根治AI网页"流水线廉价脸"。23条命令治排版/色彩/动效。</div>
+      <ul class="article-list">
+        <li>Google开源DESIGN.md，2万星封神<span class="date">7/1</span></li>
+        <li>3.3万星Impeccable专治AI味设计<span class="date">6/2</span></li>
+        <li>两个开源项目专治"AI味"<span class="date">6/8</span></li>
+        <li>23条命令治AI味，比Taste Skill更能打<span class="date">6/13</span></li>
+      </ul>
+    </div>
   </div>
 
-  <div class="ai-news">
-    <div class="date">🗓️ 6月15-18日 — Fable 5 下线 / Anthropic 集体诉讼 / Loop Engineering</div>
-    <ul>
-      <li><strong>Fable 5 发布仅四天被美国政府强制下线</strong>：商务部长以国家安全为由发函出口管制。</li>
-      <li><strong>Anthropic 撤回第三方订阅限制</strong>：同日遭用户集体诉讼，指控 Max 套餐虚假宣传。</li>
-      <li><strong>Anthropic 7 月启用身份验证</strong>：实名制引发用户担忧，被解读为 AI 监管全面收紧。</li>
-    </ul>
+  <!-- Trend 5: Free API / Multi-Modal -->
+  <div class="trend-card">
+    <div class="trend-card-header">
+      <span class="rank">#05</span>
+      <div class="heat"><span>热度</span><div class="heat-dots"><div class="heat-dot active"></div><div class="heat-dot active"></div><div class="heat-dot active"></div><div class="heat-dot"></div><div class="heat-dot"></div></div></div>
+    </div>
+    <div class="trend-card-title">
+      免费 API 浪潮<br><span class="hl-rust">全模态免费</span>
+    </div>
+    <div class="trend-card-body">
+      <p>Agnes AI宣布无限期免费开放文本/图片/视频全模态API。FlowGPG免费跑Gemini生图。Firecrawl免API Key使用。2026免费API生态大爆发。</p>
+      <div class="tldr">Agnes AI全模态API无限期免费。FlowGPG薅Gemini免费生图。盘点2026最值得薅的免费API，涵盖文本/图片/视频。</div>
+      <ul class="article-list">
+        <li>Agnes AI全模态API无限期免费开放<span class="date">6/1</span></li>
+        <li>文本/图片/视频模型API全免费！赛博活菩萨<span class="date">6/2</span></li>
+        <li>盘点2026年最值得薅的免费API<span class="date">6/5</span></li>
+        <li>Gemini官方API免费无限用<span class="date">5/24</span></li>
+        <li>Firecrawl免API Key可用<span class="date">6/28</span></li>
+      </ul>
+    </div>
   </div>
 
-  <div class="ai-news">
-    <div class="date">🗓️ 6月10-12日 — OpenAI 提交 IPO / 腾讯混元 HPC-Ops</div>
-    <ul>
-      <li><strong>OpenAI 正式向 SEC 提交 S-1</strong>：启动 IPO 流程，奥特曼承诺"为每个人提供 AGI"。</li>
-      <li><strong>腾讯混元开源 HPC-Ops</strong>：推理算子库，Attention 动态调度加速 2.95 倍。</li>
-    </ul>
+  <!-- Trend 6: Agent Memory -->
+  <div class="trend-card">
+    <div class="trend-card-header">
+      <span class="rank">#06</span>
+      <div class="heat"><span>热度</span><div class="heat-dots"><div class="heat-dot active"></div><div class="heat-dot active"></div><div class="heat-dot half"></div><div class="heat-dot"></div><div class="heat-dot"></div></div></div>
+    </div>
+    <div class="trend-card-title">
+      Agent 记忆系统<br><span class="hl-amber">持久化大脑</span>
+    </div>
+    <div class="trend-card-body">
+      <p>TencentDB开源Agent Memory、袋鼠帝搞定SAG方案、WorkBuddy记忆分层提示词——Agent持久记忆从实验室走向生产环境。</p>
+      <div class="tldr">TencentDB Agent Memory开源。SAG方案替代RAG更快更准。WorkBuddy记忆分层提示词让Agent变更聪明。</div>
+      <ul class="article-list">
+        <li>TencentDB Agent Memory开源了！<span class="date">6/2</span></li>
+        <li>再见RAG！AI知识库还得是SAG<span class="date">6/22</span></li>
+        <li>WorkBuddy变更聪明的秘密：记忆分层提示词<span class="date">6/17</span></li>
+        <li>Codex+Obsidian：公众号文章一键保存到知识库<span class="date">6/25</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Trend 7: Multi-Agent Orchestration -->
+  <div class="trend-card">
+    <div class="trend-card-header">
+      <span class="rank">#07</span>
+      <div class="heat"><span>热度</span><div class="heat-dots"><div class="heat-dot active"></div><div class="heat-dot active"></div><div class="heat-dot"></div><div class="heat-dot"></div><div class="heat-dot"></div></div></div>
+    </div>
+    <div class="trend-card-title">
+      多智能体编排<br><span class="hl-rust">Agent 协作</span>
+    </div>
+    <div class="trend-card-body">
+      <p>日本Sakana AI的Fugu小模型指挥顶级模型、PilotDeck强主+轻从路由、ECC把AI编程工具编排成数字工厂——Agent互操作成为新热点。</p>
+      <div class="tldr">Fugu：小模型指挥所有顶级AI干活。ECC近20万Star把Claude Code变成数字工厂。360安全龙虾版做垂直Agent。</div>
+      <ul class="article-list">
+        <li>Sakana AI河豚Fugu：小模型指挥所有顶级模型<span class="date">6/22</span></li>
+        <li>近20万Star！ECC把Claude Code玩成数字工厂<span class="date">6/2</span></li>
+        <li>360龙虾版：开源项目拆解成垂直Agent<span class="date">6/2</span></li>
+        <li>Codex+HyperFrames：文章变短视频<span class="date">6/30</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Trend 8: AI Hardware -->
+  <div class="trend-card">
+    <div class="trend-card-header">
+      <span class="rank">#08</span>
+      <div class="heat"><span>热度</span><div class="heat-dots"><div class="heat-dot active"></div><div class="heat-dot half"></div><div class="heat-dot"></div><div class="heat-dot"></div><div class="heat-dot"></div></div></div>
+    </div>
+    <div class="trend-card-title">
+      AI Hardware<br><span class="hl-amber">英伟达 & 边缘</span>
+    </div>
+    <div class="trend-card-body">
+      <p>英伟达GTC Taipei发布RTX Spark重新定义个人PC。1度电产生的Token能卖多少钱？——AI基础设施层的成本结构正在被重新审视。</p>
+      <div class="tldr">英伟达RTX Spark：个人电脑40年来的重新定义。Token计费的秘密——计费规则比单价更坑。</div>
+      <ul class="article-list">
+        <li>英伟达发布RTX Spark，个人PC新时代<span class="date">6/1</span></li>
+        <li>1度电产生的Tokens，到底能卖多少钱？<span class="date">5/27</span></li>
+        <li>AI行业潜规则：关于Token计费的秘密<span class="date">6/1</span></li>
+      </ul>
+    </div>
   </div>
 </div>
 
-<!-- Section: 昊哥知识库精选 -->
-<div class="section">
-  <div class="section-title">
-    📚 昊哥知识库 · 本周精选 <span class="badge">518 篇总 · 20+ 本周新增</span>
-  </div>
-
-  <div class="article-card">
-    <div class="title"><a href="#">123K Star！免费云服务大全，每年帮你省下几千块</a></div>
-    <div class="meta-line"><span class="tag tool">云服务</span><span class="tag">掘金GitHub</span><span>7月4日</span></div>
-  </div>
-
-  <div class="article-card">
-    <div class="title"><a href="#">盘点 17 个 6 月份牛牛牛的 GitHub 开源项目</a></div>
-    <div class="meta-line"><span class="tag tool">开源项目</span><span class="tag">逛逛GitHub</span><span>7月4日</span></div>
-  </div>
-
-  <div class="article-card">
-    <div class="title"><a href="#">分享 WorkBuddy+蚁小二 CLI，全平台自媒体从创作到运维都打通了</a></div>
-    <div class="meta-line"><span class="tag hot">热门</span><span class="tag tool">WorkBuddy</span><span>7月3日</span></div>
-  </div>
-
-  <div class="article-card">
-    <div class="title"><a href="#">又一个画图 Skill 开源，再见 draw.io！</a></div>
-    <div class="meta-line"><span class="tag hot">热门</span><span class="tag tool">开源</span><span>7月3日</span></div>
-  </div>
-
-  <div class="article-card">
-    <div class="title"><a href="#">发现一个宝藏开源项目：让 Hermes Agent 在飞书里告别刷屏</a></div>
-    <div class="meta-line"><span class="tag tool">Hermes</span><span class="tag">聿凡与AI</span><span>7月3日</span></div>
-  </div>
-
-  <div class="article-card">
-    <div class="title"><a href="#">藏师傅 PPT Skills 加 Pencil 无敌了!</a></div>
-    <div class="meta-line"><span class="tag hot">热门</span><span class="tag tool">PPT</span><span>7月3日</span></div>
-  </div>
-
-  <div class="article-card">
-    <div class="title"><a href="#">2 万星封神！谷歌开源 DESIGN.md，彻底根治 AI 网页"流水线廉价脸"</a></div>
-    <div class="meta-line"><span class="tag tool">设计</span><span class="tag">谷歌</span><span>7月1日</span></div>
-  </div>
-
-  <div class="article-card">
-    <div class="title"><a href="#">Codex + HyperFrames：一句话把公众号文章变成短视频</a></div>
-    <div class="meta-line"><span class="tag tool">视频</span><span class="tag">Codex</span><span>6月30日</span></div>
-  </div>
-
-  <div class="article-card">
-    <div class="title"><a href="#">推理成本里，最容易被低估的不是 Token</a></div>
-    <div class="meta-line"><span class="tag tool">推理成本</span><span class="tag">深度</span><span>6月27日</span></div>
-  </div>
-
-  <div class="article-card">
-    <div class="title"><a href="#">微软又开源一个神级 skill 神器 — SkillOpt</a></div>
-    <div class="meta-line"><span class="tag hot">热门</span><span class="tag tool">微软</span><span>6月24日</span></div>
-  </div>
-
-  <div class="article-card">
-    <div class="title"><a href="#">刚刚，Hermes 上线 /learn 模式！从任何地方提炼任何 Skill！</a></div>
-    <div class="meta-line"><span class="tag hot">热门</span><span class="tag tool">Hermes</span><span>6月24日</span></div>
-  </div>
-
-  <div class="article-card">
-    <div class="title"><a href="#">40 年没变过的 Email，被腾讯重新定义了 (Agent Mail)</a></div>
-    <div class="meta-line"><span class="tag tool">腾讯</span><span class="tag">QQ邮箱</span><span>6月26日</span></div>
-  </div>
+<!-- ═══ HOT NEWS ═══ -->
+<div class="section-header">
+  <h2>02 · 热点直击</h2>
+  <div class="bar"></div>
 </div>
 
-<!-- Section: 掘金线报 -->
-<div class="section">
-  <div class="section-title">
-    💰 掘金线报 · 赚钱信息差 <span class="badge">178 篇总</span>
+<div class="news-grid">
+
+  <div class="news-item">
+    <div class="badge hot">🔥 爆款</div>
+    <h3>Strix 开源 AI 渗透 Agent 单日 +1121 Star</h3>
+    <p>一个会自己写exploit、自己打通、再顺手发补丁PR的安全agent，昨日单日涨了一千多颗星，总数37K。</p>
+    <div class="meta"><span>7/6</span><span>· 安全</span></div>
   </div>
 
-  <div class="article-card">
-    <div class="title"><a href="#">123K Star！免费云服务大全</a></div>
-    <div class="meta-line"><span class="tag biz">省钱</span><span>7月4日</span></div>
+  <div class="news-item">
+    <div class="badge hot">🔥 爆款</div>
+    <h3>QQ邮箱内测 Agent Mail</h3>
+    <p>40年没变过的Email被腾讯重新定义。Codex/Claude Code/Gemini等主流Agent均可接入，直接对话收发邮件。</p>
+    <div class="meta"><span>6/26</span><span>· 产品</span></div>
   </div>
 
-  <div class="article-card">
-    <div class="title"><a href="#">冷门移民赛道引流，一单佣金一万多</a></div>
-    <div class="meta-line"><span class="tag biz">副业</span><span>7月2日</span></div>
+  <div class="news-item">
+    <div class="badge new">🆕 新锐</div>
+    <h3>Vida 主动 Agent 爆火</h3>
+    <p>测完爆火的Vida，第一次见识到这么主动的Agent——不需要你写指令，它自己观察、行动、汇报。</p>
+    <div class="meta"><span>6/29</span><span>· Agent</span></div>
   </div>
 
-  <div class="article-card">
-    <div class="title"><a href="#">不会写一行代码，用 AI 做了 15 个小程序，月入两万还在涨</a></div>
-    <div class="meta-line"><span class="tag biz">AI工具</span><span class="tag hot">热门</span><span>6月29日</span></div>
+  <div class="news-item">
+    <div class="badge new">🆕 新锐</div>
+    <h3>茴香 Cowart 给 Codex 装画布</h3>
+    <p>豆包产品经理给Codex装了一张无限画布，不靠文字描述改图，4天1185 Star。</p>
+    <div class="meta"><span>6/23</span><span>· 开源</span></div>
   </div>
 
-  <div class="article-card">
-    <div class="title"><a href="#">一个人做小红书电商——月销 4 万单，利润 39%</a></div>
-    <div class="meta-line"><span class="tag biz">电商</span><span class="tag hot">爆款</span><span>6月25日</span></div>
+  <div class="news-item">
+    <div class="badge new">🆕 新锐</div>
+    <h3>Hermes上线 /learn 模式</h3>
+    <p>喂给Hermes任何资料（GitHub仓库、PDF、API文档等），它可以自行学习、提炼、封装出合适的Skill。</p>
+    <div class="meta"><span>6/24</span><span>· Agent</span></div>
   </div>
 
-  <div class="article-card">
-    <div class="title"><a href="#">公众号 7 步 SOP 日均引流 5-10 人——月入 3-5 万</a></div>
-    <div class="meta-line"><span class="tag biz">公众号</span><span>6月22日</span></div>
+  <div class="news-item">
+    <div class="badge trend">📈 趋势</div>
+    <h3>微软开源 SkillOpt</h3>
+    <p>把写Agent技能文档变成训练过程：前向传播、反向传播、参数更新、门控验证，9000+ Star。</p>
+    <div class="meta"><span>6/24</span><span>· 开源</span></div>
   </div>
 
-  <div class="article-card">
-    <div class="title"><a href="#">抖音 CPS 带货：34 天佣金 1000+，零粉丝也能做的副业</a></div>
-    <div class="meta-line"><span class="tag biz">抖音</span><span>6月15日</span></div>
+  <div class="news-item">
+    <div class="badge trend">📈 趋势</div>
+    <h3>Agent 明码接单时代到来</h3>
+    <p>"Agent可算开始明码接单了"，但最难的不是标价——是交付质量和信誉体系。</p>
+    <div class="meta"><span>6/16</span><span>· 商业</span></div>
   </div>
 
-  <div class="article-card">
-    <div class="title"><a href="#">小红书虚拟产品：不卷低价做高客单，单店月利润 2 万+</a></div>
-    <div class="meta-line"><span class="tag biz">小红书</span><span>6月11日</span></div>
+  <div class="news-item">
+    <div class="badge new">🆕 新锐</div>
+    <h3>归藏社交卡片 Skill 支持 Live Photo</h3>
+    <p>藏师傅PPT Skills加Pencil无敌了，还能生成Live Photo，4.2K Star。</p>
+    <div class="meta"><span>7/2</span><span>· 设计</span></div>
   </div>
 
-  <div class="article-card">
-    <div class="title"><a href="#">B 站 AI 动画剧场签约计划：小风口项目来了</a></div>
-    <div class="meta-line"><span class="tag biz">AI视频</span><span>6月8日</span></div>
+  <div class="news-item">
+    <div class="badge hot">🔥 爆款</div>
+    <h3>Open Notebook：免费开源 NotebookLM</h3>
+    <p>完全自托管，支持18+模型供应商，自定义播客1-4个声音，MIT开源。</p>
+    <div class="meta"><span>6/19</span><span>· 开源</span></div>
   </div>
+
 </div>
 
-<!-- Section: Openclaw 动态 -->
-<div class="section">
-  <div class="section-title">
-    🦞 Openclaw / 鹅厂养虾 <span class="badge">知识库动态</span>
-  </div>
-
-  <div class="article-card">
-    <div class="title"><a href="#">当 OpenClaw 成为你的个人智能助手——50 个生活场景</a></div>
-    <div class="meta-line"><span class="tag">OpenClaw</span><span>3月</span></div>
-  </div>
-
-  <div class="article-card">
-    <div class="title"><a href="#">腾讯全系"龙虾"产品矩阵来了，个人可直接调用</a></div>
-    <div class="meta-line"><span class="tag">腾讯</span><span class="tag hot">官方</span></div>
-  </div>
-
-  <div class="article-card">
-    <div class="title"><a href="#">腾讯龙虾特工队全景图</a></div>
-    <div class="meta-line"><span class="tag">生态</span><span>四大通道 + 五大虾种</span></div>
-  </div>
+<!-- ═══ TRENDING TABLE ═══ -->
+<div class="section-header">
+  <h2>03 · 完整文章清单</h2>
+  <div class="bar"></div>
 </div>
 
-<!-- Section: 逛逛GitHub -->
-<div class="section">
-  <div class="section-title">
-    ⭐ 逛逛 GitHub 开源精选 <span class="badge">83 篇总</span>
-  </div>
-
-  <div class="article-card">
-    <div class="title"><a href="#">推荐 5 个 yyds 的 Claude Skills 开源项目</a></div>
-    <div class="meta-line"><span class="tag tool">Skills</span><span>11月</span></div>
-  </div>
-
-  <div class="article-card">
-    <div class="title"><a href="#">5 个很火火的个人 AI 知识库 GitHub 项目</a></div>
-    <div class="meta-line"><span class="tag tool">知识库</span><span>11月</span></div>
-  </div>
-
-  <div class="article-card">
-    <div class="title"><a href="#">实测 Gemini 3 Pro，断层领先屠榜</a></div>
-    <div class="meta-line"><span class="tag tool">Gemini</span><span>11月</span></div>
-  </div>
+<div class="trending-table-wrap">
+  <table class="trending-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>标题</th>
+        <th>分类</th>
+        <th>日期</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="color:var(--rivet);font-family:var(--font-mono);font-size:11px">1</td>
+        <td class="td-title"><a href="#">Strix：没有PoC就不算漏洞—拆开这个拿了1.17亿的开源AI渗透agent</a></td>
+        <td><span class="td-tag">安全</span></td>
+        <td class="td-date">7/6</td>
+      </tr>
+      <tr>
+        <td style="color:var(--rivet);font-family:var(--font-mono);font-size:11px">2</td>
+        <td class="td-title"><a href="#">Matt Pocock 发了新 loop-me Skill：拷问 27 轮后把日常工作变成自动流程</a></td>
+        <td><span class="td-tag">Loop</span></td>
+        <td class="td-date">6/26</td>
+      </tr>
+      <tr>
+        <td style="color:var(--rivet);font-family:var(--font-mono);font-size:11px">3</td>
+        <td class="td-title"><a href="#">职业.Skill 2.0：让顶级专家团包揽你的工作</a></td>
+        <td><span class="td-tag">Skill</span></td>
+        <td class="td-date">7/6</td>
+      </tr>
+      <tr>
+        <td style="color:var(--rivet);font-family:var(--font-mono);font-size:11px">4</td>
+        <td class="td-title"><a href="#">卡兹克推荐的 Skill 不止 12 个，真正值钱的是工作流地图</a></td>
+        <td><span class="td-tag">Skill</span></td>
+        <td class="td-date">7/6</td>
+      </tr>
+      <tr>
+        <td style="color:var(--rivet);font-family:var(--font-mono);font-size:11px">5</td>
+        <td class="td-title"><a href="#">Omniroute 10.4K Star：LLM路由模型调度神器</a></td>
+        <td><span class="td-tag">基建</span></td>
+        <td class="td-date">7/5</td>
+      </tr>
+      <tr>
+        <td style="color:var(--rivet);font-family:var(--font-mono);font-size:11px">6</td>
+        <td class="td-title"><a href="#">123K Star！免费云服务大全，每年省下几千块</a></td>
+        <td><span class="td-tag">资源</span></td>
+        <td class="td-date">7/4</td>
+      </tr>
+      <tr>
+        <td style="color:var(--rivet);font-family:var(--font-mono);font-size:11px">7</td>
+        <td class="td-title"><a href="#">盘点17个6月份GitHub开源项目</a></td>
+        <td><span class="td-tag">开源</span></td>
+        <td class="td-date">7/4</td>
+      </tr>
+      <tr>
+        <td style="color:var(--rivet);font-family:var(--font-mono);font-size:11px">8</td>
+        <td class="td-title"><a href="#">WorkBuddy+蚁小二CLI：全平台自媒体打通</a></td>
+        <td><span class="td-tag">工具</span></td>
+        <td class="td-date">7/3</td>
+      </tr>
+      <tr>
+        <td style="color:var(--rivet);font-family:var(--font-mono);font-size:11px">9</td>
+        <td class="td-title"><a href="#">Arch-Guide 开源画图Skill：再见 draw.io</a></td>
+        <td><span class="td-tag">开源</span></td>
+        <td class="td-date">7/3</td>
+      </tr>
+      <tr>
+        <td style="color:var(--rivet);font-family:var(--font-mono);font-size:11px">10</td>
+        <td class="td-title"><a href="#">Hermes Agent 在飞书里告别刷屏：hermes-feishu-card</a></td>
+        <td><span class="td-tag">Agent</span></td>
+        <td class="td-date">7/3</td>
+      </tr>
+      <tr>
+        <td style="color:var(--rivet);font-family:var(--font-mono);font-size:11px">11</td>
+        <td class="td-title"><a href="#">Google 开源 DESIGN.md，根治AI网页廉价脸</a></td>
+        <td><span class="td-tag">设计</span></td>
+        <td class="td-date">7/1</td>
+      </tr>
+      <tr>
+        <td style="color:var(--rivet);font-family:var(--font-mono);font-size:11px">12</td>
+        <td class="td-title"><a href="#">Codex + HyperFrames：一句话把公众号文章变成短视频</a></td>
+        <td><span class="td-tag">创作</span></td>
+        <td class="td-date">6/30</td>
+      </tr>
+      <tr>
+        <td style="color:var(--rivet);font-family:var(--font-mono);font-size:11px">13</td>
+        <td class="td-title"><a href="#">推理成本里最容易被低估的不是Token</a></td>
+        <td><span class="td-tag">成本</span></td>
+        <td class="td-date">6/27</td>
+      </tr>
+      <tr>
+        <td style="color:var(--rivet);font-family:var(--font-mono);font-size:11px">14</td>
+        <td class="td-title"><a href="#">QQ邮箱内测 Agent Mail</a></td>
+        <td><span class="td-tag">产品</span></td>
+        <td class="td-date">6/26</td>
+      </tr>
+      <tr>
+        <td style="color:var(--rivet);font-family:var(--font-mono);font-size:11px">15</td>
+        <td class="td-title"><a href="#">微软开源 SkillOpt：把写Skill变成训练过程</a></td>
+        <td><span class="td-tag">开源</span></td>
+        <td class="td-date">6/24</td>
+      </tr>
+      <tr>
+        <td style="color:var(--rivet);font-family:var(--font-mono);font-size:11px">16</td>
+        <td class="td-title"><a href="#">Hermes上线/learn模式：从任何地方提炼Skill</a></td>
+        <td><span class="td-tag">Agent</span></td>
+        <td class="td-date">6/24</td>
+      </tr>
+      <tr>
+        <td style="color:var(--rivet);font-family:var(--font-mono);font-size:11px">17</td>
+        <td class="td-title"><a href="#">李开复公开提示词驯服Claude：治谄媚和幻觉</a></td>
+        <td><span class="td-tag">Prompt</span></td>
+        <td class="td-date">6/24</td>
+      </tr>
+      <tr>
+        <td style="color:var(--rivet);font-family:var(--font-mono);font-size:11px">18</td>
+        <td class="td-title"><a href="#">Cowart：给Codex装画布改图，不靠文字描述</a></td>
+        <td><span class="td-tag">开源</span></td>
+        <td class="td-date">6/23</td>
+      </tr>
+      <tr>
+        <td style="color:var(--rivet);font-family:var(--font-mono);font-size:11px">19</td>
+        <td class="td-title"><a href="#">Sakana AI 河豚 Fugu：小模型指挥顶级模型</a></td>
+        <td><span class="td-tag">科研</span></td>
+        <td class="td-date">6/22</td>
+      </tr>
+      <tr>
+        <td style="color:var(--rivet);font-family:var(--font-mono);font-size:11px">20</td>
+        <td class="td-title"><a href="#">SAG方案替代RAG：又快又准的AI知识库</a></td>
+        <td><span class="td-tag">技术</span></td>
+        <td class="td-date">6/22</td>
+      </tr>
+      <tr>
+        <td style="color:var(--rivet);font-family:var(--font-mono);font-size:11px">21</td>
+        <td class="td-title"><a href="#">Open Notebook：免费开源NotebookLM</a></td>
+        <td><span class="td-tag">开源</span></td>
+        <td class="td-date">6/19</td>
+      </tr>
+      <tr>
+        <td style="color:var(--rivet);font-family:var(--font-mono);font-size:11px">22</td>
+        <td class="td-title"><a href="#">last30days：14分钟搜遍全网出报告</a></td>
+        <td><span class="td-tag">工具</span></td>
+        <td class="td-date">6/18</td>
+      </tr>
+      <tr>
+        <td style="color:var(--rivet);font-family:var(--font-mono);font-size:11px">23</td>
+        <td class="td-title"><a href="#">Headroom：Token直接省60–95%</a></td>
+        <td><span class="td-tag">成本</span></td>
+        <td class="td-date">6/18</td>
+      </tr>
+      <tr>
+        <td style="color:var(--rivet);font-family:var(--font-mono);font-size:11px">24</td>
+        <td class="td-title"><a href="#">花叔《Loop Engineering橙皮书》发布</a></td>
+        <td><span class="td-tag">Loop</span></td>
+        <td class="td-date">6/17</td>
+      </tr>
+      <tr>
+        <td style="color:var(--rivet);font-family:var(--font-mono);font-size:11px">25</td>
+        <td class="td-title"><a href="#">卡兹克：Prompt该退环境了，未来属于Loop Engineering</a></td>
+        <td><span class="td-tag">Loop</span></td>
+        <td class="td-date">6/15</td>
+      </tr>
+      <tr>
+        <td style="color:var(--rivet);font-family:var(--font-mono);font-size:11px">26</td>
+        <td class="td-title"><a href="#">TencentDB Agent Memory 开源</a></td>
+        <td><span class="td-tag">记忆</span></td>
+        <td class="td-date">6/2</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 
-<!-- Section: 本周关键词云 -->
-<div class="section">
-  <div class="section-title">
-    ☁️ 本周关键词 <span class="badge">高频主题</span>
-  </div>
-  <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-    <span style="font-size: 18px; font-weight: 700; color: var(--accent); background: var(--tag-bg); padding: 6px 14px; border-radius: 20px;">GPT-5.6</span>
-    <span style="font-size: 16px; font-weight: 600; color: #e65c5c; background: var(--tag-bg-hot); padding: 6px 14px; border-radius: 20px;">Skill</span>
-    <span style="font-size: 16px; font-weight: 600; color: var(--accent); background: var(--tag-bg); padding: 6px 14px; border-radius: 20px;">Agent</span>
-    <span style="font-size: 15px; font-weight: 500; color: #8b5cf6; background: #f5f0ff; padding: 6px 14px; border-radius: 20px;">Token 降本</span>
-    <span style="font-size: 15px; font-weight: 500; color: var(--tag-green); background: var(--tag-bg-green); padding: 6px 14px; border-radius: 20px;">Loop Engineering</span>
-    <span style="font-size: 14px; font-weight: 500; color: #0071e3; background: #f0f8ff; padding: 6px 14px; border-radius: 20px;">OpenClaw</span>
-    <span style="font-size: 14px; font-weight: 500; color: var(--text-secondary); background: var(--bg); padding: 6px 14px; border-radius: 20px;">ChatGPT Images 2.0</span>
-    <span style="font-size: 14px; font-weight: 500; color: var(--text-secondary); background: var(--bg); padding: 6px 14px; border-radius: 20px;">DESIGN.md</span>
-    <span style="font-size: 14px; font-weight: 500; color: var(--text-secondary); background: var(--bg); padding: 6px 14px; border-radius: 20px;">Vida</span>
-    <span style="font-size: 14px; font-weight: 500; color: var(--text-secondary); background: var(--bg); padding: 6px 14px; border-radius: 20px;">Codex</span>
-    <span style="font-size: 14px; font-weight: 500; color: var(--text-secondary); background: var(--bg); padding: 6px 14px; border-radius: 20px;">WorkBuddy</span>
-    <span style="font-size: 13px; font-weight: 400; color: var(--text-secondary); background: var(--bg); padding: 6px 14px; border-radius: 20px;">小红书虚拟产品</span>
-    <span style="font-size: 13px; font-weight: 400; color: var(--text-secondary); background: var(--bg); padding: 6px 14px; border-radius: 20px;">抖音 CPS</span>
-    <span style="font-size: 13px; font-weight: 400; color: var(--text-secondary); background: var(--bg); padding: 6px 14px; border-radius: 20px;">MCP</span>
-    <span style="font-size: 13px; font-weight: 400; color: var(--text-secondary); background: var(--bg); padding: 6px 14px; border-radius: 20px;">Claude Code Routines</span>
-  </div>
 </div>
 
-<div class="footer">
-  <p>📡 数据来源：IMA 知识库 × 6 · 昊哥的知识库 · AGI数据库.腾讯研究院 · 掘金线报 · Openclaw · 逛逛GitHub · 鹅厂养虾</p>
-  <p>🤖 由 WorkBuddy 自动化生成 · 昊哥的土豆基地</p>
-  <p style="margin-top: 8px; font-size: 11px;">
-    <a href="https://github.com/lzc0403/skillrush-town" style="color: var(--accent); text-decoration: none;">GitHub</a>
-    ·
-    <a href="https://lzc0403.github.io/skillrush-town/" style="color: var(--accent); text-decoration: none;">GitHub Pages</a>
-  </p>
-</div>
+<!-- ═══ FOOTER ═══ -->
+<footer class="site-footer">
+  <div><strong>AI 内容雷达</strong> · 昊哥知识库驱动</div>
+  <div>Generated <strong>2026.07.06 12:25</strong> · 数据源 IMA Knowledge Base</div>
+</footer>
 
-</div>
 </body>
 </html>

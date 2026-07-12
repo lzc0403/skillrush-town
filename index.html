@@ -1,408 +1,200 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IMA 周报 · 2026-07-10</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IMA 周报 · 2026-07-12</title>
 <style>
-:root {
-  --bg: #faf9f7;
-  --fg: #1e1b18;
-  --muted: #6b6560;
-  --accent: #4f46e5;
-  --accent-light: #eef2ff;
-  --border: #e5e2dc;
-  --card: #ffffff;
-  --shadow: 0 1px 3px rgba(0,0,0,.06);
-  --radius: 8px;
-  --font: -apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
-  --mono: "SF Mono","JetBrains Mono",Menlo,monospace;
-}
-@media(prefers-color-scheme:dark){
-  :root{
-    --bg:#12100e;
-    --fg:#e8e4df;
-    --muted:#8a847e;
-    --accent:#818cf8;
-    --accent-light:#1e1b2e;
-    --border:#2a2722;
-    --card:#1a1815;
-    --shadow:0 1px 3px rgba(0,0,0,.2);
-  }
-}
-*{margin:0;padding:0;box-sizing:border-box}
-body{background:var(--bg);color:var(--fg);font-family:var(--font);line-height:1.6;-webkit-font-smoothing:antialiased}
-.container{max-width:960px;margin:0 auto;padding:48px 24px}
-
-/* header */
-.header{margin-bottom:48px;padding-bottom:24px;border-bottom:1px solid var(--border)}
-.header .label{font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);margin-bottom:8px}
-.header h1{font-size:36px;font-weight:700;letter-spacing:-.02em;line-height:1.2;margin-bottom:8px}
-.header .meta{font-size:14px;color:var(--muted);display:flex;gap:16px;flex-wrap:wrap}
-.header .meta span{display:inline-flex;align-items:center;gap:4px}
-
-/* stat cards */
-.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-bottom:48px}
-.stat-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
-.stat-card .num{font-size:28px;font-weight:700;color:var(--accent);line-height:1}
-.stat-card .label{font-size:13px;color:var(--muted);margin-top:4px}
-
-/* section */
-.section{margin-bottom:48px}
-.section h2{font-size:20px;font-weight:600;margin-bottom:16px;display:flex;align-items:center;gap:8px}
-.section h2 .tag{font-size:12px;font-weight:500;background:var(--accent-light);color:var(--accent);padding:2px 8px;border-radius:4px}
-
-/* trend cards */
-.trends{display:grid;grid-template-columns:1fr;gap:12px}
-.trend-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
-.trend-card .rank{font-size:12px;font-weight:600;color:var(--accent);margin-bottom:4px}
-.trend-card h3{font-size:16px;font-weight:600;margin-bottom:6px}
-.trend-card .desc{font-size:14px;color:var(--muted);margin-bottom:8px;line-height:1.5}
-.trend-card .items{list-style:none;padding:0}
-.trend-card .items li{font-size:13px;padding:3px 0;color:var(--fg);display:flex;gap:6px}
-.trend-card .items li::before{content:"·";color:var(--accent);font-weight:700}
-
-/* timeline */
-.timeline{list-style:none;padding:0}
-.timeline li{position:relative;padding:12px 0 12px 20px;border-left:2px solid var(--border)}
-.timeline li::before{content:"";position:absolute;left:-5px;top:18px;width:8px;height:8px;border-radius:50%;background:var(--accent)}
-.timeline li .date{font-size:12px;font-weight:600;color:var(--accent);font-family:var(--mono)}
-.timeline li .title{font-size:14px;font-weight:500;margin:2px 0}
-.timeline li .note{font-size:13px;color:var(--muted)}
-
-/* article grid */
-.articles{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px}
-.article-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;box-shadow:var(--shadow);transition:border-color .15s}
-.article-card:hover{border-color:var(--accent)}
-.article-card .cat{font-size:11px;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:.04em;margin-bottom:4px}
-.article-card h4{font-size:14px;font-weight:500;line-height:1.4}
-
-/* insight */
-.insight{background:var(--accent-light);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:12px}
-.insight .num{font-size:13px;font-weight:600;color:var(--accent);margin-bottom:4px}
-.insight p{font-size:14px;line-height:1.6}
-
-/* special banner */
-.breaking{background:linear-gradient(135deg,#eef2ff,#fdf2f8);border:1px solid var(--accent);border-radius:var(--radius);padding:20px;margin-bottom:48px;text-align:center}
-.breaking .label{font-size:12px;font-weight:700;color:#dc2626;letter-spacing:.1em;margin-bottom:4px}
-.breaking h2{font-size:22px;font-weight:700;color:var(--fg);margin-bottom:6px}
-.breaking p{font-size:14px;color:var(--muted)}
-
-/* footer */
-.footer{margin-top:64px;padding-top:24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted);text-align:center}
-
-@media(max-width:640px){
-  .container{padding:24px 16px}
-  .header h1{font-size:28px}
-  .stats{grid-template-columns:repeat(2,1fr)}
-  .articles{grid-template-columns:1fr}
-}
+:root{--bg:#fafafa;--fg:#1a1a1a;--mut:#6b7280;--line:#e5e7eb;--accent:#4f46e5;--accent2:#818cf8;--card:#fff;}
+@media (prefers-color-scheme: dark){:root{--bg:#0d0d0f;--fg:#e8e8ea;--mut:#9aa0aa;--line:#26262b;--card:#16161a;}}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--fg);line-height:1.65;padding:0 20px;}
+.wrap{max-width:880px;margin:0 auto;padding:56px 0 80px}
+header{border-bottom:1px solid var(--line);padding-bottom:28px;margin-bottom:36px}
+.kicker{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:600}
+h1{font-size:40px;font-weight:800;letter-spacing:-.02em;margin:10px 0 6px}
+.sub{color:var(--mut);font-size:15px}
+.breaking{background:linear-gradient(100deg,var(--accent),var(--accent2));color:#fff;border-radius:14px;padding:16px 20px;margin:28px 0;font-size:14.5px;font-weight:500;display:flex;gap:10px;align-items:center}
+.breaking b{font-weight:800}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:30px 0}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 16px}
+.stat .n{font-size:28px;font-weight:800;color:var(--accent)}
+.stat .l{font-size:12.5px;color:var(--mut);margin-top:4px}
+section{margin:46px 0}
+h2{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);font-weight:700;margin-bottom:18px;border-left:3px solid var(--accent);padding-left:10px}
+.ins-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.ins-card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px;position:relative}
+.ins-no{position:absolute;top:14px;right:16px;font-size:30px;font-weight:800;color:var(--line);line-height:1}
+.ins-card h4{font-size:16px;font-weight:700;margin-bottom:8px;padding-right:36px}
+.ins-card p{font-size:13.5px;color:var(--mut)}
+.tl-item{display:grid;grid-template-columns:54px 78px 1fr;gap:12px;padding:13px 0;border-bottom:1px solid var(--line);align-items:start}
+.tl-date{font-weight:700;color:var(--accent);font-size:14px}
+.tl-src{font-size:12px;color:var(--mut);padding-top:2px}
+.tl-item p{font-size:14px}
+.feat-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.feat-card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.feat-card h4{font-size:15px;font-weight:700;margin-bottom:10px}
+.feat-card h4 em{font-style:normal;color:var(--accent);font-size:13px;margin-left:6px}
+.feat-card ul{list-style:none}
+.feat-card li{font-size:13px;color:var(--mut);padding:5px 0 5px 16px;position:relative}
+.feat-card .dot{position:absolute;left:0;top:11px;width:6px;height:6px;border-radius:50%;background:var(--accent2)}
+.cat-row{display:grid;grid-template-columns:130px 1fr 42px;gap:12px;align-items:center;padding:7px 0}
+.cat-name{font-size:13.5px}
+.cat-bar{background:var(--line);border-radius:6px;height:8px;overflow:hidden}
+.cat-bar i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:6px}
+.cat-num{font-size:13px;font-weight:700;text-align:right;color:var(--accent)}
+.trends{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 24px}
+.trends li{font-size:14px;padding:8px 0 8px 20px;position:relative;list-style:none}
+.trends li::before{content:"→";position:absolute;left:0;color:var(--accent);font-weight:800}
+footer{margin-top:56px;border-top:1px solid var(--line);padding-top:22px;color:var(--mut);font-size:13px}
+footer a{color:var(--accent);text-decoration:none}
+@media(max-width:680px){.stats{grid-template-columns:repeat(2,1fr)}.ins-grid,.feat-grid{grid-template-columns:1fr}.tl-item{grid-template-columns:48px 1fr}h1{font-size:30px}}
 </style>
 </head>
-<body>
-<div class="container">
-
-<header class="header">
-  <div class="label">IMA 知识库周报</div>
-  <h1>昊哥的土豆基地 · 内容雷达</h1>
-  <div class="meta">
-    <span>📅 2026-07-10</span>
-    <span>📊 150 篇精选文章</span>
-    <span>🏷️ 13 个分类</span>
-    <span>🔗 <a href="https://lzc0403.github.io/skillrush-town/" style="color:var(--accent)">GitHub Pages</a></span>
-  </div>
+<body><div class="wrap">
+<header>
+  <div class="kicker">IMA Knowledge Base · Weekly</div>
+  <h1>IMA 周报</h1>
+  <div class="sub">2026-07-12 · 近 60 天文章盘点 + 本周 AI 速递 · 数据源：昊哥的知识库（缓存 150 篇 / 13 分类）+ 网络检索</div>
 </header>
 
-<div class="breaking">
-  <div class="label">🔥 BREAKING</div>
-  <h2>阿里今日全面禁用 Claude 生效 · GPT-5.6 全球开放次日</h2>
-  <p>7/10 0:00 起阿里全面切断 Claude API/Code，约 12 万开发者进入 48 小时迁移倒计时。GPT-5.6 Sol/Terra/Luna 三款模型昨日全球开放，Grok 4.5 同步公测。下周 DeepSeek V4 峰谷定价（7/15）与 Gemini 3.5 Pro（7/17）接力登场。</p>
-</div>
+<div class="breaking">🚀 <span><b>本周密集发布：</b>GPT-5.6 全面开放 · Grok 4.5 编程智能体 · Meta Muse Spark 1.1 白菜价打榜 · ChatGPT Work 企业智能体上线</span></div>
 
 <div class="stats">
-  <div class="stat-card"><div class="num">33</div><div class="label">Skills 编排</div></div>
-  <div class="stat-card"><div class="num">28</div><div class="label">Codex/CC 生态</div></div>
-  <div class="stat-card"><div class="num">17</div><div class="label">开源项目</div></div>
-  <div class="stat-card"><div class="num">10</div><div class="label">API 网关/降本</div></div>
-  <div class="stat-card"><div class="num">7</div><div class="label">图像生成</div></div>
-  <div class="stat-card"><div class="num">150</div><div class="label">近60天总量</div></div>
+  <div class="stat"><div class="n">150</div><div class="l">知识库文章（缓存）</div></div>
+  <div class="stat"><div class="n">13</div><div class="l">内容分类</div></div>
+  <div class="stat"><div class="n">10</div><div class="l">本周 AI 速递</div></div>
+  <div class="stat"><div class="n">07-12</div><div class="l">生成日期</div></div>
 </div>
 
-<section class="section">
-  <h2>🔥 本周热点洞察 <span class="tag">7大趋势</span></h2>
-  <div class="trends">
-
-    <div class="trend-card">
-      <div class="rank">#01 · 今日最大事件</div>
-      <h3>阿里全面禁用 Claude 今日生效 · 国产工具链承压受检</h3>
-      <div class="desc">7/10 0:00 起阿里全面切断 Claude API/Code，约 12 万开发者进入 48 小时迁移倒计时。工信部 NVDB 此前对 Claude Code 2.1.91-2.1.196 版本发出国家级后门警告，定调"危害严重"。通义灵码、字节 Trae、腾讯 CodeBuddy 同步推出迁移补贴——这是国产编程模型第一次在"真实断供"压力下接受考验。</div>
-      <ul class="items">
-        <li>阿里 12 万开发者 48 小时迁移倒计时启动</li>
-        <li>工信部定调"危害严重"，建议立即卸载</li>
-        <li>通义灵码/Trae/CodeBuddy 紧急迁移补贴</li>
-        <li>中美 AI 工具互防从企业级升到国家监管</li>
-      </ul>
-    </div>
-
-    <div class="trend-card">
-      <div class="rank">#02</div>
-      <h3>GPT-5.6 全球开放 + Grok 4.5 同日叫板</h3>
-      <div class="desc">美国商务部放行后，OpenAI 于 7/9 全面上线 GPT-5.6 Sol/Terra/Luna。Sol 旗舰 Terminal-Bench 得分 96.7%，支持多智能体协作。SpaceXAI 同日推出 Grok 4.5（1.5T 参数），马斯克称"Opus 级但更快更省"。同日 OpenAI 发布 GPT-Live 全双工语音，可边听边说随时打断。</div>
-      <ul class="items">
-        <li>GPT-5.6 Sol Terminal-Bench 2.1 得分 96.7%</li>
-        <li>GPT-Live 全双工语音模型同日发布</li>
-        <li>Grok 4.5 定价 $2/$6 每百万 token，对标 Opus 4.7</li>
-        <li>7 月 17 日 Gemini 3.5 Pro 即将发布</li>
-      </ul>
-    </div>
-
-    <div class="trend-card">
-      <div class="rank">#03</div>
-      <h3>WorkBuddy + HY3 正式版持续发酵</h3>
-      <div class="desc">WorkBuddy 混元 3 正式版成为 IMA 知识库本周最热话题之一，内测体验评测全面铺开。WorkBuddy 生态持续扩张——蚁小二 CLI 打通全平台自媒体，官方翻牌用户记忆分层提示词，苍何 GEO 诊断专家入职腾讯 WorkBuddy。</div>
-      <ul class="items">
-        <li>WorkBuddy + HY3 正式版初体验评测</li>
-        <li>WorkBuddy + 蚁小二 CLI 全平台自媒体打通</li>
-        <li>苍何 GEO 诊断专家入职腾讯 WorkBuddy</li>
-        <li>记忆分层提示词被官号翻牌</li>
-      </ul>
-    </div>
-
-    <div class="trend-card">
-      <div class="rank">#04</div>
-      <h3>Skill 生态持续爆发</h3>
-      <div class="desc">卡兹克全库 85+ Skills 被完全盘点，Matt Pocock 新 loop-me Skill 可拷问 27 轮后自动生成工作流。开源配图 Skill、画图 Skill（再见 draw.io）、职业 Skill 2.0 持续涌现。AI Agent 明码接单，Skill 经济正在成型。</div>
-      <ul class="items">
-        <li>卡兹克全库 85 个 Skills 被完整盘点</li>
-        <li>Matt Pocock loop-me Skill 自动生成流程</li>
-        <li>开源文章配图 Skill + 画图 Skill 发布</li>
-        <li>职业 Skill 2.0 让顶级专家团包揽工作</li>
-      </ul>
-    </div>
-
-    <div class="trend-card">
-      <div class="rank">#05</div>
-      <h3>中国开源模型全球份额飙升至 46%</h3>
-      <div class="desc">OpenRouter 统计显示，美国企业调用中国模型的 Token 占比从 4.5% 飙升至 46%，不到一年翻十倍。DeepSeek-V4-Flash 连续七周调用量榜首，智谱 GLM-5.2 上线首周增长 27 倍。DeepSeek V4 峰谷定价 7/15 上线，低谷低至 0.5 元/百万 token。</div>
-      <ul class="items">
-        <li>80% 美国 AI 初创使用中国开源模型</li>
-        <li>DeepSeek V4 峰谷定价：低谷 0.5 元/百万 token</li>
-        <li>智谱 GLM-5.2 客户数增长 80 倍</li>
-        <li>中美模型价差 60-90%，性能差距仅 6-9 个月</li>
-      </ul>
-    </div>
-
-    <div class="trend-card">
-      <div class="rank">#06</div>
-      <h3>Token 降本军备竞赛</h3>
-      <div class="desc">Headroom 省 60-95% token，OmniRoute 聚合 231 个 AI 提供商每月 16 亿免费 token。Codex 一键省 Token 神器 Ponytail 冲上 GitHub 热门。多模型路由（OmniRoute/OpenSquilla）成为省钱新范式。</div>
-      <ul class="items">
-        <li>Headroom + CC Switch 极空间教程爆火</li>
-        <li>OmniRoute 8400 Star，231 个提供商免费网关</li>
-        <li>Codex Ponytail 冲上 GitHub 热门榜</li>
-        <li>OpenSquilla 自动路由到最便宜的模型</li>
-      </ul>
-    </div>
-
-    <div class="trend-card">
-      <div class="rank">#07</div>
-      <h3>AI 设计审美革命</h3>
-      <div class="desc">8 个开源项目专治 AI 网页"流水线廉价脸"。Google DESIGN.md 2 万星，Impeccable 3.3 万星，23 条命令治排版/色彩/动效。Cowart 让 Codex 拥有无限画布改图功能。藏师傅社交卡片 Skill 支持 Live Photo。</div>
-      <ul class="items">
-        <li>8 个神级 GitHub 项目让 AI 网页好看飞起</li>
-        <li>Google DESIGN.md 2 万星根治 AI 设计味</li>
-        <li>Impeccable 3.3 万星，23 条命令覆盖 7 个领域</li>
-        <li>Cowart 为 Codex 装无限画布改图</li>
-      </ul>
-    </div>
-
-  </div>
+<section>
+  <h2>七大热点洞察</h2>
+  <div class="ins-grid"><div class="ins-card">
+      <span class="ins-no">01</span>
+      <h4>模型密集发布周</h4><p>GPT-5.6 / Grok 4.5 / Muse Spark 1.1 四天内三连发，OpenAI 攻企业栈、Meta 打白菜价、xAI 做专家。Anthropic Fable 5 仍是各家对标的标杆。</p></div><div class="ins-card">
+      <span class="ins-no">02</span>
+      <h4>价格战开打</h4><p>Muse Spark 1.1 定价仅为 Fable 5 的 1/10；GPT-5.6 Sol Token 效率较前代提升 54%。推理成本继续下探，Agent 全天跑的门槛被拉低。</p></div><div class="ins-card">
+      <span class="ins-no">03</span>
+      <h4>Agent 走进浏览器与办公</h4><p>ChatGPT Work 把聊天+Codex 合体建站建文档；ChatGPT 进驻 Chrome 可碰本地文件。浏览器正从信息窗口变成 AI 执行工作台。</p></div><div class="ins-card">
+      <span class="ins-no">04</span>
+      <h4>跨厂商 Agent 协作成趋势</h4><p>OpenAI 官方为 Claude Code 写 codex-plugin-cc 插件；Orca / Omnigent 统一多 Agent 并行不冲突。生态从封闭走向桥接。</p></div><div class="ins-card">
+      <span class="ins-no">05</span>
+      <h4>AI 编程效率悖论</h4><p>MIT 追踪 10 万开发者：代码量增 17 倍，实际交付仅增 30%；GitLab 报告 85% 认为瓶颈已转到审查与验证。Agent 从「补全」转向「接任务」。</p></div><div class="ins-card">
+      <span class="ins-no">06</span>
+      <h4>国产模型与替代机遇</h4><p>阿里禁用 Claude Code 推千问；腾讯接盘 Manus；MiniMax 大额融资。国内智能体生态在合规驱动下加速闭环。</p></div><div class="ins-card">
+      <span class="ins-no">07</span>
+      <h4>Skill 经济持续爆发</h4><p>知识库内 Skills 类目文章占比最高（33 篇），女娲/MetaSkill/达尔文.skill 2.0 等持续开源。「消 AI 味」「记忆分层」「Loop Engineering」成新热点。</p></div></div>
 </section>
 
-<section class="section">
-  <h2>📰 AI 速递 <span class="tag">7月8-10日</span></h2>
-  <ul class="timeline">
-    <li>
-      <div class="date">7月10日</div>
-      <div class="title">阿里全面禁用 Claude 正式生效</div>
-      <div class="note">0:00 起切断 Claude API/Code，约 12 万开发者进入 48 小时迁移倒计时，国产工具链承接测试开始</div>
-    </li>
-    <li>
-      <div class="date">7月9日</div>
-      <div class="title">GPT-5.6 全球全面开放 · GPT-Live 全双工语音发布</div>
-      <div class="note">美国商务部放行后 OpenAI 全面上线 Sol/Terra/Luna 三款模型。同日发布 GPT-Live 全双工语音，支持边听边说随时打断</div>
-    </li>
-    <li>
-      <div class="date">7月9日</div>
-      <div class="title">SpaceXAI 发布 Grok 4.5，1.5T 参数</div>
-      <div class="note">马斯克称"Opus级模型"，定价 $2/$6 每百万 token，与 GPT-5.6 同日向公众开放</div>
-    </li>
-    <li>
-      <div class="date">7月9日</div>
-      <div class="title">中国 AI 模型美国市场占比飙升至 46%</div>
-      <div class="note">OpenRouter 统计不到一年翻十倍，DeepSeek-V4-Flash 连续七周全球调用量第一</div>
-    </li>
-    <li>
-      <div class="date">7月8日</div>
-      <div class="title">工信部发布 Claude Code 后门风险警告</div>
-      <div class="note">NVDB 警告 2.1.91-2.1.196 版本存在监控后门，定调"危害严重"，建议立即卸载</div>
-    </li>
-    <li>
-      <div class="date">7月8日</div>
-      <div class="title">中国考虑批准阿里/字节/DeepSeek 购买 Nvidia H200</div>
-      <div class="note">有限数量，与 DeepSeek 自研推理芯片形成双轨策略</div>
-    </li>
-    <li>
-      <div class="date">7月8日</div>
-      <div class="title">DeepSeek V4 峰谷定价细则公布</div>
-      <div class="note">7月15日上线，低谷低至 0.5 元/百万 token，引入行业首创峰谷机制</div>
-    </li>
-    <li>
-      <div class="date">7月7-8日</div>
-      <div class="title">Codex 多账号切换 + HY3 正式版体验</div>
-      <div class="note">WorkBuddy HY3 正式版评测全面铺开，多 Codex 账号切换教程发布</div>
-    </li>
-    <li>
-      <div class="date">7月6日</div>
-      <div class="title">Strix 安全 Agent + OmniRoute 免费网关</div>
-      <div class="note">Strix 37K Star AI 渗透 Agent，OmniRoute 8400 Star 聚合 231 提供商</div>
-    </li>
-  </ul>
+<section>
+  <h2>本周 AI 速递时间线（7/7 – 7/12）</h2>
+  <div class="tl"><div class="tl-item">
+      <span class="tl-date">07-07</span><span class="tl-src">Meta</span>
+      <p>Muse Image 发布 — 超级智能实验室首个生图模型，可渲染可读文字、生成功能性二维码并内嵌 Content Seal 水印</p></div><div class="tl-item">
+      <span class="tl-date">07-08</span><span class="tl-src">SpaceXAI</span>
+      <p>Grok 4.5 发布 — 1.5 万亿参数编程智能体，50 万 token 上下文，深度配套 Cursor</p></div><div class="tl-item">
+      <span class="tl-date">07-09</span><span class="tl-src">OpenAI</span>
+      <p>GPT-5.6 全面开放 — Sol/Terra/Luna 三档，Ultra 模式并行子 Agent；同步推出 GPT-Live 全双工语音模型</p></div><div class="tl-item">
+      <span class="tl-date">07-09</span><span class="tl-src">Meta</span>
+      <p>Muse Spark 1.1 发布 — Agent 取向，100 万 token 上下文自压缩，定价仅为 Fable 5 的 1/10</p></div><div class="tl-item">
+      <span class="tl-date">07-10</span><span class="tl-src">OpenAI</span>
+      <p>ChatGPT Work 上线 — 融合 ChatGPT + Codex 的企业级智能体，可建文档/演示/网站；ChatGPT 进驻 Chrome 侧边栏</p></div><div class="tl-item">
+      <span class="tl-date">07-10</span><span class="tl-src">阿里</span>
+      <p>7/10 起全面禁用 Claude Code — 列高风险软件，强推千问替代</p></div><div class="tl-item">
+      <span class="tl-date">07-10</span><span class="tl-src">腾讯</span>
+      <p>拟接盘 Manus 成最大股东，估值 20 亿美元发力智能体生态</p></div><div class="tl-item">
+      <span class="tl-date">07-10</span><span class="tl-src">MiniMax</span>
+      <p>完成 160 亿港元融资，创始人宣布零薪酬直至实现 AGI</p></div><div class="tl-item">
+      <span class="tl-date">07-11</span><span class="tl-src">字节</span>
+      <p>Seedance 2.5 / Seedream 5.0 Pro 将于 7/16 全量开放 API</p></div><div class="tl-item">
+      <span class="tl-date">07-12</span><span class="tl-src">开源</span>
+      <p>codex-plugin-cc（26K★）、Orca 多 Agent IDE（14K★）、Omnigent 元 Harness（6.4K★）集中爆发，跨厂商 Agent 协作成趋势</p></div></div>
 </section>
 
-<section class="section">
-  <h2>📚 精选文章 <span class="tag">按分类</span></h2>
-  <div class="articles">
-
-    <div class="article-card">
-      <div class="cat">Skills 编排</div>
-      <h4>数字生命卡兹克推荐过的所有 Skills，我帮你全扒干净了</h4>
-    </div>
-    <div class="article-card">
-      <div class="cat">Skills 编排</div>
-      <h4>最近的流量焦虑，被这两个开源 Skill 解决了</h4>
-    </div>
-    <div class="article-card">
-      <div class="cat">Skills 编排</div>
-      <h4>藏师傅 PPT Skills 加 Pencil 无敌了!</h4>
-    </div>
-    <div class="article-card">
-      <div class="cat">Skills 编排</div>
-      <h4>开源一个非常漂亮的文章配图 Skill</h4>
-    </div>
-    <div class="article-card">
-      <div class="cat">Skills 编排</div>
-      <h4>Matt Pocock 发了新 loop-me Skill</h4>
-    </div>
-    <div class="article-card">
-      <div class="cat">Skills 编排</div>
-      <h4>职业.Skill 2.0：让顶级专家团包揽你的工作</h4>
-    </div>
-    <div class="article-card">
-      <div class="cat">Hermes/Agent</div>
-      <h4>这一波抢跑了！WorkBuddy+HY3 正式版初体验</h4>
-    </div>
-    <div class="article-card">
-      <div class="cat">Automation</div>
-      <h4>分享 WorkBuddy+蚁小二 CLI，全平台自媒体打通</h4>
-    </div>
-    <div class="article-card">
-      <div class="cat">Hermes/Agent</div>
-      <h4>WorkBuddy 变更聪明的秘密，藏在这段记忆分层提示词里</h4>
-    </div>
-    <div class="article-card">
-      <div class="cat">Productivity</div>
-      <h4>苍何的 GEO 诊断专家入职腾讯 WorkBuddy</h4>
-    </div>
-    <div class="article-card">
-      <div class="cat">AI 模型</div>
-      <h4>全球排名前 2 的大模型，你到底适合选择哪个？</h4>
-    </div>
-    <div class="article-card">
-      <div class="cat">AI 模型</div>
-      <h4>这款 10.4K star 的 LLM Route 满足你模型调度的一切幻想</h4>
-    </div>
-    <div class="article-card">
-      <div class="cat">开源项目</div>
-      <h4>吐血整理 8 个神级 GitHub 开源项目，让 AI 生成网页好看飞起</h4>
-    </div>
-    <div class="article-card">
-      <div class="cat">开源项目</div>
-      <h4>又一个画图 Skill 开源，再见 draw.io!</h4>
-    </div>
-    <div class="article-card">
-      <div class="cat">开源项目</div>
-      <h4>3 个月 GitHub 拿了 1.6 万颗星，一个人干掉了整个内容团队</h4>
-    </div>
-    <div class="article-card">
-      <div class="cat">API 网关/降本</div>
-      <h4>超省钱组合！Headroom + CC Switch 极空间教程</h4>
-    </div>
-    <div class="article-card">
-      <div class="cat">API 网关/降本</div>
-      <h4>16 亿免费 token/月！231 个 AI 提供商塞进一个免费网关</h4>
-    </div>
-    <div class="article-card">
-      <div class="cat">API 网关/降本</div>
-      <h4>这个爆红的 GitHub 项目让 token 直接省 60–95%</h4>
-    </div>
-    <div class="article-card">
-      <div class="cat">Codex/CC 生态</div>
-      <h4>多个 Codex 账号如何优雅切换账号？保姆级教程</h4>
-    </div>
-    <div class="article-card">
-      <div class="cat">Codex/CC 生态</div>
-      <h4>Codex + HyperFrames：一句话把公众号文章变成短视频</h4>
-    </div>
-    <div class="article-card">
-      <div class="cat">Agent 工具</div>
-      <h4>没有 PoC 就不算漏洞：拆开这个拿了 1.17 亿的开源 AI 渗透 agent</h4>
-    </div>
-    <div class="article-card">
-      <div class="cat">图像生成</div>
-      <h4>卡兹克大佬网站被攻击? 新手 Vibe Coding 上线安全指南</h4>
-    </div>
-    <div class="article-card">
-      <div class="cat">开源项目</div>
-      <h4>2 万星封神！谷歌开源 DESIGN.md</h4>
-    </div>
-    <div class="article-card">
-      <div class="cat">开源项目</div>
-      <h4>3.3 万星专治 AI 味设计（Impeccable）</h4>
-    </div>
-  </div>
+<section>
+  <h2>知识库精选（按分类）</h2>
+  <div class="feat-grid"><div class="feat-card">
+      <h4>Skills 技能 <em>33</em></h4>
+      <ul><li><span class="dot"></span>数字生命卡兹克推荐过的所有 Skills，我帮你全扒干净了</li><li><span class="dot"></span>刚刚，Hermes上线/learn 模式！从任何地方提炼任何Skill！</li><li><span class="dot"></span>达尔文.skill 2.0正式开源发布！</li></ul>
+    </div><div class="feat-card">
+      <h4>Codex/Claude Code <em>28</em></h4>
+      <ul><li><span class="dot"></span>近20万Star！这个哥们把Claude Code玩成了数字工厂，然后全开源了</li><li><span class="dot"></span>Codex + HyperFrames：一句话把公众号文章变成短视频</li><li><span class="dot"></span>Codex终于能用国产模型了！保姆级教程来！</li></ul>
+    </div><div class="feat-card">
+      <h4>开源项目 <em>17</em></h4>
+      <ul><li><span class="dot"></span>盘点 17 个 6 月份牛牛牛的 GitHub 开源项目。</li><li><span class="dot"></span>GitHub 上 13 万星的爬虫神器，不要 API Key 就能用了。</li><li><span class="dot"></span>让 Agent 拥有超强记忆，TencentDB Agent Memory 开源了！</li></ul>
+    </div><div class="feat-card">
+      <h4>AI 模型 <em>4</em></h4>
+      <ul><li><span class="dot"></span>全球排名前2的大模型，你到底适合选择哪个？</li><li><span class="dot"></span>免费！DeepSeek-V4-Pro薅羊毛指南</li><li><span class="dot"></span>告别大模型迷信：这个开源框架让 8B 小模型在 Agent 任务上干翻 Sonnet</li></ul>
+    </div><div class="feat-card">
+      <h4>AI 生图 <em>7</em></h4>
+      <ul><li><span class="dot"></span>比 Nano Banana Pro 还强？GPT Image 2 中文封面实测来了</li><li><span class="dot"></span>我把自己的IP配图技能开源了 顺手做了31个现成角色</li><li><span class="dot"></span>这个开源项目，把 AI生图的水印干掉了</li></ul>
+    </div></div>
 </section>
 
-<section class="section">
-  <h2>💡 趋势洞察 <span class="tag">4条</span></h2>
-
-  <div class="insight">
-    <div class="num">#1</div>
-    <p><strong>中美 AI 脱钩今日进入执行阶段。</strong> 阿里 7/10 全面封禁 Claude 生效 + 工信部国家级后门警告，意味着中国开发者的海外 AI 工具依赖正在被政策强制切断。12 万阿里开发者 48 小时内必须迁移——这是国产编程模型（通义灵码、Trae、CodeBuddy）第一次在"真实断供"压力下接受考验。能接住这波迁移的，就能定义未来三年的中国 AI 编程生态。</p>
-  </div>
-
-  <div class="insight">
-    <div class="num">#2</div>
-    <p><strong>三周四款旗舰，模型竞赛进入交付战。</strong> GPT-5.6 与 Grok 4.5 已于 7/9 同日开放，下周还有 DeepSeek V4（7/15）和 Gemini 3.5 Pro（7/17）。大模型从"谁更强"转向"谁能更快大规模交付"。价格战同步白热化——Grok 4.5 定价仅为 Opus 的 1/4，DeepSeek V4 低谷价 0.5 元/百万 token。边际成本持续趋近于零，估值逻辑正在重塑。</p>
-  </div>
-
-  <div class="insight">
-    <div class="num">#3</div>
-    <p><strong>中国开源模型靠性价比攻占全球。</strong> 46% 的美国企业 AI Token 来自中国模型，这一数字一年前只有 4.5%。DeepSeek-V4-Flash 连续七周全球调用量榜首。决定胜负的不再是单点能力，而是"性能差距 6-9 个月 + 价格低 60-90% = 不可抗拒的性价比"。当 Token 成本降到接近免费，模型选择从技术决策变成经济决策。</p>
-  </div>
-
-  <div class="insight">
-    <div class="num">#4</div>
-    <p><strong>Skill 经济正在从工具层升维到商业层。</strong> 本周 Skill 话题持续霸榜——卡兹克 85 个 Skills 盘点、Matt Pocock loop-me Skill 自动生成工作流、藏师傅 PPT+Live Photo、开源配图/画图 Skill 层出不穷。Agent 开始"明码接单"，Skill 从个人效率工具演变为可交易的数字资产。在 WorkBuddy+HY3 生态下，谁先建起 Skill 分发闭环，谁就掌握了下一代 AI 平台入口。</p>
-  </div>
-
+<section>
+  <h2>知识库分类分布</h2>
+  <div class="cats"><div class="cat-row">
+      <span class="cat-name">Skills 技能</span>
+      <span class="cat-bar"><i style="width:84%"></i></span>
+      <span class="cat-num">33</span>
+    </div><div class="cat-row">
+      <span class="cat-name">Codex/Claude Code</span>
+      <span class="cat-bar"><i style="width:71%"></i></span>
+      <span class="cat-num">28</span>
+    </div><div class="cat-row">
+      <span class="cat-name">开源项目</span>
+      <span class="cat-bar"><i style="width:43%"></i></span>
+      <span class="cat-num">17</span>
+    </div><div class="cat-row">
+      <span class="cat-name">综合</span>
+      <span class="cat-bar"><i style="width:100%"></i></span>
+      <span class="cat-num">39</span>
+    </div><div class="cat-row">
+      <span class="cat-name">AI 模型</span>
+      <span class="cat-bar"><i style="width:10%"></i></span>
+      <span class="cat-num">4</span>
+    </div><div class="cat-row">
+      <span class="cat-name">AI 生图</span>
+      <span class="cat-bar"><i style="width:17%"></i></span>
+      <span class="cat-num">7</span>
+    </div><div class="cat-row">
+      <span class="cat-name">API/Token</span>
+      <span class="cat-bar"><i style="width:25%"></i></span>
+      <span class="cat-num">10</span>
+    </div><div class="cat-row">
+      <span class="cat-name">Agent 工具</span>
+      <span class="cat-bar"><i style="width:7%"></i></span>
+      <span class="cat-num">3</span>
+    </div><div class="cat-row">
+      <span class="cat-name">自动化</span>
+      <span class="cat-bar"><i style="width:5%"></i></span>
+      <span class="cat-num">2</span>
+    </div><div class="cat-row">
+      <span class="cat-name">Hermes Agent</span>
+      <span class="cat-bar"><i style="width:7%"></i></span>
+      <span class="cat-num">3</span>
+    </div><div class="cat-row">
+      <span class="cat-name">效率</span>
+      <span class="cat-bar"><i style="width:2%"></i></span>
+      <span class="cat-num">1</span>
+    </div><div class="cat-row">
+      <span class="cat-name">变现</span>
+      <span class="cat-bar"><i style="width:2%"></i></span>
+      <span class="cat-num">1</span>
+    </div><div class="cat-row">
+      <span class="cat-name">行业新闻</span>
+      <span class="cat-bar"><i style="width:5%"></i></span>
+      <span class="cat-num">2</span>
+    </div></div>
 </section>
 
-<footer class="footer">
-  <p>数据来源：IMA 知识库「昊哥的知识库」· 150 篇近 60 天文章 · 2026-07-10 生成</p>
-  <p style="margin-top:4px">由 WorkBuddy 自动化生成 · Hermes ⚡</p>
+<section>
+  <h2>趋势洞察</h2>
+  <div class="trends"><ul><li>推理成本不再是门槛，Agent 全天候运行成为常态 — Token 调度、缓存、小模型上位将决定胜负。</li><li>编程 Agent 进入「智能体集群」时代 — 多 Agent 并行、跨厂商协作、自我验证逐步成为标配。</li><li>前端交互革命：全双工语音 + 浏览器内 Agent + 设计级生图，AI 产品从「对话框」走向「工作台」。</li><li>Skill/工具生态去中心化：开源 Harness 把模型层与工具层解耦，开发者不再被单一厂商锁定。</li></ul></div>
+</section>
+
+<footer>
+  部署链接：<a href="https://lzc0403.github.io/skillrush-town/">https://lzc0403.github.io/skillrush-town/</a><br>
+  生成时间：2026-07-12 21:00 (GMT+8) · 由 WorkBuddy 自动化生成 · 乐享同步：连接器断开（待重授权）
 </footer>
-
-</div>
-</body>
-</html>
+</div></body></html>

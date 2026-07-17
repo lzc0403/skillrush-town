@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>IMA 周报 · 2026-07-16</title>
+<title>IMA 周报 · 2026-07-17</title>
 <style>
 :root{--bg:#fafafa;--fg:#1a1a1a;--mut:#6b7280;--line:#e5e7eb;--accent:#4f46e5;--accent2:#818cf8;--card:#fff;}
 @media (prefers-color-scheme: dark){:root{--bg:#0d0d0f;--fg:#e8e8ea;--mut:#9aa0aa;--line:#26262b;--card:#16161a;}}
@@ -55,157 +55,160 @@ footer a{color:var(--accent);text-decoration:none}
 <header>
   <div class="kicker">IMA Knowledge Base · Weekly</div>
   <h1>IMA 周报</h1>
-  <div class="sub">2026-07-16 · 近 60 天文章盘点 + 本周 AI 速递 · 数据源：昊哥的知识库（555 篇，近 60 天扫描 100 篇分析）</div>
+  <div class="sub">2026-07-17 · 近 60 天文章盘点 + 本周 AI 速递 · 数据源：昊哥的知识库（缓存 150 篇 / 13 分类）+ 网络检索</div>
 </header>
 
-<div class="breaking">🚀 <span><b>本周聚焦：</b>Skill 生态 17 万星里程碑 · 中国 00 后攻破 Agent 记忆难题 · WorkBuddy 蓝皮书发布 · Obscura 浏览器 18K star · GLM-5.2 Coding Plan 抢购</span></div>
+<div class="breaking">🚀 <span><b>本周焦点：</b>模型免费化与价格战并行（Agnes 免费 Coding / Fable 5 延长免费期）· Skill 成为 AI 新货币（大厂竞相 Skill 化）· 开源 Agent 工具「可安装化」</span></div>
 
 <div class="stats">
-  <div class="stat"><div class="n">555</div><div class="l">知识库总量</div></div>
-  <div class="stat"><div class="n">100+</div><div class="l">近 60 天文章分析</div></div>
-  <div class="stat"><div class="n">12</div><div class="l">本周精选速递</div></div>
-  <div class="stat"><div class="n">07-16</div><div class="l">生成日期</div></div>
+  <div class="stat"><div class="n">150</div><div class="l">知识库文章（缓存）</div></div>
+  <div class="stat"><div class="n">13</div><div class="l">内容分类</div></div>
+  <div class="stat"><div class="n">8</div><div class="l">本周 AI 速递</div></div>
+  <div class="stat"><div class="n">07-17</div><div class="l">生成日期</div></div>
 </div>
 
 <section>
   <h2>七大热点洞察</h2>
-  <div class="ins-grid">
-    <div class="ins-card">
+  <div class="ins-grid"><div class="ins-card">
       <span class="ins-no">01</span>
-      <h4>Skill 生态井喷</h4><p>Matt Pocock 17 万星 Skills 仓库，公开「最佳 Skill 写作方法论」；李继刚 19+ Skills 形成「读·思·写·发布」完整管线；卡兹克推荐 85 个 Skill，自身上限仅装 30 个。</p></div>
-    <div class="ins-card">
+      <h4>模型免费化与价格战并行</h4><p>Agnes-2.5-Flash 免费 Coding 第一梯队；Anthropic 延长 Fable 5 免费期、OpenAI 取消 Codex 限制；GLM-5.2 降价 20%、MiniMax Token 成本压到 1/20。推理成本塌方式下探。</p></div><div class="ins-card">
       <span class="ins-no">02</span>
-      <h4>Agent 记忆破局</h4><p>中国 00 后团队攻破 AI「记忆」难题，新智元报道引发热议；Agent 自主看屏学习工作流、五种记忆方案横向对比——记忆正在从 RAG 走向系统化。</p></div>
-    <div class="ins-card">
+      <h4>Skill 成为 AI 新货币</h4><p>QuestMobile：阿里/抖音/腾讯将核心业务 Skill 化，APP 功能走向「可被调用的 Skill」；47 个营销 skill 开源斩获 3.8 万 star，LibTV 100+ 专业 Skill 把导演能力搬入 Agent。知识库 skills 类目 33 篇居首。</p></div><div class="ins-card">
       <span class="ins-no">03</span>
-      <h4>WorkBuddy 生态成熟</h4><p>HY3 正式版初体验 + 蓝皮书从 0 到 100 实战指南 + 专家市场上架（苍何 GEO 诊断等）+ 10 个办公 Skill 串成流水线。平台从工具走向生态。</p></div>
-    <div class="ins-card">
+      <h4>开源 Agent 工具「可安装化」</h4><p>Browser Use CLI 3.0、GitHub Copilot 自定义 Agent、LangChain 1.0 createAgent 集中落地。工作流从一次性 prompt 变成可审查、可复用的文件资产，操作员工作流开始「跨会话存活」。</p></div><div class="ins-card">
       <span class="ins-no">04</span>
-      <h4>设计审美革命</h4><p>谷歌开源 DESIGN.md（2 万星）根治 AI「流水线廉价脸」；23 条命令治 AI 味的 Impeccable；苹果官网沉浸式滚动飞行交互开源。AI 生成从「能用」到「好看」。</p></div>
-    <div class="ins-card">
+      <h4>国产算力撑起万亿模型</h4><p>美团 LongCat-2.0（1.6 万亿/100 万上下文）在 5 万卡国产集群完成全流程训练；华为 openPangu-2.0-Flash 开源。中国开源模型全球累计下载破 100 亿次，占 OpenRouter 前十中六席。</p></div><div class="ins-card">
       <span class="ins-no">05</span>
-      <h4>AI 视频加速落地</h4><p>Seedance 2.0 心得技巧刷屏；Codex + HyperFrames 一键文章转短视频；Lottie 动画一句话生成。视频生成正在从「炫技」进入「生产」。</p></div>
-    <div class="ins-card">
+      <h4>视觉大模型走向统一</h4><p>商汤 SenseNova-Vision 把检测、分割、深度预测、3D 重建统一到一个模型并开源 50M 语料，告别「多个专家模型拼装」的旧范式，视觉成为通用基础模型的原生能力。</p></div><div class="ins-card">
       <span class="ins-no">06</span>
-      <h4>Token 降本组合拳</h4><p>Headroom 省 60-95%、OmniRoute 16 亿免费 Token / 月、OpenSquilla 模型路由降 90%。Agent 全天候运行的 Token 成本门槛持续拉低。</p></div>
-    <div class="ins-card">
+      <h4>Agent 四条路径成型</h4><p>终端底层（小艺 Claw）/ 大厂生态（千问任务助理、微信小微）/ 桌面办公（腾讯 WorkBuddy）/ 多智能体协同（Lobster AI、TRAE Work）。Agent 正击穿传统 APP 玩法。</p></div><div class="ins-card">
       <span class="ins-no">07</span>
-      <h4>Browser 自动化工具大爆发</h4><p>Firecrawl 免 API Key + Obscura 无头指纹浏览器（18K star/2个月）+ WorkBuddy 反爬固化 Skill。AI 批量获取互联网数据的能力大幅跃升。</p></div>
-  </div>
+      <h4>经验即可分发资产</h4><p>ModelEvo 把建模专家经验沉淀为可复用 Skills；「领域专家 playbook 可分发为自主 Agent」从单点手艺走向整职能级，知识库 hermes-agent / automation 类目持续扩产。</p></div></div>
 </section>
 
 <section>
-  <h2>AI 速递时间线</h2>
-  <div class="tl-item"><span class="tl-date">07-16</span><span class="tl-src">公众号</span><p><b>20.5K Star</b> 开源项目给 Agent 装上网读眼，Twitter/Reddit/小红书/B 站全平台可读</p></div>
-  <div class="tl-item"><span class="tl-date">07-16</span><span class="tl-src">公众号</span><p><b>17 万星 Skills 作者</b>亲授：Skill 编写的 6 个坑，Matt Pocock 公开写作方法论</p></div>
-  <div class="tl-item"><span class="tl-date">07-15</span><span class="tl-src">新智元</span><p><b>中国 00 后团队</b>攻破 AI「记忆」难题，称打造下一个 AI 互联网时刻</p></div>
-  <div class="tl-item"><span class="tl-date">07-15</span><span class="tl-src">公众号</span><p><b>GLM-5.2 Coding Plan</b> 套餐抢购，16 日 10:00 补货，Lite 版暂告售罄</p></div>
-  <div class="tl-item"><span class="tl-date">07-14</span><span class="tl-src">公众号</span><p><b>WorkBuddy 10 个 Skill 串成流水线</b>：从阅读、思考、写作到发布全流程打通</p></div>
-  <div class="tl-item"><span class="tl-date">07-14</span><span class="tl-src">数字生命卡兹克</span><p><b>Seedance 2.0 心得</b>：反直觉结论——大部分提示词没用，实战技巧才是关键</p></div>
-  <div class="tl-item"><span class="tl-date">07-14</span><span class="tl-src">掘金GitHub</span><p><b>Lottie 动画一句话生成</b>，Claude Code 直接出 JSON，告别 AE 手动调帧</p></div>
-  <div class="tl-item"><span class="tl-date">07-13</span><span class="tl-src">公众号</span><p><b>WorkBuddy 蓝皮书</b>发布：从 0 到 100 最系统 Agent 实战指南</p></div>
-  <div class="tl-item"><span class="tl-date">07-13</span><span class="tl-src">公众号</span><p><b>苹果官网交互开源</b>：沉浸式滚动飞行 Skill，把任何品牌转成可滚动 3D 世界</p></div>
-  <div class="tl-item"><span class="tl-date">07-12</span><span class="tl-src">掘金GitHub</span><p><b>R2 免费图床</b>开源，支持 AI Agent 自动上传，Cloudflare 无限存储</p></div>
-  <div class="tl-item"><span class="tl-date">07-09</span><span class="tl-src">公众号</span><p><b>Obscura 无头浏览器</b>18K star/2 个月，Agent 专用自动化浏览器，指纹随机</p></div>
-  <div class="tl-item"><span class="tl-date">07-09</span><span class="tl-src">公众号</span><p><b>Fable 5 开源平替</b>引爆讨论，袋鼠帝详细对比开源方案与定价</p></div>
+  <h2>本周 AI 速递时间线（7/3 – 7/17）</h2>
+  <div class="tl"><div class="tl-item">
+      <span class="tl-date">07-03</span><span class="tl-src">美团·华为</span>
+      <p>同日开源大模型 — 美团 LongCat-2.0（1.6 万亿参数、100 万上下文，5 万卡国产集群训练）+ 华为 openPangu-2.0-Flash，验证「国模国芯」深度融合</p></div><div class="tl-item">
+      <span class="tl-date">07-13</span><span class="tl-src">Agnes AI</span>
+      <p>Agnes-2.5-Flash 发布 — 免费 Coding 能力跻身全球第一梯队，代码理解 +37%、复杂任务效率 +42%；旗舰 Agnes-2.5-Pro 预告对标 Opus 4.8</p></div><div class="tl-item">
+      <span class="tl-date">07-13</span><span class="tl-src">商汤</span>
+      <p>开源 SenseNova-Vision 统一视觉大模型 — 把检测/分割/深度/3D 重建统一到一个模型，同步开源 5000 万条视觉指令语料</p></div><div class="tl-item">
+      <span class="tl-date">07-13</span><span class="tl-src">Anthropic·OpenAI</span>
+      <p>AI 编程工具价格战 — Anthropic 将 Claude Fable 5 免费期延至 7/19，OpenAI 随即取消 Codex / ChatGPT Work 的 5 小时使用限制</p></div><div class="tl-item">
+      <span class="tl-date">07-13</span><span class="tl-src">字节</span>
+      <p>UniVR-34B-Planning 发布 — 面向规划/推理的 34B 模型，强化长链任务编排</p></div><div class="tl-item">
+      <span class="tl-date">07-14</span><span class="tl-src">奇富科技</span>
+      <p>开源 ModelEvo 自动建模 Agent — 把建模专家经验沉淀为可复用、可追踪的 Skills，覆盖需求澄清到报告生成全流程</p></div><div class="tl-item">
+      <span class="tl-date">07-15</span><span class="tl-src">QuestMobile</span>
+      <p>2026 上半年 AI 半年报 — Agent 四条路径清晰，大厂竞相 Skill 化；腾讯 WorkBuddy 近三月活跃增幅 115.3%</p></div><div class="tl-item">
+      <span class="tl-date">07-16</span><span class="tl-src">开源 Agent</span>
+      <p>skill 可安装化成趋势 — Browser Use CLI 3.0、GitHub Copilot 自定义 Agent、LangChain 1.0 createAgent，工作流从一次性 prompt 变成可复用文件资产</p></div></div>
 </section>
 
 <section>
-  <h2>精选文章（按热度）</h2>
-  <div class="feat-grid">
-    <div class="feat-card">
-      <h4>Skill 生态 <em>🔥 最热</em></h4>
-      <ul>
-        <li><span class="dot"></span>17 万星 Skills 作者亲授：Skill 编写的 6 个坑</li>
-        <li><span class="dot"></span>又一堆神级 skill 夯爆了（开源日记 38.8K star）</li>
-        <li><span class="dot"></span>李继刚 19 个 Skills 真正厉害的是这条线</li>
-        <li><span class="dot"></span>卡兹克推荐的 85 个 Skill 真正值钱的是工作流地图</li>
-        <li><span class="dot"></span>数字生命卡兹克推荐过的所有 Skills 全扒干净</li>
-      </ul>
-    </div>
-    <div class="feat-card">
-      <h4>Agent 记忆与智能</h4>
-      <ul>
-        <li><span class="dot"></span>超越 OpenAI，00 后团队攻破「记忆」难题</li>
-        <li><span class="dot"></span>Hermes 用户记忆方案五种横向对比</li>
-        <li><span class="dot"></span>Agent 自己看屏幕学习工作流</li>
-        <li><span class="dot"></span>WorkBuddy 记忆分层提示词，太赞了</li>
-        <li><span class="dot"></span>懂事的 Agent 已经自己看屏幕学习工作流</li>
-      </ul>
-    </div>
-    <div class="feat-card">
-      <h4>WorkBuddy 实战</h4>
-      <ul>
-        <li><span class="dot"></span>开源 WorkBuddy 蓝皮书！从 0 到 100 实战指南</li>
-        <li><span class="dot"></span>办公人该装的 10 个 Skill 串成流水线</li>
-        <li><span class="dot"></span>WorkBuddy+HY3 正式版初体验</li>
-        <li><span class="dot"></span>WorkBuddy+反爬+爬虫固化 Skill 6 大能力</li>
-        <li><span class="dot"></span>WorkBuddy+蚁小二 CLI 全平台自媒体打通</li>
-      </ul>
-    </div>
-    <div class="feat-card">
-      <h4>设计 & 审美</h4>
-      <ul>
-        <li><span class="dot"></span>谷歌开源 DESIGN.md 根治 AI 网页「流水线廉价脸」</li>
-        <li><span class="dot"></span>23 条命令治 AI 味！Impeccable 比 Taste Skill 更能打</li>
-        <li><span class="dot"></span>苹果官网沉浸式滚动飞行交互开源</li>
-        <li><span class="dot"></span>8 个神级 GitHub 项目让 AI 生成网页好看到飞起</li>
-        <li><span class="dot"></span>一个非常漂亮的文章配图 Skill 开源</li>
-      </ul>
-    </div>
-    <div class="feat-card">
-      <h4>AI 视频 & 图片</h4>
-      <ul>
-        <li><span class="dot"></span>Seedance 做 AI 视频心得技巧：大部分提示词没用</li>
-        <li><span class="dot"></span>Codex + HyperFrames 文章转短视频</li>
-        <li><span class="dot"></span>Lottie 动画一句话生成</li>
-        <li><span class="dot"></span>藏师傅社交卡片重磅更新支持 Live Photo</li>
-        <li><span class="dot"></span>GPT Image 2 中文封面实测</li>
-      </ul>
-    </div>
-    <div class="feat-card">
-      <h4>Token 降本 & 基建</h4>
-      <ul>
-        <li><span class="dot"></span>OmniRoute 16 亿免费 Token/月 231 个提供商</li>
-        <li><span class="dot"></span>Headroom Token 省 60-95%</li>
-        <li><span class="dot"></span>超省钱组合 Headroom + CC Switch Token 降 90%</li>
-        <li><span class="dot"></span>Codex 一键省 Token 神器 Ponytail</li>
-        <li><span class="dot"></span>推理成本里最容易被低估的不是 Token</li>
-      </ul>
-    </div>
-  </div>
+  <h2>知识库精选（按分类）</h2>
+  <div class="feat-grid"><div class="feat-card">
+      <h4>Skills 技能 <em>33</em></h4>
+      <ul><li><span class="dot"></span>最近的流量焦虑，被这两个开源Skill解决了。</li><li><span class="dot"></span>数字生命卡兹克推荐过的所有 Skills，我帮你全扒干净了</li><li><span class="dot"></span>藏师傅 PPT Skills 加 Pencil 无敌了!</li></ul>
+    </div><div class="feat-card">
+      <h4>Codex/Claude Code <em>28</em></h4>
+      <ul><li><span class="dot"></span>Codex + HyperFrames：一句话把公众号文章…</li><li><span class="dot"></span>Codex 一键省 Token 神器，用过之后再也回不去了！</li><li><span class="dot"></span>换了三套自动化方案后，我用Codex的Computer U…</li></ul>
+    </div><div class="feat-card">
+      <h4>开源项目 <em>17</em></h4>
+      <ul><li><span class="dot"></span>盘点 17 个 6 月份牛牛牛的 GitHub 开源项目。</li><li><span class="dot"></span>GitHub 上 13 万星的爬虫神器，不要 API Ke…</li><li><span class="dot"></span>这个 165K Star 开源项目，免费送域名！</li></ul>
+    </div><div class="feat-card">
+      <h4>综合 <em>39</em></h4>
+      <ul><li><span class="dot"></span>123K Star！免费云服务大全，每年帮你省下几千块</li><li><span class="dot"></span>2 万星封神！谷歌开源 DESIGN.md，彻底根治 AI…</li><li><span class="dot"></span>OpenMAIC：AI 时代的教学平台，不该只是刷题 App</li></ul>
+    </div><div class="feat-card">
+      <h4>AI 模型 <em>4</em></h4>
+      <ul><li><span class="dot"></span>这款10.4K star的LLM Route绝对能满足你对…</li><li><span class="dot"></span>全球排名前2的大模型，你到底适合选择哪个？</li><li><span class="dot"></span>免费！DeepSeek-V4-Pro薅羊毛指南</li></ul>
+    </div><div class="feat-card">
+      <h4>AI 生图 <em>7</em></h4>
+      <ul><li><span class="dot"></span>我把自己的IP配图技能开源了 顺手做了31个现成角色</li><li><span class="dot"></span>李开复用这套提示词驯服 Claude，我用完只想说一句话</li><li><span class="dot"></span>WorkBuddy变更聪明的秘密，藏在这段记忆分层提示词里…</li></ul>
+    </div><div class="feat-card">
+      <h4>API/Token <em>10</em></h4>
+      <ul><li><span class="dot"></span>超省钱组合！tokens 最低降 90% ？Headroo…</li><li><span class="dot"></span>推理成本里，最容易被低估的不是 Token</li><li><span class="dot"></span>这个爆红的 GitHub 项目让 token 直接省 60…</li></ul>
+    </div><div class="feat-card">
+      <h4>Agent 工具 <em>3</em></h4>
+      <ul><li><span class="dot"></span>2.3 万星，给你的智能体装上自媒体超能力</li><li><span class="dot"></span>18美元变3美元！清华开源Agent OS太狠了</li><li><span class="dot"></span>别再让你的 AI 单打独斗了，这才是团队真正需要的 Age…</li></ul>
+    </div><div class="feat-card">
+      <h4>自动化 <em>2</em></h4>
+      <ul><li><span class="dot"></span>分享 WorkBuddy+蚁小二 CLI，全平台自媒体，从…</li><li><span class="dot"></span>WorkBuddy做的图被甲方夸赞，全靠这2个技能，谁用谁…</li></ul>
+    </div><div class="feat-card">
+      <h4>Hermes Agent <em>3</em></h4>
+      <ul><li><span class="dot"></span>发现一个宝藏开源项目：让 Hermes Agent 在飞书…</li><li><span class="dot"></span>66k下载！用OpenRouter免费模型跑OpenClaw</li><li><span class="dot"></span>OpenClaw向量模型配置指南：云端白嫖 vs 本地部署</li></ul>
+    </div><div class="feat-card">
+      <h4>行业新闻 <em>2</em></h4>
+      <ul><li><span class="dot"></span>微软开源 Webwright：把点击操作变成可重复执行的脚本</li><li><span class="dot"></span>帮大家总结了一下凌晨的Google I/O 2026开发者…</li></ul>
+    </div></div>
 </section>
 
 <section>
-  <h2>分类分布</h2>
-  <div class="cat-row"><span class="cat-name">Agent/Skill</span><div class="cat-bar"><i style="width:100%"></i></div><span class="cat-num">30+</span></div>
-  <div class="cat-row"><span class="cat-name">WorkBuddy</span><div class="cat-bar"><i style="width:60%"></i></div><span class="cat-num">18+</span></div>
-  <div class="cat-row"><span class="cat-name">AI 视频/图片</span><div class="cat-bar"><i style="width:50%"></i></div><span class="cat-num">15+</span></div>
-  <div class="cat-row"><span class="cat-name">Token/成本</span><div class="cat-bar"><i style="width:40%"></i></div><span class="cat-num">12+</span></div>
-  <div class="cat-row"><span class="cat-name">设计</span><div class="cat-bar"><i style="width:37%"></i></div><span class="cat-num">11+</span></div>
-  <div class="cat-row"><span class="cat-name">开源项目</span><div class="cat-bar"><i style="width:30%"></i></div><span class="cat-num">9+</span></div>
-  <div class="cat-row"><span class="cat-name">浏览器/爬虫</span><div class="cat-bar"><i style="width:30%"></i></div><span class="cat-num">9+</span></div>
-  <div class="cat-row"><span class="cat-name">Agent 记忆</span><div class="cat-bar"><i style="width:27%"></i></div><span class="cat-num">8+</span></div>
-  <div class="cat-row"><span class="cat-name">公众号/排版</span><div class="cat-bar"><i style="width:23%"></i></div><span class="cat-num">7+</span></div>
-  <div class="cat-row"><span class="cat-name">安全</span><div class="cat-bar"><i style="width:13%"></i></div><span class="cat-num">4+</span></div>
-  <div class="cat-row"><span class="cat-name">AI 教育</span><div class="cat-bar"><i style="width:17%"></i></div><span class="cat-num">5+</span></div>
+  <h2>知识库分类分布</h2>
+  <div class="cats"><div class="cat-row">
+      <span class="cat-name">Skills 技能</span>
+      <span class="cat-bar"><i style="width:84%"></i></span>
+      <span class="cat-num">33</span>
+    </div><div class="cat-row">
+      <span class="cat-name">Codex/Claude Code</span>
+      <span class="cat-bar"><i style="width:71%"></i></span>
+      <span class="cat-num">28</span>
+    </div><div class="cat-row">
+      <span class="cat-name">开源项目</span>
+      <span class="cat-bar"><i style="width:43%"></i></span>
+      <span class="cat-num">17</span>
+    </div><div class="cat-row">
+      <span class="cat-name">综合</span>
+      <span class="cat-bar"><i style="width:100%"></i></span>
+      <span class="cat-num">39</span>
+    </div><div class="cat-row">
+      <span class="cat-name">AI 模型</span>
+      <span class="cat-bar"><i style="width:10%"></i></span>
+      <span class="cat-num">4</span>
+    </div><div class="cat-row">
+      <span class="cat-name">AI 生图</span>
+      <span class="cat-bar"><i style="width:17%"></i></span>
+      <span class="cat-num">7</span>
+    </div><div class="cat-row">
+      <span class="cat-name">API/Token</span>
+      <span class="cat-bar"><i style="width:25%"></i></span>
+      <span class="cat-num">10</span>
+    </div><div class="cat-row">
+      <span class="cat-name">Agent 工具</span>
+      <span class="cat-bar"><i style="width:7%"></i></span>
+      <span class="cat-num">3</span>
+    </div><div class="cat-row">
+      <span class="cat-name">自动化</span>
+      <span class="cat-bar"><i style="width:6%"></i></span>
+      <span class="cat-num">2</span>
+    </div><div class="cat-row">
+      <span class="cat-name">Hermes Agent</span>
+      <span class="cat-bar"><i style="width:7%"></i></span>
+      <span class="cat-num">3</span>
+    </div><div class="cat-row">
+      <span class="cat-name">效率</span>
+      <span class="cat-bar"><i style="width:6%"></i></span>
+      <span class="cat-num">1</span>
+    </div><div class="cat-row">
+      <span class="cat-name">变现</span>
+      <span class="cat-bar"><i style="width:6%"></i></span>
+      <span class="cat-num">1</span>
+    </div><div class="cat-row">
+      <span class="cat-name">行业新闻</span>
+      <span class="cat-bar"><i style="width:6%"></i></span>
+      <span class="cat-num">2</span>
+    </div></div>
 </section>
 
 <section>
   <h2>趋势洞察</h2>
-  <div class="trends">
-    <ul>
-      <li><b>Agent Skill 从「工具」走向「方法论」</b>——Matt Pocock、李继刚、卡兹克三大仓库形成"Skill 写作·组装·精简"完整方法论。Skill 不再只是装了就用的工具，而是可学习可复制的能力单元。</li>
-      <li><b>WorkBuddy 平台从「聊天框」进化为「生态」</b>——蓝皮书发布、HY3 模型上线、专家市场上架、苍何 GEO 诊断入驻，WorkBuddy 正在建立自己的开发者生态和内容生态。</li>
-      <li><b>AI 审美成为新刚需</b>——DESIGN.md 2 万星、Impeccable 23 条命令治 AI 味、藏师傅社交卡片更新 Live Photo——当 AI 能生成后，「好看」成为下一道分水岭。</li>
-      <li><b>记忆正在重新定义 Agent</b>——中国 00 后团队攻破记忆难题、五种记忆方案横向对比、Agent 自主看屏学习——记忆从 RAG 特征进化为核心系统能力。</li>
-    </ul>
-  </div>
+  <div class="trends"><ul><li>推理成本不再是门槛，「免费 + 长上下文」成标配，Agent 全天候运行常态化。</li><li>Skill / 工作流成为 AI 产品的核心资产单位 —— 从 prompt 走向可安装、可审查、可复用的文件。</li><li>国产算力 + 开源模型形成正向循环，中国在开源大模型供给端领跑全球。</li><li>Agent 从「对话窗口」走向「操作系统级入口」，大厂把业务封装成可调用的 Skill。</li></ul></div>
 </section>
 
 <footer>
-  <p>数据源：IMA 知识库「昊哥的知识库」（555 篇）| 近 60 天 TOP 100 文章分析 | 部署于 <a href="https://lzc0403.github.io/skillrush-town/">GitHub Pages</a></p>
-  <p style="margin-top:6px">生成时间：2026-07-16 12:25 · 自动化任务：IMA周报生成部署</p>
+  部署链接：<a href="https://lzc0403.github.io/skillrush-town/">https://lzc0403.github.io/skillrush-town/</a><br>
+  生成时间：2026-07-17 12:25 (GMT+8) · 由 WorkBuddy 自动化生成 · 乐享同步：连接器断开（待重授权）
 </footer>
-</div></body>
-</html>
+</div></body></html>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IMA 周报 · 2026-07-25</title>
+<title>IMA 周报 · 2026-07-26</title>
 <style>
 :root {
   --bg:#fafafa; --surface:#fff; --ink:#1a1a2e; --muted:#6b7280;
@@ -62,11 +62,11 @@ a { color:var(--accent); text-decoration:none; }
 </head>
 <body>
 <div class="wrap">
-  <div class="breaking"><b>🔥 BREAKING · 本周焦点</b>DeepSeek V4 满血版正式上线（MIT 许可开放权重，SWE-bench 80.6%）；JiuwenSwarm 开源多智能体统一工作台，重新定义人机协同；国产开源模型万亿时代全面坐实。</div>
+  <div class="breaking"><b>🔥 BREAKING · 本周焦点</b>吴恩达开源桌面 Agent OpenWorker（MIT / 本地优先 / 模型无关，上线即 3.7k Star）；Gemini 3.6 Flash 输出 token 降至 $7.5/百万，API 成本继续断崖下探；JiuwenSwarm 统一工作台 + HITS 把人带进蜂群共同办公。</div>
 
   <header>
     <h1>IMA 知识库周报</h1>
-    <div class="meta">生成时间 2026-07-25 · 覆盖周期 2026-05-26 ~ 2026-07-25（近 60 天）· 数据源 IMA 知识库缓存 + 全网最新动态</div>
+    <div class="meta">生成时间 2026-07-26 · 覆盖周期 2026-05-27 ~ 2026-07-26（近 60 天）· 数据源 IMA 知识库缓存 + 全网最新动态</div>
   </header>
 
   <div class="stats">
@@ -78,24 +78,27 @@ a { color:var(--accent); text-decoration:none; }
 
   <div class="section">
     <h2>七大热点洞察</h2>
-    <div class="card"><span class="num">1</span><div><h3>国产开源模型万亿时代坐实</h3><p>Kimi K3（2.8T）+ DeepSeek V4（1.6T）+ Qwen3.8（2.4T）+ Intern-S2-397B 接连开源，万亿俱乐部集体成型，开源权重成为主流交付形态。</p></div></div>
-<div class="card"><span class="num">2</span><div><h3>开源权重引爆平价能力</h3><p>DeepSeek V4（MIT 许可）与 Kimi K3（7/27 放权重）让前沿能力以约 1/10 价格普惠，闭源模型定价权被系统性挤压。</p></div></div>
-<div class="card"><span class="num">3</span><div><h3>Agent 原生云成主流</h3><p>阿里 Agent Native Cloud、腾讯 Tairos、蚂蚁 Agentar 2.0 开源落地，企业级 Agent 平台从概念走向量产可部署。</p></div></div>
-<div class="card"><span class="num">4</span><div><h3>多智能体蜂群协同兴起</h3><p>JiuwenSwarm 统一工作台 + HITS（人在蜂群）把任务交给「一支队伍」，人带身份走进蜂群共同推理交付。</p></div></div>
-<div class="card"><span class="num">5</span><div><h3>具身智能闭环打通</h3><p>腾讯 Hy-Embodied 系列 + Apexio 持续在线具身智能体首次系统性打通感知-身体-行动，进入导购、养老真实场景。</p></div></div>
-<div class="card"><span class="num">6</span><div><h3>国产算力软件栈开源</h3><p>平头哥 T-Head SAIL、昇腾 950 把自主算力生态从芯片到软件栈全开放，软硬协同成为算力落地底座。</p></div></div>
-<div class="card"><span class="num">7</span><div><h3>世界模型与可交互生成</h3><p>高德 DreamX-World 1.0 流式生成约 1 分钟可交互世界视频，AI 从「生成帧」迈向「生成可探索世界」。</p></div></div>
+    <div class="card"><span class="num">1</span><div><h3>开源桌面 Agent 成新物种</h3><p>吴恩达 OpenWorker 把 Agent 从浏览器/编辑器推向桌面工作层，本地优先、模型无关、数据不出本机成为新基线——交付成品而非陪聊。</p></div></div>
+<div class="card"><span class="num">2</span><div><h3>API 成本断崖式下探</h3><p>Gemini 3.6 Flash 降至 $7.5/百万 + 豆包三级定价 + DeepSeek 十个月回本克制定价，成本曲线持续下凹，闭源定价权被系统性挤压。</p></div></div>
+<div class="card"><span class="num">3</span><div><h3>组织工程压过个体工程</h3><p>JiuwenSwarm HITS（人在蜂群）+ EvoMap 蜂群模式（准确率 26%→71%）证明：杠杆点已从「单 Agent 跑多好」转向「多 Agent 如何协同」。</p></div></div>
+<div class="card"><span class="num">4</span><div><h3>国产开源模型万亿时代坐实</h3><p>Kimi K3（2.8T）+ DeepSeek V4（1.6T）+ Qwen3.8（2.4T）+ Intern-S2-397B 接连开源，万亿俱乐部集体成型，开源权重成主流交付形态。</p></div></div>
+<div class="card"><span class="num">5</span><div><h3>Deep Search Agent 范式成型</h3><p>XYZ Aquila 35B/397B 横扫七项基准，背后是千卡算力调度 300+ Agent Workers 跑通 AI4AI 研发闭环，验证「人定规则、AI 找路」。</p></div></div>
+<div class="card"><span class="num">6</span><div><h3>Agent 原生云主流化</h3><p>阿里 Agent Native Cloud、腾讯 Tairos、蚂蚁 Agentar 2.0 开源落地，企业级 Agent 平台从概念走向量产可部署。</p></div></div>
+<div class="card"><span class="num">7</span><div><h3>代理 AI 成基础设施</h3><p>SK 集团 + 英伟达 5000 亿美元合作把代理 AI 列为算力/内存/工厂级基建需求；具身智能（腾讯 Hy-Embodied）同步打通感知-身体-行动闭环。</p></div></div>
   </div>
 
   <div class="section">
     <h2>AI 速递时间线</h2>
     <div class="tl-item"><div class="tl-date">07-19</div><div class="tl-body"><span class="tag">Agent</span><p>阿里云发布 Agent Native Cloud：AgentTeams 多智能体协作 + 无影 Agentic Computer 7×24 桌面运行环境</p></div></div>
-<div class="tl-item"><div class="tl-date">07-19</div><div class="tl-body"><span class="tag">具身</span><p>腾讯发布具身智能基座 Hy-Embodied 系列（VLM/VLA）+ 持续在线具身智能体 Apexio，打通感知-身体-行动闭环</p></div></div>
 <div class="tl-item"><div class="tl-date">07-20</div><div class="tl-body"><span class="tag">模型</span><p>DeepSeek V4 满血版正式上线：V4 Pro 1.6T / V4 Flash 284B，MIT 许可开放权重，SWE-bench 80.6%</p></div></div>
-<div class="tl-item"><div class="tl-date">07-20</div><div class="tl-body"><span class="tag">算力</span><p>平头哥 T-Head SAIL 软件栈开源，真武 AI 芯片生态向全球开发者开放</p></div></div>
-<div class="tl-item"><div class="tl-date">07-20</div><div class="tl-body"><span class="tag">模型</span><p>高德 DreamX-World 1.0 世界模型开源：键盘式相机动作 + 事件提示探索可交互世界</p></div></div>
 <div class="tl-item"><div class="tl-date">07-22</div><div class="tl-body"><span class="tag">模型</span><p>月之暗面否认 Kimi K3 蒸馏传闻，强调原创 KDA 混合线性注意力 + AttnRes 架构创新</p></div></div>
-<div class="tl-item"><div class="tl-date">07-25</div><div class="tl-body"><span class="tag">生态</span><p>JiuwenSwarm 开源统一工作台：多智能体蜂群协同 + HITS（人在蜂群），重新定义人机协同</p></div></div>
+<div class="tl-item"><div class="tl-date">07-24</div><div class="tl-body"><span class="tag">生态</span><p>吴恩达开源桌面 Agent OpenWorker（MIT License）：本地优先、模型无关、数据留本机，上线即 3.7k Star</p></div></div>
+<div class="tl-item"><div class="tl-date">07-25</div><div class="tl-body"><span class="tag">降本</span><p>Gemini 3.6 Flash 输出 token 降至 $7.5/百万，豆包专业版三级定价 68-500 元/月，API 成本继续下探</p></div></div>
+<div class="tl-item"><div class="tl-date">07-25</div><div class="tl-body"><span class="tag">搜索</span><p>XYZ 发布 Deep Search Agent（Aquila-mini 35B + Aquila-pro 397B）横扫 BrowseComp/GAIA/HLE 等七项基准</p></div></div>
+<div class="tl-item"><div class="tl-date">07-25</div><div class="tl-body"><span class="tag">协同</span><p>JiuwenSwarm 统一工作台更新 + HITS（人在蜂群）人机协同新范式，人走进智能体团队共同办公</p></div></div>
+<div class="tl-item"><div class="tl-date">07-25</div><div class="tl-body"><span class="tag">协同</span><p>EvoMap 多 Agent 实验：同一模型准确率从单上下文 26.29% 提升到蜂群模式约 71%，组织方式成关键杠杆</p></div></div>
+<div class="tl-item"><div class="tl-date">07-25</div><div class="tl-body"><span class="tag">基建</span><p>SK 集团与英伟达达成超 5000 亿美元合作，代理 AI 被列为下一代基础设施需求</p></div></div>
+<div class="tl-item"><div class="tl-date">07-26</div><div class="tl-body"><span class="tag">办公</span><p>腾讯 QClaw 并入 WorkBuddy 确立 AI 办公主线，国产 Agent 办公平台加速整合</p></div></div>
   </div>
 
   <div class="section">
@@ -134,14 +137,14 @@ a { color:var(--accent); text-decoration:none; }
 
   <div class="section">
     <h2>趋势洞察</h2>
-    <div class="trends"><ol><li>万亿开源模型成为新基线：参数与能力双维度逼近闭源，开源与闭源进入平视阶段。</li>
-<li>成本曲线下凹加速：MIT 权重 + 模型路由 + 小模型调度，让前沿能力以 1/10 价格普惠。</li>
-<li>Agent 组织化：从工具升级为「可控、可复用、可协作、会进化的组织资产」。</li>
-<li>人机协同范式升级：人在回路 → 人在蜂群，人带身份走进多智能体团队共同推理交付。</li></ol></div>
+    <div class="trends"><ol><li>开源 Agent 走向桌面：本地优先、数据不出本机、模型无关成为新基线，闭源云端助手被拉开差距。</li>
+<li>成本下凹加速：前沿能力以约 1/10 价格普惠，模型路由 + 小模型调度让闭源定价权持续承压。</li>
+<li>组织工程 &gt; 个体工程：蜂群 / 图工程 / 协同工程成为 Agent 竞争新维度，协作范式重于单点能力。</li>
+<li>代理 AI 成基础设施：从软件工具升级为算力 + 内存 + 工厂级基建需求，具身与办公同步落地。</li></ol></div>
   </div>
 
   <footer>
-    <span>IMA 周报 · 自动生成于 2026-07-25</span>
+    <span>IMA 周报 · 自动生成于 2026-07-26</span>
     <span>部署：<a href="https://lzc0403.github.io/skillrush-town/">skillrush-town GitHub Pages</a></span>
   </footer>
 </div>

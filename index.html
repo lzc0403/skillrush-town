@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IMA 周报 · 2026-07-26</title>
+<title>IMA 周报 · 2026-07-28</title>
 <style>
 :root {
   --bg:#fafafa; --surface:#fff; --ink:#1a1a2e; --muted:#6b7280;
@@ -17,136 +17,181 @@
 }
 * { box-sizing:border-box; margin:0; padding:0; }
 body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
-  background:var(--bg); color:var(--ink); line-height:1.7; -webkit-font-smoothing:antialiased; }
-.wrap { max-width:880px; margin:0 auto; padding:64px 24px 96px; }
-.breaking { background:linear-gradient(135deg,var(--accent),#7c3aed);
-  color:#fff; border-radius:var(--radius); padding:20px 24px; margin-bottom:40px;
-  font-size:14px; box-shadow:0 8px 30px rgba(79,70,229,.25); }
-.breaking b { font-size:16px; display:block; margin-bottom:4px; }
-header h1 { font-size:34px; font-weight:800; letter-spacing:-.5px; }
-header .meta { color:var(--muted); font-size:14px; margin-top:8px; }
-.stats { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin:40px 0; }
-.stat { background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:22px 18px; text-align:center; }
-.stat .v { font-size:30px; font-weight:800; color:var(--accent); }
+  background:var(--bg); color:var(--ink); line-height:1.75; -webkit-font-smoothing:antialiased; }
+.wrap { max-width:920px; margin:0 auto; padding:48px 24px 80px; }
+header { margin-bottom:36px; }
+.kicker { font-size:13px; letter-spacing:.18em; text-transform:uppercase; color:var(--accent); font-weight:700; }
+h1 { font-size:34px; font-weight:800; letter-spacing:-.02em; margin:8px 0 6px; }
+.sub { color:var(--muted); font-size:15px; }
+.breaking { margin:28px 0; padding:20px 22px; border-left:4px solid var(--accent);
+  background:var(--accent-soft); border-radius:0 var(--radius) var(--radius) 0; }
+.breaking .b-tag { display:inline-block; font-size:12px; font-weight:700; color:var(--accent);
+  background:var(--surface); padding:3px 10px; border-radius:20px; margin-bottom:10px; }
+.breaking h2 { font-size:20px; font-weight:800; margin-bottom:8px; line-height:1.4; }
+.breaking p { color:var(--muted); font-size:14.5px; }
+.stats { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin:30px 0; }
+.stat { background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:18px; }
+.stat .n { font-size:26px; font-weight:800; color:var(--accent); }
 .stat .l { font-size:13px; color:var(--muted); margin-top:4px; }
-.section { margin-top:56px; }
-.section h2 { font-size:22px; font-weight:700; margin-bottom:20px; padding-left:12px; border-left:4px solid var(--accent); }
-.card { display:flex; gap:16px; background:var(--surface); border:1px solid var(--line);
-  border-radius:var(--radius); padding:18px 20px; margin-bottom:12px; }
-.card .num { flex:none; width:30px; height:30px; border-radius:50%; background:var(--accent-soft);
-  color:var(--accent); font-weight:800; display:flex; align-items:center; justify-content:center; font-size:14px; }
-.card h3 { font-size:16px; font-weight:700; }
-.card p { color:var(--muted); font-size:14px; margin-top:4px; }
-.tl-item { display:flex; gap:18px; padding:14px 0; border-bottom:1px solid var(--line); }
-.tl-date { flex:none; width:54px; font-weight:700; color:var(--accent); font-size:14px; padding-top:2px; }
-.tl-body p { font-size:15px; }
-.tag { display:inline-block; font-size:11px; background:var(--accent-soft); color:var(--accent);
-  padding:2px 8px; border-radius:20px; margin-bottom:4px; }
-.feat { background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:18px 20px; margin-bottom:12px; }
-.feat h4 { font-size:15px; font-weight:700; color:var(--accent); margin-bottom:8px; }
-.feat ul { list-style:none; }
-.feat li { font-size:14px; padding:4px 0 4px 18px; position:relative; color:var(--ink); }
-.feat li:before { content:"›"; position:absolute; left:0; color:var(--accent); font-weight:800; }
-.bar-row { display:flex; align-items:center; gap:12px; margin-bottom:10px; }
-.bar-label { flex:none; width:120px; font-size:13px; text-align:right; color:var(--muted); }
-.bar-track { flex:1; height:12px; background:var(--line); border-radius:8px; overflow:hidden; }
-.bar-fill { height:100%; background:linear-gradient(90deg,var(--accent),#7c3aed); border-radius:8px; }
-.bar-val { flex:none; width:28px; font-size:13px; font-weight:700; }
-.trends { background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:22px 28px; }
-.trends li { font-size:15px; padding:8px 0; list-style:decimal; margin-left:18px; }
-footer { margin-top:64px; padding-top:24px; border-top:1px solid var(--line);
-  color:var(--muted); font-size:13px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; }
-a { color:var(--accent); text-decoration:none; }
-@media (max-width:640px) { .stats { grid-template-columns:repeat(2,1fr); } .bar-label { width:88px; } }
+section { margin:42px 0; }
+.sec-h { font-size:13px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted);
+  font-weight:700; margin-bottom:18px; border-bottom:1px solid var(--line); padding-bottom:10px; }
+.card { background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
+  padding:18px 20px; margin-bottom:14px; }
+.card h3 { font-size:16.5px; font-weight:700; margin-bottom:6px; }
+.card p { font-size:14.5px; color:var(--muted); }
+.tl { position:relative; padding-left:22px; }
+.tl::before { content:""; position:absolute; left:5px; top:6px; bottom:6px; width:2px; background:var(--line); }
+.tl-item { position:relative; margin-bottom:16px; }
+.tl-item::before { content:""; position:absolute; left:-19px; top:7px; width:10px; height:10px;
+  border-radius:50%; background:var(--accent); border:2px solid var(--bg); }
+.tl-d { font-size:13px; font-weight:700; color:var(--accent); }
+.tl-t { font-size:14.5px; margin-top:2px; }
+.bar-row { display:flex; align-items:center; gap:12px; margin-bottom:10px; font-size:14px; }
+.bar-label { width:130px; flex-shrink:0; color:var(--ink); }
+.bar-track { flex:1; background:var(--line); border-radius:8px; height:18px; overflow:hidden; }
+.bar-fill { height:100%; background:var(--accent); border-radius:8px; }
+.bar-num { width:34px; text-align:right; color:var(--muted); font-variant-numeric:tabular-nums; }
+.feat-cat { font-weight:700; font-size:15px; margin:18px 0 8px; color:var(--accent); }
+.feat-list { list-style:none; }
+.feat-list li { font-size:14.5px; padding:7px 0; border-bottom:1px dashed var(--line); color:var(--ink); }
+.feat-list li::before { content:"›"; color:var(--accent); font-weight:800; margin-right:8px; }
+footer { margin-top:56px; padding-top:20px; border-top:1px solid var(--line); color:var(--muted); font-size:13px; }
+@media (max-width:640px) { .stats{grid-template-columns:repeat(2,1fr);} h1{font-size:27px;} .bar-label{width:96px;} }
 </style>
 </head>
 <body>
 <div class="wrap">
-  <div class="breaking"><b>🔥 BREAKING · 本周焦点</b>吴恩达开源桌面 Agent OpenWorker（MIT / 本地优先 / 模型无关，上线即 3.7k Star）；Gemini 3.6 Flash 输出 token 降至 $7.5/百万，API 成本继续断崖下探；JiuwenSwarm 统一工作台 + HITS 把人带进蜂群共同办公。</div>
+<header>
+  <div class="kicker">IMA Knowledge Weekly</div>
+  <h1>IMA 周报 · 2026-07-28</h1>
+  <div class="sub">昊哥的土豆基地 · AI 内容雷达 · 生成于 2026-07-28（数据源：IMA 知识库缓存 150 篇 + 实时新闻补充）</div>
+</header>
 
-  <header>
-    <h1>IMA 知识库周报</h1>
-    <div class="meta">生成时间 2026-07-26 · 覆盖周期 2026-05-27 ~ 2026-07-26（近 60 天）· 数据源 IMA 知识库缓存 + 全网最新动态</div>
-  </header>
+<div class="breaking">
+  <span class="b-tag">BREAKING · 7/27</span>
+  <h2>月之暗面正式开源 Kimi K3 —— 全球首个落地的 3 万亿参数级开源模型</h2>
+  <p>2.8 万亿参数 MoE（896 专家 / 激活 16），原生多模态、100 万 token 上下文、KDA 混合线性注意力。完整权重 + 技术报告 + Infra（MoonEP / FlashKDA / AgentEnv）全开源。Day 0 接入 Devin（Cognition）、Nebius / Baseten / Fireworks，华为昇腾 CANN 原生 MXFP4 量化；HuggingFace 30 分钟 4000+ 赞登顶趋势榜。BrowseComp 单次成本仅 GPT-5.6 Sol 一半、较 Claude Fable 5 便宜近一个数量级。</p>
+</div>
 
-  <div class="stats">
-    <div class="stat"><div class="v">150</div><div class="l">收录文章</div></div>
-    <div class="stat"><div class="v">13</div><div class="l">内容分类</div></div>
-    <div class="stat"><div class="v">13</div><div class="l">精选板块</div></div>
-    <div class="stat"><div class="v">4</div><div class="l">趋势洞察</div></div>
-  </div>
+<div class="stats">
+  <div class="stat"><div class="n">150</div><div class="l">知识库精选文章</div></div>
+  <div class="stat"><div class="n">13</div><div class="l">内容分类维度</div></div>
+  <div class="stat"><div class="n">2.8T</div><div class="l">本周头条参数规模</div></div>
+  <div class="stat"><div class="n">#1</div><div class="l">Arena 前端开发榜</div></div>
+</div>
 
-  <div class="section">
-    <h2>七大热点洞察</h2>
-    <div class="card"><span class="num">1</span><div><h3>开源桌面 Agent 成新物种</h3><p>吴恩达 OpenWorker 把 Agent 从浏览器/编辑器推向桌面工作层，本地优先、模型无关、数据不出本机成为新基线——交付成品而非陪聊。</p></div></div>
-<div class="card"><span class="num">2</span><div><h3>API 成本断崖式下探</h3><p>Gemini 3.6 Flash 降至 $7.5/百万 + 豆包三级定价 + DeepSeek 十个月回本克制定价，成本曲线持续下凹，闭源定价权被系统性挤压。</p></div></div>
-<div class="card"><span class="num">3</span><div><h3>组织工程压过个体工程</h3><p>JiuwenSwarm HITS（人在蜂群）+ EvoMap 蜂群模式（准确率 26%→71%）证明：杠杆点已从「单 Agent 跑多好」转向「多 Agent 如何协同」。</p></div></div>
-<div class="card"><span class="num">4</span><div><h3>国产开源模型万亿时代坐实</h3><p>Kimi K3（2.8T）+ DeepSeek V4（1.6T）+ Qwen3.8（2.4T）+ Intern-S2-397B 接连开源，万亿俱乐部集体成型，开源权重成主流交付形态。</p></div></div>
-<div class="card"><span class="num">5</span><div><h3>Deep Search Agent 范式成型</h3><p>XYZ Aquila 35B/397B 横扫七项基准，背后是千卡算力调度 300+ Agent Workers 跑通 AI4AI 研发闭环，验证「人定规则、AI 找路」。</p></div></div>
-<div class="card"><span class="num">6</span><div><h3>Agent 原生云主流化</h3><p>阿里 Agent Native Cloud、腾讯 Tairos、蚂蚁 Agentar 2.0 开源落地，企业级 Agent 平台从概念走向量产可部署。</p></div></div>
-<div class="card"><span class="num">7</span><div><h3>代理 AI 成基础设施</h3><p>SK 集团 + 英伟达 5000 亿美元合作把代理 AI 列为算力/内存/工厂级基建需求；具身智能（腾讯 Hy-Embodied）同步打通感知-身体-行动闭环。</p></div></div>
-  </div>
-
-  <div class="section">
-    <h2>AI 速递时间线</h2>
-    <div class="tl-item"><div class="tl-date">07-19</div><div class="tl-body"><span class="tag">Agent</span><p>阿里云发布 Agent Native Cloud：AgentTeams 多智能体协作 + 无影 Agentic Computer 7×24 桌面运行环境</p></div></div>
-<div class="tl-item"><div class="tl-date">07-20</div><div class="tl-body"><span class="tag">模型</span><p>DeepSeek V4 满血版正式上线：V4 Pro 1.6T / V4 Flash 284B，MIT 许可开放权重，SWE-bench 80.6%</p></div></div>
-<div class="tl-item"><div class="tl-date">07-22</div><div class="tl-body"><span class="tag">模型</span><p>月之暗面否认 Kimi K3 蒸馏传闻，强调原创 KDA 混合线性注意力 + AttnRes 架构创新</p></div></div>
-<div class="tl-item"><div class="tl-date">07-24</div><div class="tl-body"><span class="tag">生态</span><p>吴恩达开源桌面 Agent OpenWorker（MIT License）：本地优先、模型无关、数据留本机，上线即 3.7k Star</p></div></div>
-<div class="tl-item"><div class="tl-date">07-25</div><div class="tl-body"><span class="tag">降本</span><p>Gemini 3.6 Flash 输出 token 降至 $7.5/百万，豆包专业版三级定价 68-500 元/月，API 成本继续下探</p></div></div>
-<div class="tl-item"><div class="tl-date">07-25</div><div class="tl-body"><span class="tag">搜索</span><p>XYZ 发布 Deep Search Agent（Aquila-mini 35B + Aquila-pro 397B）横扫 BrowseComp/GAIA/HLE 等七项基准</p></div></div>
-<div class="tl-item"><div class="tl-date">07-25</div><div class="tl-body"><span class="tag">协同</span><p>JiuwenSwarm 统一工作台更新 + HITS（人在蜂群）人机协同新范式，人走进智能体团队共同办公</p></div></div>
-<div class="tl-item"><div class="tl-date">07-25</div><div class="tl-body"><span class="tag">协同</span><p>EvoMap 多 Agent 实验：同一模型准确率从单上下文 26.29% 提升到蜂群模式约 71%，组织方式成关键杠杆</p></div></div>
-<div class="tl-item"><div class="tl-date">07-25</div><div class="tl-body"><span class="tag">基建</span><p>SK 集团与英伟达达成超 5000 亿美元合作，代理 AI 被列为下一代基础设施需求</p></div></div>
-<div class="tl-item"><div class="tl-date">07-26</div><div class="tl-body"><span class="tag">办公</span><p>腾讯 QClaw 并入 WorkBuddy 确立 AI 办公主线，国产 Agent 办公平台加速整合</p></div></div>
-  </div>
-
-  <div class="section">
-    <h2>知识库精选</h2>
-    <div class="feat"><h4>Skill 生态</h4><ul><li>最近的流量焦虑，被这两个开源Skill解决了。</li><li>数字生命卡兹克推荐过的所有 Skills，我帮你全扒干净了</li><li>藏师傅 PPT Skills 加 Pencil 无敌了!</li></ul></div>
-<div class="feat"><h4>Codex/Claude Code</h4><ul><li>Codex + HyperFrames：一句话把公众号文章变成短视频</li><li>Codex 一键省 Token 神器，用过之后再也回不去了！</li><li>换了三套自动化方案后，我用Codex的Computer Use实现了小红书抖音数据巡检全自动</li></ul></div>
-<div class="feat"><h4>开源项目</h4><ul><li>盘点 17 个 6 月份牛牛牛的 GitHub 开源项目。</li><li>GitHub 上 13 万星的爬虫神器，不要 API Key 就能用了。</li><li>这个 165K Star 开源项目，免费送域名！</li></ul></div>
-<div class="feat"><h4>综合观察</h4><ul><li>123K Star！免费云服务大全，每年帮你省下几千块</li><li>2 万星封神！谷歌开源 DESIGN.md，彻底根治 AI 网页 “流水线廉价脸”</li><li>OpenMAIC：AI 时代的教学平台，不该只是刷题 App</li></ul></div>
-<div class="feat"><h4>Token/API 调度</h4><ul><li>超省钱组合！tokens 最低降 90% ？Headroom + CC Switch 极空间教程</li><li>推理成本里，最容易被低估的不是 Token</li><li>这个爆红的 GitHub 项目让 token 直接省 60–95%。</li></ul></div>
-<div class="feat"><h4>AI 生图</h4><ul><li>我把自己的IP配图技能开源了 顺手做了31个现成角色</li><li>李开复用这套提示词驯服 Claude，我用完只想说一句话</li><li>WorkBuddy变更聪明的秘密，藏在这段记忆分层提示词里，太赞了！</li></ul></div>
-<div class="feat"><h4>大模型</h4><ul><li>这款10.4K star的LLM Route绝对能满足你对模型调度的一切幻想，功能强大+勤俭持家</li><li>全球排名前2的大模型，你到底适合选择哪个？</li><li>免费！DeepSeek-V4-Pro薅羊毛指南</li></ul></div>
-<div class="feat"><h4>Hermes Agent</h4><ul><li>发现一个宝藏开源项目：让 Hermes Agent 在飞书里告别刷屏</li><li>66k下载！用OpenRouter免费模型跑OpenClaw</li><li>OpenClaw向量模型配置指南：云端白嫖 vs 本地部署</li></ul></div>
-<div class="feat"><h4>Agent 工具</h4><ul><li>2.3 万星，给你的智能体装上自媒体超能力</li><li>18美元变3美元！清华开源Agent OS太狠了</li><li>别再让你的 AI 单打独斗了，这才是团队真正需要的 Agent 系统</li></ul></div>
-<div class="feat"><h4>自动化</h4><ul><li>分享 WorkBuddy+蚁小二 CLI，全平台自媒体，从创作到运维都打通了</li><li>WorkBuddy做的图被甲方夸赞，全靠这2个技能，谁用谁香！</li></ul></div>
-<div class="feat"><h4>行业要闻</h4><ul><li>微软开源 Webwright：把点击操作变成可重复执行的脚本</li><li>帮大家总结了一下凌晨的Google I/O 2026开发者大会。</li></ul></div>
-<div class="feat"><h4>效率工具</h4><ul><li>公众号排版救星：AI一键搞定85套主题排版+封面生成</li></ul></div>
-<div class="feat"><h4>变现</h4><ul><li>养网站防老指南：从选词、建站到变现的硬核复盘</li></ul></div>
-  </div>
-
-  <div class="section">
-    <h2>分类分布</h2>
-    <div class="bar-row"><span class="bar-label">Skill 生态</span><div class="bar-track"><div class="bar-fill" style="width:85%"></div></div><span class="bar-val">33</span></div>
-<div class="bar-row"><span class="bar-label">Codex/Claude Code</span><div class="bar-track"><div class="bar-fill" style="width:72%"></div></div><span class="bar-val">28</span></div>
-<div class="bar-row"><span class="bar-label">开源项目</span><div class="bar-track"><div class="bar-fill" style="width:44%"></div></div><span class="bar-val">17</span></div>
-<div class="bar-row"><span class="bar-label">综合观察</span><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><span class="bar-val">39</span></div>
-<div class="bar-row"><span class="bar-label">Token/API 调度</span><div class="bar-track"><div class="bar-fill" style="width:26%"></div></div><span class="bar-val">10</span></div>
-<div class="bar-row"><span class="bar-label">AI 生图</span><div class="bar-track"><div class="bar-fill" style="width:18%"></div></div><span class="bar-val">7</span></div>
-<div class="bar-row"><span class="bar-label">大模型</span><div class="bar-track"><div class="bar-fill" style="width:10%"></div></div><span class="bar-val">4</span></div>
-<div class="bar-row"><span class="bar-label">Hermes Agent</span><div class="bar-track"><div class="bar-fill" style="width:8%"></div></div><span class="bar-val">3</span></div>
-<div class="bar-row"><span class="bar-label">Agent 工具</span><div class="bar-track"><div class="bar-fill" style="width:8%"></div></div><span class="bar-val">3</span></div>
-<div class="bar-row"><span class="bar-label">自动化</span><div class="bar-track"><div class="bar-fill" style="width:5%"></div></div><span class="bar-val">2</span></div>
-<div class="bar-row"><span class="bar-label">行业要闻</span><div class="bar-track"><div class="bar-fill" style="width:5%"></div></div><span class="bar-val">2</span></div>
-<div class="bar-row"><span class="bar-label">效率工具</span><div class="bar-track"><div class="bar-fill" style="width:3%"></div></div><span class="bar-val">1</span></div>
-<div class="bar-row"><span class="bar-label">变现</span><div class="bar-track"><div class="bar-fill" style="width:3%"></div></div><span class="bar-val">1</span></div>
-  </div>
-
-  <div class="section">
-    <h2>趋势洞察</h2>
-    <div class="trends"><ol><li>开源 Agent 走向桌面：本地优先、数据不出本机、模型无关成为新基线，闭源云端助手被拉开差距。</li>
-<li>成本下凹加速：前沿能力以约 1/10 价格普惠，模型路由 + 小模型调度让闭源定价权持续承压。</li>
-<li>组织工程 &gt; 个体工程：蜂群 / 图工程 / 协同工程成为 Agent 竞争新维度，协作范式重于单点能力。</li>
-<li>代理 AI 成基础设施：从软件工具升级为算力 + 内存 + 工厂级基建需求，具身与办公同步落地。</li></ol></div>
-  </div>
-
-  <footer>
-    <span>IMA 周报 · 自动生成于 2026-07-26</span>
-    <span>部署：<a href="https://lzc0403.github.io/skillrush-town/">skillrush-town GitHub Pages</a></span>
-  </footer>
+<section>
+  <div class="sec-h">七大热点洞察</div>
+<div class="card"><h3>开源权重时代正式到来</h3><p>Kimi K3 以 2.8T 参数成为全球首个落地的 3 万亿级开源模型，配合 DeepSeek V4、Qwen3.8、Hy3，国产开源阵营把行业「底线水位」整体抬升，闭源前沿与开放权重的性能差快速收敛。</p></div>
+<div class="card"><h3>Day 0 适配成新标准</h3><p>Nebius / Baseten / Fireworks / 华为昇腾 CANN 在 K3 发布当日即完成适配，Devin（Cognition）直接接入。模型发布即生产力，基础设施厂商的「首发适配」成为生态争夺的第一战场。</p></div>
+<div class="card"><h3>Agent 原生工具链走向成熟</h3><p>知识库中 codex-cc（28 篇）、agent-tools（3 篇）、automation（2 篇）高频出现，叠加 LLaDA2.2 的 Agent 化扩散解码、Devin 接入 K3，说明「为智能体而生的模型 + 可安装化工具」已成主线。</p></div>
+<div class="card"><h3>模型即商品 → 模型即生态</h3><p>开放权重让模型层 commoditize，价值向推理基础设施、工具链与开发者社区迁移。谁圈住最大的开源开发者生态，谁就捕获主要价值——这是国产实验室的清晰战略。</p></div>
+<div class="card"><h3>国产算力软件栈开源提速</h3><p>华为昇腾 CANN 对 K3 的 MXFP4 量化 Day 0 原生支持、趋境科技 SGLang 适配昇腾 910C，国产硬件 + 开源模型协同闭环正在补上最后一块拼图。</p></div>
+<div class="card"><h3>混元 Hy3 落地消费级场景</h3><p>QQ 宠物以 3D 化 + 混元 Hy3 回归，是国产开源大模型首次大规模嵌入国民级 C 端产品，验证「小参数激活 + 长上下文」足以驱动有性格的陪伴交互。</p></div>
+<div class="card"><h3>Skill 经济持续膨胀</h3><p>知识库 skills 类（33 篇）与 other/工具集（39 篇）占据存量主力，「经验即可分发资产」的范式未变，开源 Skill 仍是个人开发者最低成本的能力杠杆。</p></div>
+</section>
+<section>
+  <div class="sec-h">AI 速递时间线（07-24 → 07-28）</div>
+  <div class="tl">
+<div class="tl-item"><div class="tl-d">07-24</div><div class="tl-t">蚂蚁 inclusionAI 开源 LLaDA2.2-flash —— 首个面向 Agent 的 MoE 扩散 LLM，Levenshtein 编辑式解码边生成边纠错</div></div>
+<div class="tl-item"><div class="tl-d">07-26</div><div class="tl-t">LLaDA2.2 技术细节披露，τ²-Bench 智能体基准显著领先同类</div></div>
+<div class="tl-item"><div class="tl-d">07-27</div><div class="tl-t">月之暗面正式开源 Kimi K3（2.8T）完整权重，开源模型进入 3 万亿参数纪元</div></div>
+<div class="tl-item"><div class="tl-d">07-27</div><div class="tl-t">英伟达、微软、IBM 等 37 家企业成立「开放安全 AI 联盟」，共建开源安全工具</div></div>
+<div class="tl-item"><div class="tl-d">07-27</div><div class="tl-t">腾讯 QQ 宠物回归，接入自研混元 Hy3 大模型（2950 亿参数 MoE，256K 上下文）</div></div>
+<div class="tl-item"><div class="tl-d">07-27</div><div class="tl-t">Arena W30 榜单：Kimi K3 蝉联前端开发榜全球第一，代码榜杀入 Top 10</div></div>
+<div class="tl-item"><div class="tl-d">07-28</div><div class="tl-t">Kimi K3 港股通互联网 ETF 联动走强；海外基础设施厂商密集 Day 0 适配</div></div>
+</div>
+</section>
+<section>
+  <div class="sec-h">知识库精选（按分类）</div>
+<div class="feat-cat">Skill 生态</div><ul class="feat-list">
+<li>最近的流量焦虑，被这两个开源Skill解决了。</li>
+<li>数字生命卡兹克推荐过的所有 Skills，我帮你全扒干净了</li>
+<li>藏师傅 PPT Skills 加 Pencil 无敌了!</li>
+</ul>
+<div class="feat-cat">Codex / Claude Code</div><ul class="feat-list">
+<li>Codex + HyperFrames：一句话把公众号文章变成短视频</li>
+<li>Codex 一键省 Token 神器，用过之后再也回不去了！</li>
+<li>换了三套自动化方案后，我用Codex的Computer Use实现了小红书抖音数据巡检全自动</li>
+</ul>
+<div class="feat-cat">开源项目</div><ul class="feat-list">
+<li>盘点 17 个 6 月份牛牛牛的 GitHub 开源项目。</li>
+<li>GitHub 上 13 万星的爬虫神器，不要 API Key 就能用了。</li>
+<li>这个 165K Star 开源项目，免费送域名！</li>
+</ul>
+<div class="feat-cat">API / 降本代理</div><ul class="feat-list">
+<li>超省钱组合！tokens 最低降 90% ？Headroom + CC Switch 极空间教程</li>
+<li>推理成本里，最容易被低估的不是 Token</li>
+<li>这个爆红的 GitHub 项目让 token 直接省 60–95%。</li>
+</ul>
+<div class="feat-cat">图像生成</div><ul class="feat-list">
+<li>我把自己的IP配图技能开源了 顺手做了31个现成角色</li>
+<li>李开复用这套提示词驯服 Claude，我用完只想说一句话</li>
+<li>WorkBuddy变更聪明的秘密，藏在这段记忆分层提示词里，太赞了！</li>
+</ul>
+<div class="feat-cat">AI 模型</div><ul class="feat-list">
+<li>这款10.4K star的LLM Route绝对能满足你对模型调度的一切幻想，功能强大+勤俭持家</li>
+<li>全球排名前2的大模型，你到底适合选择哪个？</li>
+<li>免费！DeepSeek-V4-Pro薅羊毛指南</li>
+</ul>
+<div class="feat-cat">Hermes Agent</div><ul class="feat-list">
+<li>发现一个宝藏开源项目：让 Hermes Agent 在飞书里告别刷屏</li>
+<li>66k下载！用OpenRouter免费模型跑OpenClaw</li>
+<li>OpenClaw向量模型配置指南：云端白嫖 vs 本地部署</li>
+</ul>
+<div class="feat-cat">Agent 工具</div><ul class="feat-list">
+<li>2.3 万星，给你的智能体装上自媒体超能力</li>
+<li>18美元变3美元！清华开源Agent OS太狠了</li>
+<li>别再让你的 AI 单打独斗了，这才是团队真正需要的 Agent 系统</li>
+</ul>
+<div class="feat-cat">自动化</div><ul class="feat-list">
+<li>分享 WorkBuddy+蚁小二 CLI，全平台自媒体，从创作到运维都打通了</li>
+<li>WorkBuddy做的图被甲方夸赞，全靠这2个技能，谁用谁香！</li>
+</ul>
+<div class="feat-cat">行业新闻</div><ul class="feat-list">
+<li>微软开源 Webwright：把点击操作变成可重复执行的脚本</li>
+<li>帮大家总结了一下凌晨的Google I/O 2026开发者大会。</li>
+</ul>
+<div class="feat-cat">效率</div><ul class="feat-list">
+<li>公众号排版救星：AI一键搞定85套主题排版+封面生成</li>
+</ul>
+<div class="feat-cat">变现</div><ul class="feat-list">
+<li>养网站防老指南：从选词、建站到变现的硬核复盘</li>
+</ul>
+<div class="feat-cat">其他/工具集</div><ul class="feat-list">
+<li>123K Star！免费云服务大全，每年帮你省下几千块</li>
+<li>2 万星封神！谷歌开源 DESIGN.md，彻底根治 AI 网页 “流水线廉价脸”</li>
+<li>OpenMAIC：AI 时代的教学平台，不该只是刷题 App</li>
+</ul>
+</section>
+<section>
+  <div class="sec-h">分类分布</div>
+<div class="bar-row"><div class="bar-label">其他/工具集</div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><div class="bar-num">39</div></div>
+<div class="bar-row"><div class="bar-label">Skill 生态</div><div class="bar-track"><div class="bar-fill" style="width:85%"></div></div><div class="bar-num">33</div></div>
+<div class="bar-row"><div class="bar-label">Codex / Claude Code</div><div class="bar-track"><div class="bar-fill" style="width:72%"></div></div><div class="bar-num">28</div></div>
+<div class="bar-row"><div class="bar-label">开源项目</div><div class="bar-track"><div class="bar-fill" style="width:44%"></div></div><div class="bar-num">17</div></div>
+<div class="bar-row"><div class="bar-label">API / 降本代理</div><div class="bar-track"><div class="bar-fill" style="width:26%"></div></div><div class="bar-num">10</div></div>
+<div class="bar-row"><div class="bar-label">图像生成</div><div class="bar-track"><div class="bar-fill" style="width:18%"></div></div><div class="bar-num">7</div></div>
+<div class="bar-row"><div class="bar-label">AI 模型</div><div class="bar-track"><div class="bar-fill" style="width:10%"></div></div><div class="bar-num">4</div></div>
+<div class="bar-row"><div class="bar-label">Hermes Agent</div><div class="bar-track"><div class="bar-fill" style="width:8%"></div></div><div class="bar-num">3</div></div>
+<div class="bar-row"><div class="bar-label">Agent 工具</div><div class="bar-track"><div class="bar-fill" style="width:8%"></div></div><div class="bar-num">3</div></div>
+<div class="bar-row"><div class="bar-label">自动化</div><div class="bar-track"><div class="bar-fill" style="width:5%"></div></div><div class="bar-num">2</div></div>
+<div class="bar-row"><div class="bar-label">行业新闻</div><div class="bar-track"><div class="bar-fill" style="width:5%"></div></div><div class="bar-num">2</div></div>
+<div class="bar-row"><div class="bar-label">效率</div><div class="bar-track"><div class="bar-fill" style="width:3%"></div></div><div class="bar-num">1</div></div>
+<div class="bar-row"><div class="bar-label">变现</div><div class="bar-track"><div class="bar-fill" style="width:3%"></div></div><div class="bar-num">1</div></div>
+</section>
+<section>
+  <div class="sec-h">趋势洞察</div>
+<div class="card"><h3>开源前沿化</h3><p>K3 之后，开放权重模型稳定逼近闭源前沿，本地部署与二次开发门槛持续下探。</p></div>
+<div class="card"><h3>Agent 桌面化</h3><p>OpenWorker 开源桌面 Agent + Devin 接入 K3，长程编码与多步工作流成为开源主战场。</p></div>
+<div class="card"><h3>生态即护城河</h3><p>模型免费开源常态化，竞争从「模型质量」转向「推理基础设施 + 工具链 + 社区」。</p></div>
+<div class="card"><h3>国产软硬协同</h3><p>昇腾 / 910C 对开源模型的 Day 0 适配，正在补齐国产 AI 全栈闭环。</p></div>
+</section>
+<footer>
+  本周核心主题：Kimi K3 开源引爆 3 万亿参数级开源时代 / 开放安全 AI 联盟成立 / 国产模型 Arena 细分赛道突破 / 蚂蚁 LLaDA2.2 Agent 化扩散 LLM / 混元 Hy3 落地消费级 / 开源生态即护城河。<br>
+  数据说明：IMA MCP 连接器当前 disconnected，本周报基于本地缓存 150 篇知识库条目（13 分类）+ WebSearch 实时新闻（07-24~07-28）生成。乐享同步因连接器断开暂未执行。
+</footer>
 </div>
 </body>
 </html>

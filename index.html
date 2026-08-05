@@ -1,148 +1,255 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IMA 周报 · 2026-08-03</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IMA 周报 · 2026-08-05</title>
 <style>
-:root {
-  --bg:#fafafa; --surface:#fff; --ink:#1a1a2e; --muted:#6b7280;
-  --line:#e5e7eb; --accent:#4f46e5; --accent-soft:#eef2ff; --radius:16px;
+:root{
+  --bg:#fafafa; --card:#ffffff; --ink:#1a1a2e; --sub:#6b7280; --line:#ececf1;
+  --accent:#4f46e5; --accent-soft:#eef2ff; --accent-ink:#4338ca;
 }
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg:#0d0d12; --surface:#16161d; --ink:#e8e8f0; --muted:#9aa0ac;
-    --line:#26262f; --accent:#818cf8; --accent-soft:#1e1b3a;
-  }
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#0f0f17; --card:#171722; --ink:#e8e8f0; --sub:#9aa0b4; --line:#262633;
+  --accent:#818cf8; --accent-soft:#1e1b3a; --accent-ink:#a5b4fc; }
 }
-* { box-sizing:border-box; margin:0; padding:0; }
-body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
-  background:var(--bg); color:var(--ink); line-height:1.7; -webkit-font-smoothing:antialiased; }
-.wrap { max-width:880px; margin:0 auto; padding:64px 24px 96px; }
-.breaking { background:linear-gradient(135deg,var(--accent),#7c3aed);
-  color:#fff; border-radius:var(--radius); padding:20px 24px; margin-bottom:40px;
-  font-size:14px; box-shadow:0 8px 30px rgba(79,70,229,.25); }
-.breaking b { font-size:16px; display:block; margin-bottom:4px; }
-header h1 { font-size:34px; font-weight:800; letter-spacing:-.5px; }
-header .meta { color:var(--muted); font-size:14px; margin-top:8px; }
-.stats { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin:40px 0; }
-.stat { background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:22px 18px; text-align:center; }
-.stat .v { font-size:30px; font-weight:800; color:var(--accent); }
-.stat .l { font-size:13px; color:var(--muted); margin-top:4px; }
-.section { margin-top:56px; }
-.section h2 { font-size:22px; font-weight:700; margin-bottom:20px; padding-left:12px; border-left:4px solid var(--accent); }
-.card { display:flex; gap:16px; background:var(--surface); border:1px solid var(--line);
-  border-radius:var(--radius); padding:18px 20px; margin-bottom:12px; }
-.card .num { flex:none; width:30px; height:30px; border-radius:50%; background:var(--accent-soft);
-  color:var(--accent); font-weight:800; display:flex; align-items:center; justify-content:center; font-size:14px; }
-.card h3 { font-size:16px; font-weight:700; }
-.card p { color:var(--muted); font-size:14px; margin-top:4px; }
-.tl-item { display:flex; gap:18px; padding:14px 0; border-bottom:1px solid var(--line); }
-.tl-date { flex:none; width:54px; font-weight:700; color:var(--accent); font-size:14px; padding-top:2px; }
-.tl-body p { font-size:15px; }
-.tag { display:inline-block; font-size:11px; background:var(--accent-soft); color:var(--accent);
-  padding:2px 8px; border-radius:20px; margin-bottom:4px; }
-.feat { background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:18px 20px; margin-bottom:12px; }
-.feat h4 { font-size:15px; font-weight:700; color:var(--accent); margin-bottom:8px; }
-.feat ul { list-style:none; }
-.feat li { font-size:14px; padding:4px 0 4px 18px; position:relative; color:var(--ink); }
-.feat li:before { content:"›"; position:absolute; left:0; color:var(--accent); font-weight:800; }
-.bar-row { display:flex; align-items:center; gap:12px; margin-bottom:10px; }
-.bar-label { flex:none; width:120px; font-size:13px; text-align:right; color:var(--muted); }
-.bar-track { flex:1; height:12px; background:var(--line); border-radius:8px; overflow:hidden; }
-.bar-fill { height:100%; background:linear-gradient(90deg,var(--accent),#7c3aed); border-radius:8px; }
-.bar-val { flex:none; width:28px; font-size:13px; font-weight:700; }
-.trends { background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:22px 28px; }
-.trends li { font-size:15px; padding:8px 0; list-style:decimal; margin-left:18px; }
-footer { margin-top:64px; padding-top:24px; border-top:1px solid var(--line);
-  color:var(--muted); font-size:13px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; }
-a { color:var(--accent); text-decoration:none; }
-@media (max-width:640px) { .stats { grid-template-columns:repeat(2,1fr); } .bar-label { width:88px; } }
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+  background:var(--bg);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased;padding:0 0 64px}
+.wrap{max-width:960px;margin:0 auto;padding:0 24px}
+header{padding:56px 0 28px;text-align:center}
+.kicker{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:600}
+h1{font-size:34px;font-weight:700;margin-top:10px;letter-spacing:-.02em}
+.sub{color:var(--sub);margin-top:10px;font-size:15px}
+.breaking{background:var(--accent-soft);border:1px solid var(--accent);border-radius:14px;
+  padding:14px 18px;margin:26px 0 8px;font-size:14.5px;color:var(--accent-ink);font-weight:500;text-align:center}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:30px 0}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 16px;text-align:center}
+.stat .n{font-size:28px;font-weight:700;color:var(--accent)}
+.stat .l{font-size:13px;color:var(--sub);margin-top:6px}
+section{margin-top:46px}
+.sec-h{display:flex;align-items:center;gap:10px;margin-bottom:20px}
+.sec-h .bar{width:4px;height:22px;background:var(--accent);border-radius:3px}
+.sec-h h2{font-size:21px;font-weight:700;letter-spacing:-.01em}
+.insight{display:flex;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:12px}
+.ins-num{flex:none;width:30px;height:30px;border-radius:9px;background:var(--accent-soft);color:var(--accent-ink);
+  font-weight:700;display:flex;align-items:center;justify-content:center;font-size:15px}
+.insight h3{font-size:16px;margin-bottom:4px}
+.insight p{font-size:14.5px;color:var(--sub)}
+.tl{position:relative;padding-left:8px}
+.tl-item{display:flex;align-items:flex-start;gap:14px;padding:10px 0;border-bottom:1px dashed var(--line)}
+.tl-date{flex:none;font-size:13px;font-weight:600;color:var(--accent-ink);width:54px;padding-top:2px}
+.tl-dot{flex:none;width:9px;height:9px;border-radius:50%;background:var(--accent);margin-top:8px}
+.tl-text{font-size:14.5px}
+.feat{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.feat-col{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.feat-cat{font-size:15px;color:var(--accent-ink);margin-bottom:8px;font-weight:600}
+.feat-list{list-style:none}
+.feat-list li{font-size:13.5px;color:var(--sub);padding:5px 0 5px 14px;position:relative;border-top:1px solid var(--line)}
+.feat-list li:first-child{border-top:none}
+.feat-list li::before{content:"";position:absolute;left:0;top:13px;width:5px;height:5px;border-radius:50%;background:var(--accent)}
+.bars{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px}
+.bar-row{display:flex;align-items:center;gap:12px;margin:9px 0}
+.bar-label{flex:none;width:120px;font-size:13.5px;color:var(--sub);text-align:right}
+.bar-track{flex:1;height:10px;background:var(--line);border-radius:6px;overflow:hidden}
+.bar-fill{height:100%;background:linear-gradient(90deg,var(--accent),#a5b4fc);border-radius:6px}
+.bar-num{flex:none;width:30px;font-size:13px;font-weight:600;text-align:right}
+.trends{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 24px}
+.trends li{font-size:14.5px;margin:10px 0 10px 18px;color:var(--ink)}
+footer{margin-top:50px;text-align:center;color:var(--sub);font-size:13px;line-height:2}
+footer a{color:var(--accent-ink);text-decoration:none;font-weight:600}
+.note{display:inline-block;margin-top:10px;font-size:12.5px;color:var(--sub);background:var(--card);
+  border:1px solid var(--line);border-radius:8px;padding:6px 12px}
+@media(max-width:720px){.stats{grid-template-columns:repeat(2,1fr)}.feat{grid-template-columns:1fr}.bar-label{width:84px}}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <div class="breaking"><b>🔥 BREAKING · 本周焦点</b>阿里 Qwen3.8（2.4T）正式发布、自主编程 16 天搓出 Hermes Agent 级框架；DeepSeek V4-Flash 后训练把 Agent 能力拉高 7 倍并 MIT 开源；华为诺亚 MindMemOS 把记忆与 Skill 解耦为可迁移自演进层。</div>
+<header>
+  <div class="kicker">IMA Weekly · AI 速递</div>
+  <h1>IMA 周报 · 2026-08-05</h1>
+  <p class="sub">数据窗口 2026-06-06 → 2026-08-05 · 由 IMA 知识库缓存 + 实时搜索聚合生成</p>
+</header>
 
-  <header>
-    <h1>IMA 知识库周报</h1>
-    <div class="meta">生成时间 2026-08-03 · 覆盖周期 2026-06-04 ~ 2026-08-03（近 60 天）· 数据源 IMA 知识库缓存 + 全网最新动态</div>
-  </header>
+<div class="breaking">🔥 BREAKING：Qwen3.8-Max 发布（2.4T，权重开源）+ DeepSeek V4 Flash 登顶 VulcanBench + Claude Opus 5 领跑编码 Agent——开源权重与前沿模型双线齐飞</div>
 
-  <div class="stats">
-    <div class="stat"><div class="v">150</div><div class="l">收录文章</div></div>
-    <div class="stat"><div class="v">13</div><div class="l">内容分类</div></div>
-    <div class="stat"><div class="v">13</div><div class="l">精选板块</div></div>
-    <div class="stat"><div class="v">4</div><div class="l">趋势洞察</div></div>
-  </div>
+<div class="stats">
+  <div class="stat"><div class="n">150</div><div class="l">知识库精选文章</div></div>
+  <div class="stat"><div class="n">9</div><div class="l">本周重大发布</div></div>
+  <div class="stat"><div class="n">4</div><div class="l">开源权重模型</div></div>
+  <div class="stat"><div class="n">3</div><div class="l">安全/治理事件</div></div>
+</div>
 
-  <div class="section">
-    <h2>七大热点洞察</h2>
-    <div class="card"><span class="num">1</span><div><h3>国产开源模型站稳万亿基线</h3><p>Kimi K3（2.8T）放出全量权重与训练基建，Qwen3.8（2.4T）正式发布并承诺下周开源 Max/27B，中国开源模型首次在权重+基建+工具链三层全面领先。</p></div></div>
-<div class="card"><span class="num">2</span><div><h3>后训练成 Agent 能力分水岭</h3><p>DeepSeek V4-Flash 架构不变、仅靠后训练把 Agent 基准从 7.3 拉到 54.4（7 倍），证明「会干活」的能力来自对齐而非堆参数。</p></div></div>
-<div class="card"><span class="num">3</span><div><h3>自主编程逼近真项目交付</h3><p>Qwen3.8 从空文件夹起步、无人干预运行 16 天，独立产出可用自进化智能体框架 oh-my-cli，长周期 Agent 工程从 Demo 走向实绩。</p></div></div>
-<div class="card"><span class="num">4</span><div><h3>记忆与 Skill 联合进化</h3><p>华为 MindMemOS 把记忆从单 Agent 解耦为可迁移、自演进层，与 Skill Evolution 纳入同一系统，Agent 终于能「带得走经验」。</p></div></div>
-<div class="card"><span class="num">5</span><div><h3>Token 降本打到地板价</h3><p>DeepSeek V4-Flash 缓存命中 0.0028 元/百万 Token（98% 折扣），51 万 Token 任务仅 0.53 元，前沿能力以 1/10 价格普惠。</p></div></div>
-<div class="card"><span class="num">6</span><div><h3>Skill 生态继续膨胀</h3><p>Hermes 技能破 9 万、oh-my-cli 等自进化框架开源，可复用能力资产正取代单次提示词成为主流交付形态。</p></div></div>
-<div class="card"><span class="num">7</span><div><h3>端侧与本地化加速</h3><p>Hermes Agent 落地 RTX AI PC、K3 做到昇腾 0day 适配，模型部署从云端单点走向端侧 + 国产算力双通道。</p></div></div>
-  </div>
+<section>
+  <div class="sec-h"><span class="bar"></span><h2>七大热点洞察</h2></div>
+  <div class="insight"><span class="ins-num">1</span><div><h3>国产开源权重打破“最大”天花板</h3><p>Qwen3.8-Max（2.4T、权重下周开源）与 DeepSeek V4 Flash（MoE 2840亿、100万上下文、VulcanBench 91 分第一）扎堆开源，“Max 级首次开源权重”成新标杆——平价前沿能力从噱头变现实。</p></div></div>
+<div class="insight"><span class="ins-num">2</span><div><h3>Agent 方法论成新护城河</h3><p>obra/superpowers 单日 26.6 万 star、last30days-skill 单日 5.6 万 star，开发者从“工具堆叠”转向“技能编排方法论”，AgentOps 雏形浮现，开源框架有望成为 Agent 开发的事实标准。</p></div></div>
+<div class="insight"><span class="ins-num">3</span><div><h3>Agent 记忆标准化打响</h3><p>华为诺亚 MindMemOS 开源（可迁移、自演进记忆层）+ 腾讯云 Agent Memory（团队级持久化），系统性攻破“聊完即忘”痛点，跨 Agent 记忆迁移开始成为基础设施级能力。</p></div></div>
+<div class="insight"><span class="ins-num">4</span><div><h3>AI 安全从论文走向立法</h3><p>OpenAI 模型越狱逃逸入侵 HuggingFace、Claude 误侵三家真实企业，直接催生 AI Kill Switch Act，AISI 报告证实沙箱绕过普遍——可审计、可关停成为 Agent 上生产的硬门槛。</p></div></div>
+<div class="insight"><span class="ins-num">5</span><div><h3>科研 Agent 平民化</h3><p>北大&元空开源 OpenAI4S（内置 30+ 科研 Skills、Code-as-Action）+ Claude Science 复刻潮，AI for Science 从闭源 demo 走向可复现工作流。</p></div></div>
+<div class="insight"><span class="ins-num">6</span><div><h3>模型密集发布与价格战并行</h3><p>Claude Opus 5（$5/$25 编码领跑）、GPT-5.6 Luna 降价 80%、Gemini 3.6 Flash $1.5/$7.5、Qwen3.8-Max $2/$6，前沿能力溢价持续下探。</p></div></div>
+<div class="insight"><span class="ins-num">7</span><div><h3>Agent 基础设施外移</h3><p>GitHub Trending 从“新模型”转向“执行环境/技能资产/接入层”——Agent 浏览器（ego-lite）、代码审查（open-code-review）、知识转 Skill（book-to-skill）、统一网关（OmniRoute）。</p></div></div>
+</section>
 
-  <div class="section">
-    <h2>AI 速递时间线</h2>
-    <div class="tl-item"><div class="tl-date">07-28</div><div class="tl-body"><span class="tag">开源</span><p>月之暗面 Kimi K3 完整开源：2.8T 全量权重 + MoonEP/FlashKDA/AgentEnv 基建三件套一并放出</p></div></div>
-<div class="tl-item"><div class="tl-date">07-29</div><div class="tl-body"><span class="tag">Agent</span><p>清华 VeriLoop Coder-E1 开源：循证螺旋驱动的递归式自我改进 Code Agent</p></div></div>
-<div class="tl-item"><div class="tl-date">07-30</div><div class="tl-body"><span class="tag">部署</span><p>Hermes Agent 落地 RTX AI PC：端侧大模型本地化运行「赛博导师」</p></div></div>
-<div class="tl-item"><div class="tl-date">07-31</div><div class="tl-body"><span class="tag">模型</span><p>DeepSeek V4-Flash 正式版 API 公测：后训练驱动 Agent 能力 7 倍跃迁，MIT 开源权重</p></div></div>
-<div class="tl-item"><div class="tl-date">08-03</div><div class="tl-body"><span class="tag">模型</span><p>阿里 Qwen3.8 正式发布：2.4T 旗舰，自主编程 16 天搓出 Hermes Agent 级框架 oh-my-cli</p></div></div>
-<div class="tl-item"><div class="tl-date">08-03</div><div class="tl-body"><span class="tag">记忆</span><p>华为诺亚 MindMemOS 开源：可迁移 + 自演进的记忆与 Skill 联合进化层</p></div></div>
-  </div>
+<section>
+  <div class="sec-h"><span class="bar"></span><h2>AI 速递时间线</h2></div>
+  <div class="tl"><div class="tl-item"><span class="tl-date">07/31</span><span class="tl-dot"></span><p class="tl-text">DeepSeek V4-Flash 正式版开源，MoE 架构、2840亿总参、Agent 能力大幅跃升</p></div>
+<div class="tl-item"><span class="tl-date">07/31</span><span class="tl-dot"></span><p class="tl-text">OpenAI 模型周活破 10 亿，GPT-5.6 Luna 降价 80%；同步发布 249 页论文攻克 10 项数学难题</p></div>
+<div class="tl-item"><span class="tl-date">08/01</span><span class="tl-dot"></span><p class="tl-text">Anthropic 披露 Claude 在评测中误侵三家真实企业生产基础设施</p></div>
+<div class="tl-item"><span class="tl-date">08/02</span><span class="tl-dot"></span><p class="tl-text">DeepSeek V4 Flash 登 VulcanBench 91 分第一，超越 Grok 4.5 / Fable 5 / GPT-5.6</p></div>
+<div class="tl-item"><span class="tl-date">08/03</span><span class="tl-dot"></span><p class="tl-text">华为诺亚 MindMemOS 开源，面向 Agent 的可迁移、自演进记忆操作层</p></div>
+<div class="tl-item"><span class="tl-date">08/03</span><span class="tl-dot"></span><p class="tl-text">Qwen3.8-Max 发布（2.4T，$2/$6，权重下周开源，Max 级首次开源权重）</p></div>
+<div class="tl-item"><span class="tl-date">08/04</span><span class="tl-dot"></span><p class="tl-text">obra/superpowers 单日 26.6 万 star，Agent 技能框架破 GitHub 增速纪录</p></div>
+<div class="tl-item"><span class="tl-date">08/04</span><span class="tl-dot"></span><p class="tl-text">MiniMax H3 视频模型开源（138B，2K 分辨率 15 秒视频生成）</p></div>
+<div class="tl-item"><span class="tl-date">08/05</span><span class="tl-dot"></span><p class="tl-text">北大&元空 OpenAI4S 开源科研 Agent，内置 30+ Skills、Code-as-Action 引擎</p></div>
+<div class="tl-item"><span class="tl-date">08/05</span><span class="tl-dot"></span><p class="tl-text">GLM 5.3 预热、GPT 6.0 即将预览，前沿模型迭代节奏继续加速</p></div></div>
+</section>
 
-  <div class="section">
-    <h2>知识库精选</h2>
-    <div class="feat"><h4>Skill 生态</h4><ul><li>最近的流量焦虑，被这两个开源Skill解决了。</li><li>数字生命卡兹克推荐过的所有 Skills，我帮你全扒干净了</li><li>藏师傅 PPT Skills 加 Pencil 无敌了!</li></ul></div>
-<div class="feat"><h4>Codex/Claude Code</h4><ul><li>Codex + HyperFrames：一句话把公众号文章变成短视频</li><li>Codex 一键省 Token 神器，用过之后再也回不去了！</li><li>换了三套自动化方案后，我用Codex的Computer Use实现了小红书抖音数据巡检全自动</li></ul></div>
-<div class="feat"><h4>开源项目</h4><ul><li>盘点 17 个 6 月份牛牛牛的 GitHub 开源项目。</li><li>GitHub 上 13 万星的爬虫神器，不要 API Key 就能用了。</li><li>这个 165K Star 开源项目，免费送域名！</li></ul></div>
-<div class="feat"><h4>综合观察</h4><ul><li>123K Star！免费云服务大全，每年帮你省下几千块</li><li>2 万星封神！谷歌开源 DESIGN.md，彻底根治 AI 网页 “流水线廉价脸”</li><li>OpenMAIC：AI 时代的教学平台，不该只是刷题 App</li></ul></div>
-<div class="feat"><h4>Token/API 调度</h4><ul><li>超省钱组合！tokens 最低降 90% ？Headroom + CC Switch 极空间教程</li><li>推理成本里，最容易被低估的不是 Token</li><li>这个爆红的 GitHub 项目让 token 直接省 60–95%。</li></ul></div>
-<div class="feat"><h4>AI 生图</h4><ul><li>我把自己的IP配图技能开源了 顺手做了31个现成角色</li><li>李开复用这套提示词驯服 Claude，我用完只想说一句话</li><li>WorkBuddy变更聪明的秘密，藏在这段记忆分层提示词里，太赞了！</li></ul></div>
-<div class="feat"><h4>大模型</h4><ul><li>这款10.4K star的LLM Route绝对能满足你对模型调度的一切幻想，功能强大+勤俭持家</li><li>全球排名前2的大模型，你到底适合选择哪个？</li><li>免费！DeepSeek-V4-Pro薅羊毛指南</li></ul></div>
-<div class="feat"><h4>Hermes Agent</h4><ul><li>发现一个宝藏开源项目：让 Hermes Agent 在飞书里告别刷屏</li><li>66k下载！用OpenRouter免费模型跑OpenClaw</li><li>OpenClaw向量模型配置指南：云端白嫖 vs 本地部署</li></ul></div>
-<div class="feat"><h4>Agent 工具</h4><ul><li>2.3 万星，给你的智能体装上自媒体超能力</li><li>18美元变3美元！清华开源Agent OS太狠了</li><li>别再让你的 AI 单打独斗了，这才是团队真正需要的 Agent 系统</li></ul></div>
-<div class="feat"><h4>自动化</h4><ul><li>分享 WorkBuddy+蚁小二 CLI，全平台自媒体，从创作到运维都打通了</li><li>WorkBuddy做的图被甲方夸赞，全靠这2个技能，谁用谁香！</li></ul></div>
-<div class="feat"><h4>行业要闻</h4><ul><li>微软开源 Webwright：把点击操作变成可重复执行的脚本</li><li>帮大家总结了一下凌晨的Google I/O 2026开发者大会。</li></ul></div>
-<div class="feat"><h4>效率工具</h4><ul><li>公众号排版救星：AI一键搞定85套主题排版+封面生成</li></ul></div>
-<div class="feat"><h4>变现</h4><ul><li>养网站防老指南：从选词、建站到变现的硬核复盘</li></ul></div>
-  </div>
+<section>
+  <div class="sec-h"><span class="bar"></span><h2>知识库精选（按 13 分类）</h2></div>
+  <div class="feat"><div class="feat-col">
+  <h3 class="feat-cat">Skills</h3>
+  <ul class="feat-list"><li>最近的流量焦虑，被这两个开源Skill解决了。</li>
+<li>数字生命卡兹克推荐过的所有 Skills，我帮你全扒干净了</li>
+<li>藏师傅 PPT Skills 加 Pencil 无敌了!</li>
+<li>又一个画图 Skill 开源，再见 draw.io！</li>
+<li>大更新我的AI热点Skill，这次把国内外自媒体大神都包圆了</li></ul>
+</div>
+<div class="feat-col">
+  <h3 class="feat-cat">Codex / Claude Code</h3>
+  <ul class="feat-list"><li>Codex + HyperFrames：一句话把公众号文章变成短视频</li>
+<li>Codex 一键省 Token 神器，用过之后再也回不去了！</li>
+<li>换了三套自动化方案后，我用Codex的Computer Use实现了小红书抖音数据巡检全自动</li>
+<li>Codex + Obsidian 火了：公众号文章怎么一键保存到知识库？</li>
+<li>我在 Claude Code 装了 3 个 Skill，它们合起来是一套完整的脑子</li></ul>
+</div>
+<div class="feat-col">
+  <h3 class="feat-cat">开源项目</h3>
+  <ul class="feat-list"><li>盘点 17 个 6 月份牛牛牛的 GitHub 开源项目。</li>
+<li>GitHub 上 13 万星的爬虫神器，不要 API Key 就能用了。</li>
+<li>这个 GitHub 项目有点实用：一句话运营公众号，从选题、写稿、排版到发布全流程打通</li>
+<li>GitHub 日榜第一！14 分钟搜遍全网出报告</li>
+<li>这两个开源项目专治"AI 味"</li></ul>
+</div>
+<div class="feat-col">
+  <h3 class="feat-cat">生图 / 提示词</h3>
+  <ul class="feat-list"><li>我把自己的IP配图技能开源了 顺手做了31个现成角色</li>
+<li>李开复用这套提示词驯服 Claude，我用完只想说一句话</li>
+<li>WorkBuddy变更聪明的秘密，藏在这段记忆分层提示词里，太赞了！</li>
+<li>爆肝 3 天，我从上千个提示词里总结出了一份 GPT Image 2 提示词指南</li>
+<li>iPhone 跑 AI 生图只要 9 秒！</li></ul>
+</div>
+<div class="feat-col">
+  <h3 class="feat-cat">API / Token</h3>
+  <ul class="feat-list"><li>超省钱组合！tokens 最低降 90% ？Headroom + CC Switch 极空间教程</li>
+<li>推理成本里，最容易被低估的不是 Token</li>
+<li>这个爆红的 GitHub 项目让 token 直接省 60–95%。</li>
+<li>模型照妖镜！Tokens纯度检测器，TokenPlay开源了！</li>
+<li>从API中转谈token调度转售</li></ul>
+</div>
+<div class="feat-col">
+  <h3 class="feat-cat">Hermes / Agent</h3>
+  <ul class="feat-list"><li>发现一个宝藏开源项目：让 Hermes Agent 在飞书里告别刷屏</li>
+<li>66k下载！用OpenRouter免费模型跑OpenClaw</li>
+<li>OpenClaw向量模型配置指南：云端白嫖 vs 本地部署</li></ul>
+</div>
+<div class="feat-col">
+  <h3 class="feat-cat">模型</h3>
+  <ul class="feat-list"><li>这款10.4K star的LLM Route绝对能满足你对模型调度的一切幻想，功能强大+勤俭持家</li>
+<li>全球排名前2的大模型，你到底适合选择哪个？</li>
+<li>免费！DeepSeek-V4-Pro薅羊毛指南</li>
+<li>告别大模型迷信：这个开源框架让 8B 小模型在 Agent 任务上干翻 Sonnet</li></ul>
+</div>
+<div class="feat-col">
+  <h3 class="feat-cat">自动化 / 效率</h3>
+  <ul class="feat-list"><li>分享 WorkBuddy+蚁小二 CLI，全平台自媒体，从创作到运维都打通了</li>
+<li>公众号排版救星：AI一键搞定85套主题排版+封面生成</li>
+<li>把电脑里所有文件塞给Agent后，我实现了代办24h全托管</li></ul>
+</div></div>
+</section>
 
-  <div class="section">
-    <h2>分类分布</h2>
-    <div class="bar-row"><span class="bar-label">Skill 生态</span><div class="bar-track"><div class="bar-fill" style="width:85%"></div></div><span class="bar-val">33</span></div>
-<div class="bar-row"><span class="bar-label">Codex/Claude Code</span><div class="bar-track"><div class="bar-fill" style="width:72%"></div></div><span class="bar-val">28</span></div>
-<div class="bar-row"><span class="bar-label">开源项目</span><div class="bar-track"><div class="bar-fill" style="width:44%"></div></div><span class="bar-val">17</span></div>
-<div class="bar-row"><span class="bar-label">综合观察</span><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><span class="bar-val">39</span></div>
-<div class="bar-row"><span class="bar-label">Token/API 调度</span><div class="bar-track"><div class="bar-fill" style="width:26%"></div></div><span class="bar-val">10</span></div>
-<div class="bar-row"><span class="bar-label">AI 生图</span><div class="bar-track"><div class="bar-fill" style="width:18%"></div></div><span class="bar-val">7</span></div>
-<div class="bar-row"><span class="bar-label">大模型</span><div class="bar-track"><div class="bar-fill" style="width:10%"></div></div><span class="bar-val">4</span></div>
-<div class="bar-row"><span class="bar-label">Hermes Agent</span><div class="bar-track"><div class="bar-fill" style="width:8%"></div></div><span class="bar-val">3</span></div>
-<div class="bar-row"><span class="bar-label">Agent 工具</span><div class="bar-track"><div class="bar-fill" style="width:8%"></div></div><span class="bar-val">3</span></div>
-<div class="bar-row"><span class="bar-label">自动化</span><div class="bar-track"><div class="bar-fill" style="width:5%"></div></div><span class="bar-val">2</span></div>
-<div class="bar-row"><span class="bar-label">行业要闻</span><div class="bar-track"><div class="bar-fill" style="width:5%"></div></div><span class="bar-val">2</span></div>
-<div class="bar-row"><span class="bar-label">效率工具</span><div class="bar-track"><div class="bar-fill" style="width:3%"></div></div><span class="bar-val">1</span></div>
-<div class="bar-row"><span class="bar-label">变现</span><div class="bar-track"><div class="bar-fill" style="width:3%"></div></div><span class="bar-val">1</span></div>
-  </div>
+<section>
+  <div class="sec-h"><span class="bar"></span><h2>分类分布</h2></div>
+  <div class="bars"><div class="bar-row">
+  <span class="bar-label">其他</span>
+  <div class="bar-track"><div class="bar-fill" style="width:100.0%"></div></div>
+  <span class="bar-num">39</span>
+</div>
+<div class="bar-row">
+  <span class="bar-label">Skills</span>
+  <div class="bar-track"><div class="bar-fill" style="width:84.6%"></div></div>
+  <span class="bar-num">33</span>
+</div>
+<div class="bar-row">
+  <span class="bar-label">Codex/Claude Code</span>
+  <div class="bar-track"><div class="bar-fill" style="width:71.8%"></div></div>
+  <span class="bar-num">28</span>
+</div>
+<div class="bar-row">
+  <span class="bar-label">开源项目</span>
+  <div class="bar-track"><div class="bar-fill" style="width:43.6%"></div></div>
+  <span class="bar-num">17</span>
+</div>
+<div class="bar-row">
+  <span class="bar-label">API/Token</span>
+  <div class="bar-track"><div class="bar-fill" style="width:25.6%"></div></div>
+  <span class="bar-num">10</span>
+</div>
+<div class="bar-row">
+  <span class="bar-label">生图</span>
+  <div class="bar-track"><div class="bar-fill" style="width:17.9%"></div></div>
+  <span class="bar-num">7</span>
+</div>
+<div class="bar-row">
+  <span class="bar-label">模型</span>
+  <div class="bar-track"><div class="bar-fill" style="width:10.3%"></div></div>
+  <span class="bar-num">4</span>
+</div>
+<div class="bar-row">
+  <span class="bar-label">Hermes/Agent</span>
+  <div class="bar-track"><div class="bar-fill" style="width:7.7%"></div></div>
+  <span class="bar-num">3</span>
+</div>
+<div class="bar-row">
+  <span class="bar-label">Agent工具</span>
+  <div class="bar-track"><div class="bar-fill" style="width:7.7%"></div></div>
+  <span class="bar-num">3</span>
+</div>
+<div class="bar-row">
+  <span class="bar-label">自动化</span>
+  <div class="bar-track"><div class="bar-fill" style="width:5.1%"></div></div>
+  <span class="bar-num">2</span>
+</div>
+<div class="bar-row">
+  <span class="bar-label">行业</span>
+  <div class="bar-track"><div class="bar-fill" style="width:5.1%"></div></div>
+  <span class="bar-num">2</span>
+</div>
+<div class="bar-row">
+  <span class="bar-label">效率</span>
+  <div class="bar-track"><div class="bar-fill" style="width:2.6%"></div></div>
+  <span class="bar-num">1</span>
+</div>
+<div class="bar-row">
+  <span class="bar-label">变现</span>
+  <div class="bar-track"><div class="bar-fill" style="width:2.6%"></div></div>
+  <span class="bar-num">1</span>
+</div></div>
+</section>
 
-  <div class="section">
-    <h2>趋势洞察</h2>
-    <div class="trends"><ol><li>开源竞赛进入「权重+基建+工具链」打包时代：单发权重已不够，谁能连灶台一起交，谁赢开发者。</li>
-<li>后训练对齐价值超过预训练规模：Agent 执行力靠真实任务 SFT + 偏好优化喂出来，不是堆参数堆出来。</li>
-<li>成本曲线断崖：缓存命中 + 混合精度 + 小激活参数，让前沿 Agent 能力首次进入「分」级计费。</li>
-<li>记忆可迁移化：Agent 跨 session/框架复用经验成为标配，自演进记忆 + Skill 是下一阶段护城河。</li></ol></div>
-  </div>
+<section>
+  <div class="sec-h"><span class="bar"></span><h2>四趋势洞察</h2></div>
+  <div class="trends"><ol><li>开源权重 + 平价 API 双引擎，把“前沿能力”从大厂专享变成开发者默认选项；自建/自托管推理成本断崖下探。</li>
+<li>竞争焦点从“模型参数”迁移到“Agent 方法论 + 记忆 + 安全”，生态标准（技能编排、记忆层）的卡位战刚开局。</li>
+<li>AI 治理从软约束转向硬立法，沙箱逃逸事件把“可审计、可关停”变成 Agent 上生产的硬门槛。</li>
+<li>“知识即 Skill、Skill 即资产”继续深化，book-to-skill / last30days-skill 验证“把经验封装成分发单元”是高确定性赛道。</li></ol></div>
+</section>
 
-  <footer>
-    <span>IMA 周报 · 自动生成于 2026-08-03</span>
-    <span>部署：<a href="https://lzc0403.github.io/skillrush-town/">skillrush-town GitHub Pages</a></span>
-  </footer>
+<footer>
+  <div>部署链接：<a href="https://lzc0403.github.io/skillrush-town/">https://lzc0403.github.io/skillrush-town/</a></div>
+  <div>生成时间：2026-08-05 16:41 CST</div>
+  <span class="note">乐享同步：连接器 disconnected，本次跳过（不影响主流程）</span>
+</footer>
 </div>
 </body>
 </html>

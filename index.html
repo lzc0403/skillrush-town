@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>IMA 周报 · 2026-08-15</title>
+<title>IMA 周报 · 2026-08-17</title>
 <style>
 :root{
   --bg:#fafafa; --card:#ffffff; --ink:#1a1a2e; --sub:#6b7280; --line:#ececf1;
@@ -67,40 +67,42 @@ footer a{color:var(--accent-ink);text-decoration:none;font-weight:600}
 <div class="wrap">
 <header>
   <div class="kicker">IMA Weekly · AI 速递</div>
-  <h1>IMA 周报 · 2026-08-15</h1>
-  <p class="sub">数据窗口 2026-06-14 → 2026-08-15 · 由 IMA 知识库缓存（150 篇）+ 实时搜索聚合生成</p>
+  <h1>IMA 周报 · 2026-08-17</h1>
+  <p class="sub">数据窗口 2026-06-14 → 2026-08-17 · 由 IMA 知识库缓存（150 篇）+ 实时搜索聚合生成</p>
 </header>
 
-<div class="breaking">🔥 BREAKING：DeepSeek 开源 Harness 智能体框架 + V4 Pro 正式版齐发，Qwen3.8-27B 与智谱 GLM-5.3 同日开源——中国开源阵营在 8/13–8/15 三天内完成对闭源的"围剿"式反攻</div>
+<div class="breaking">🔥 BREAKING：DeepSeek 峰谷计价今日正式生效（高峰输出约翻倍）+ 智谱 GLM-5.3 因网络安全审查暂缓开源（史上首次）+ 千问全球下载破 30 亿登顶开源第一；Gemini 3.7 Flash 与 Grok 4.6 同日重洗"工作马"模型层</div>
 
 <div class="stats">
   <div class="stat"><div class="n">150</div><div class="l">知识库精选文章</div></div>
-  <div class="stat"><div class="n">8</div><div class="l">本周重大事件</div></div>
-  <div class="stat"><div class="n">5+</div><div class="l">开源权重模型</div></div>
-  <div class="stat"><div class="n">3</div><div class="l">安全/治理事件</div></div>
+  <div class="stat"><div class="n">10</div><div class="l">本周重大事件</div></div>
+  <div class="stat"><div class="n">6+</div><div class="l">开源权重模型</div></div>
+  <div class="stat"><div class="n">4</div><div class="l">安全/治理事件</div></div>
 </div>
 
 <section>
   <div class="sec-h"><span class="bar"></span><h2>七大热点洞察</h2></div>
-  <div class="insight"><span class="ins-num">1</span><div><h3>DeepSeek Harness：模型厂商抢下"执行层"入口</h3><p>8/13 深夜 DeepSeek 以 MIT 协议开源首款智能体运行框架 DeepSeek Harness（DSH），采用"一切皆插件"架构——模型、工具、技能、会话、沙箱、调度全部由 Cordis 元框架的插件组合而成，可自由替换重组。仓库半小时破万星、两小时破 3 万星。这标志着 DeepSeek 从"模型提供商"转向"全链路 AI 工作流构建者"，正面切入 Codex / Claude Code 占据的编程执行层，从卖 API 转向卖结果。</p></div></div>
-<div class="insight"><span class="ins-num">2</span><div><h3>中国开源阵营三天内"围剿"闭源</h3><p>8/13–8/15 窗口内，DeepSeek V4 Pro 正式版、阿里 Qwen3.8-27B（Apache 2.0，262K 上下文可扩 1M）、智谱 GLM-5.3（7430 亿参数）、Meta Muse Glimmer 同期开源。据 Hugging Face 2026 春季报告，中国自研开源模型下载占比达 41%，首次超过美国、累计下载破 100 亿次。开源从行业边缘被推到中心，倒逼整个定价体系重建。</p></div></div>
-<div class="insight"><span class="ins-num">3</span><div><h3>Agent 能力成开源模型新标尺</h3><p>本轮开源更新把"能否干活"当作核心卖点：DeepSeek V4 Pro 在 DeepSWE 基准从预览版 12.8 跃升至 62.7；Qwen3.8-27B 原生支持 Agent，DeepSWE 从 13.3 升至 42.2、部分基准超 Opus 4.6 Max；GLM-5.3 编程较 5.2 提升 50%、登顶 Terminal Bench 3.0 开源第一，并"涌现"网安能力——累计发现 2436 个漏洞含 1097 个中高危。模型优劣不再只看跑分。</p></div></div>
-<div class="insight"><span class="ins-num">4</span><div><h3>价格屠夫告别地板价，定价权博弈加剧</h3><p>8/13 DeepSeek 公布峰谷定价：8/17 起 V4 Pro 高峰输出 27 元/百万 tokens（空闲 13.5 元），较此前 6 元整体上调数倍；智谱 Q1 提价 83%、腾讯混元部分接口涨超 460%、阿里百度相继提价。与此同时阿里正研究 Qwen3.8-Max 商用分成机制——"开源 ≠ 商用免费"成为头部厂商从"烧钱换份额"转向"算账过日子"的共识。</p></div></div>
-<div class="insight"><span class="ins-num">5</span><div><h3>头部实验室的算力与治理布局</h3><p>Anthropic 最快 10 月 IPO、估值或破 2 万亿美元，并洽谈约 60 亿美元收购视频初创 Decart 补强推理效率；Hassabis 卸任 DeepMind CEO 前推动"IAEA 式"独立 AI 安全机构；数据中心巨头 Vantage 评估千亿级 IPO。算力与治理正从技术议题升级为资本与地缘议题。</p></div></div>
-<div class="insight"><span class="ins-num">6</span><div><h3>速度与上下文成 API 新分层维度</h3><p>OpenAI 联手 Cerebras 推出 GPT-5.6 Sol Ultrafast 模式，输出达 750 tokens/秒、较 Opus 4.8 Fast 快约 5 倍；Grok 4.6 独立评测上下文 500K、同类任务仅约 53 回合（Opus 5 需 103 回合）；OpenAI Codex 活跃用户破 1500 万。前沿竞争从跑分榜单延伸到延迟体验与长程成本。</p></div></div>
-<div class="insight"><span class="ins-num">7</span><div><h3>AI 终端化与"主动式 AI"落地</h3><p>谷歌 Pixel 11 以 Tensor G6 + Gemini"主动式 AI"为核心卖点（跨应用感知并自动执行）；苹果中国定制模型、英伟达 AI PC 推进端侧；Anthropic 实验让 Claude 接管 App 维护——累计 388 个 PR、180 个已合并，工程师只剩"签字"环节。Agent 生态从云端下沉到终端与日常工程流。</p></div></div>
+  <div class="insight"><span class="ins-num">1</span><div><h3>峰谷计价落地，开源定价权博弈进入新阶段</h3><p>8/16 16:00 UTC 起 DeepSeek V4 Pro/Flash 正式执行峰谷计价：off-peak 仅为 peak 的一半（V4-Pro 高峰输出 $3.96/百万 tokens，空闲 $1.98）。结合智谱 Q1 提价 83%、腾讯混元部分接口涨超 460%，"开源=免费"叙事彻底失效。DeepSeek 用 Harness 把执行层开源对冲涨价流失风险——模型厂商从卖 API 转向卖工作流。</p></div></div>
+<div class="insight"><span class="ins-num">2</span><div><h3>安全审查首成开源"闸口"：GLM-5.3 暂缓开放权重</h3><p>智谱 Z.ai 8/14 发布 GLM-5.3（沿用 743B 基座、纯后训练 +50% 编程、Terminal-Bench 3.0 开源第一、CyberGym 超 Claude），却因网络安全审查暂缓开放权重——其 Project Glasswing 在真实项目发现 2436 个未修补漏洞（含 1097 中高危，跨度 26 年）。这是史上首次 AI 模型因安全影响评估延迟开源，标志 AI 安全审查从性能评估扩展到安全影响评估。</p></div></div>
+<div class="insight"><span class="ins-num">3</span><div><h3>国产开源登顶全球：千问下载破 30 亿、占比 41% 首超美</h3><p>阿里千问家族 6 个月累计下载破 30 亿次（HF 报告 20.45 亿），衍生超 30 万、稳居开源第一，超 Meta/谷歌。中国自研开源模型下载占比达 41% 首超美国。小红书 dots 实验室开源 280B（激活 16B）三模态 Agent 模型 dots3-note（512K 上下文），华为昇腾 Atlas 800/900 已完成 0-day 适配——国产硬件与模型进一步打通。</p></div></div>
+<div class="insight"><span class="ins-num">4</span><div><h3>Agent 框架之争白热化：Harness 45h 破 10.5 万星</h3><p>DeepSeek Harness（dsh）采用"一切皆插件"架构（模型/工具/技能/沙箱/循环全插件化），开源 45 小时 GitHub 星标达 10.5 万、Fork 超 1 万，正面切入 Codex / Claude Code 占据的编程执行层。同期 OpenAI 上线 GPT-5.6 多智能体 V2（网络请求降 98.2%、对话加载缩减 99.6%）；Anthropic 研究揭示多 Agent 会爆发"领地争夺"式互斗——协作协议与治理成新刚需。</p></div></div>
+<div class="insight"><span class="ins-num">5</span><div><h3>工作马模型层集体重洗：Gemini 3.7 Flash 与 Grok 4.6</h3><p>谷歌在 3.6 发布仅三周后推出 Gemini 3.7 Flash（FrontierCode 1.1 主榜 43.6% vs 3.6 的 34.4%，入门价 $0.75/$3.75、1M 上下文、可调思考）。SpaceXAI 发布 Grok 4.6（$2/$6，AA 智能指数 61 匹配 GPT-5.6 Sol，专为长程 Agent 调优，已在 Cursor/Grok Build 上线）。速度与上下文把竞争从跑分拉到延迟与长程成本。</p></div></div>
+<div class="insight"><span class="ins-num">6</span><div><h3>端侧与国产地缘双突破：iPhone 跑 3970 亿参数</h3><p>展示显示 3970 亿参数模型在 iPhone 本机离线生成文本，端侧推理里程碑，对云端 API 商业模式构成潜在威胁。Apple 联合阿里巴巴训练中国专属 LLM 获北京批准，将集成中国版 Apple Intelligence——这是北京首次为西方科技公司批准此类许可，AI 地缘格局出现松动信号。</p></div></div>
+<div class="insight"><span class="ins-num">7</span><div><h3>自主 Agent 攻防进入实战：首例端到端 AI 黑客</h3><p>以色列安全公司 Dream 记录疑似中国相关攻击者用公开 AI Agent 构建的系统，对台湾政府发动首例全自主端到端 AI 黑客：4 天内 8 个 Agent 协同映射 21 个政府系统、破解 85 账户、泄露 2500 条人事记录，遇阻自动切换战术。同期 ToolHazard 框架发布（环境模拟器 + 攻防 Agent 评估）。Agent 安全从理论风险转为 operational threat。</p></div></div>
 </section>
 
 <section>
   <div class="sec-h"><span class="bar"></span><h2>AI 速递时间线</h2></div>
-  <div class="tl"><div class="tl-item"><span class="tl-date">08/13</span><span class="tl-dot"></span><p class="tl-text">DeepSeek V4 Pro 正式版上线（DeepSWE 12.8→62.7，可媲美 Claude Fable 5）；峰谷定价公布，8/17 生效</p></div>
-<div class="tl-item"><span class="tl-date">08/13</span><span class="tl-dot"></span><p class="tl-text">阿里开放 Qwen3.8-2.4T-A95B 权重（首次开放 Max 级旗舰）；xAI 发布 Grok 4.6（AA-Briefcase 达 Fable 5 档位）</p></div>
-<div class="tl-item"><span class="tl-date">08/13</span><span class="tl-dot"></span><p class="tl-text">DeepSeek 开源 Harness 智能体框架（MIT，"一切皆插件"），GitHub 两小时破 3 万星</p></div>
-<div class="tl-item"><span class="tl-date">08/13</span><span class="tl-dot"></span><p class="tl-text">OpenAI GPT-5.6 Sol Ultrafast（Cerebras 加持 750 tokens/秒）；Codex 活跃用户破 1500 万；谷歌 Pixel 11 发布</p></div>
-<div class="tl-item"><span class="tl-date">08/14</span><span class="tl-dot"></span><p class="tl-text">阿里 Qwen3.8-27B 正式开源（Apache 2.0，262K 上下文可扩 1M，量化后家用显卡可跑）</p></div>
-<div class="tl-item"><span class="tl-date">08/14</span><span class="tl-dot"></span><p class="tl-text">智谱 GLM-5.3 发布：编程 +50% 登顶 Terminal Bench 3.0 开源第一，涌现网安能力（发现 2436 漏洞）</p></div>
-<div class="tl-item"><span class="tl-date">08/14</span><span class="tl-dot"></span><p class="tl-text">DeepSeek V4 Pro + Harness 上线国家超算互联网（十万卡级算力池）</p></div>
-<div class="tl-item"><span class="tl-date">08/15</span><span class="tl-dot"></span><p class="tl-text">央广网专题：中国开源模型下载占比 41% 首超美；Claude 接管 App 维护 388 PR、180 合并</p></div></div>
+  <div class="tl"><div class="tl-item"><span class="tl-date">08/13</span><span class="tl-dot"></span><p class="tl-text">DeepSeek V4 Pro 正式版上线（DeepSWE 12.8→62.7）；开源 Harness 智能体框架（MIT，"一切皆插件"），45 小时破 10.5 万星</p></div>
+<div class="tl-item"><span class="tl-date">08/14</span><span class="tl-dot"></span><p class="tl-text">阿里 Qwen3.8-27B 开源（Apache 2.0，262K 上下文可扩 1M，量化后家用显卡可跑）</p></div>
+<div class="tl-item"><span class="tl-date">08/14</span><span class="tl-dot"></span><p class="tl-text">智谱 GLM-5.3 发布：沿用 743B 基座、纯后训练编程 +50% 登顶 Terminal-Bench 3.0 开源第一</p></div>
+<div class="tl-item"><span class="tl-date">08/15</span><span class="tl-dot"></span><p class="tl-text">央广网专题：中国开源模型下载占比 41% 首超美；GLM-5.3 因网络安全审查暂缓开放权重（史上首次）</p></div>
+<div class="tl-item"><span class="tl-date">08/16</span><span class="tl-dot"></span><p class="tl-text">DeepSeek 峰谷计价 16:00 UTC 生效（off-peak 半价）；OpenAI GPT-5.6 多智能体 V2（请求降 98.2%）</p></div>
+<div class="tl-item"><span class="tl-date">08/16</span><span class="tl-dot"></span><p class="tl-text">Gemini 3.7 Flash 发布（$0.75/$3.75，FrontierCode 43.6%）；Grok 4.6 发布（$2/$6，AA Index 61）</p></div>
+<div class="tl-item"><span class="tl-date">08/16</span><span class="tl-dot"></span><p class="tl-text">千问全球下载破 30 亿登顶开源第一；小红书 dots3-note 280B 开源、华为昇腾 0-day 适配</p></div>
+<div class="tl-item"><span class="tl-date">08/16</span><span class="tl-dot"></span><p class="tl-text">疑似自主 AI Agents 攻击台湾政府（8 Agent 映射 21 系统、破解 85 账户、泄露 2500 记录）；Apple+阿里获批中国专属 LLM</p></div>
+<div class="tl-item"><span class="tl-date">08/16</span><span class="tl-dot"></span><p class="tl-text">Anthropic 筹备 10 月 IPO 估值 2 万亿（ARR 破 1000 亿、企业 API 份额 32% 首超 OpenAI）；3970 亿参数模型 iPhone 本机运行</p></div>
+<div class="tl-item"><span class="tl-date">08/17</span><span class="tl-dot"></span><p class="tl-text">京东北京银河 SOHO 24 小时无人咖啡店开业，机器人全流程制作（具身智能消费落地）</p></div></div>
 </section>
 
 <section>
@@ -237,15 +239,15 @@ footer a{color:var(--accent-ink);text-decoration:none;font-weight:600}
 
 <section>
   <div class="sec-h"><span class="bar"></span><h2>四趋势洞察</h2></div>
-  <div class="trends"><ol><li>执行层成新战场：DeepSeek Harness 把"模型→结果"的调度层开源，模型厂商从卖 API 转向卖工作流，Codex / Claude Code 的护城河被正面冲击。</li>
-<li>开源定价权反转：中国模型密集开源 + 下载占比首超美，倒逼闭源降价；但 DeepSeek / 智谱 / 混元集体提价说明"开源≠免费"，商用分成成新探索。</li>
-<li>Agent 能力锚定开源模型价值：DeepSWE、Terminal Bench、漏洞发现成新基准，模型优劣不再只看跑分而看能否真正干活。</li>
-<li>速度与上下文分层 API：750 tokens/秒与 500K 上下文把竞争从榜单拉到延迟与长程成本，实时交互场景重新洗牌。</li></ol></div>
+  <div class="trends"><ol><li>定价权博弈：峰谷计价 + 集体提价，"开源=免费"叙事失效，开源从低价抢份额变成"能力可信度证明"。</li>
+<li>安全审查成开源闸口：GLM-5.3 暂缓开源为标志性事件，AI 安全影响评估成新门槛，Agent 攻防从理论转入实战。</li>
+<li>Agent 框架之争：DeepSeek Harness 把执行层开源，Codex / Claude Code 的护城河被正面冲击，多智能体协作成确定性主线。</li>
+<li>端侧与国产地缘：iPhone 跑 3970 亿参数 + Apple 阿里中国 LLM 获批，端侧推理开始威胁云端 API 的商业模式。</li></ol></div>
 </section>
 
 <footer>
   <div>部署链接：<a href="https://lzc0403.github.io/skillrush-town/">https://lzc0403.github.io/skillrush-town/</a></div>
-  <div>生成时间：2026-08-15 23:20 CST</div>
+  <div>生成时间：2026-08-17 14:10 CST</div>
   <span class="note">乐享同步：连接器 disconnected，本次跳过（不影响主流程）</span>
 </footer>
 </div>
